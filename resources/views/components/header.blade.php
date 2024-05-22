@@ -47,14 +47,16 @@
         <li class="nav-item dropdown">
             <a href="javascript:void(0)" class="user-link  nav-link" data-bs-toggle="dropdown">
                 <span class="user-img">
-                    <img src="{{ url('/') }}/assets/icons/dtdc_logo.png" alt="img" class="profilesidebar">
+                    <img src="{{ url('/') }}/assets/img/user_logo.png" alt="img" class="profilesidebar">
                     <span class="animate-circle"></span>
                 </span>
                 <span class="user-content">
                     @if (Auth::user()->user_type = '1')
                     <span class="user-details">Admin</span>
                     @elseif (Auth::user()->user_type = '2')
-                    <span class="user-details">Agent</span>
+                    <span class="user-details">On Field</span>
+                    @elseif (Auth::user()->user_type = '2')
+                    <span class="user-details">Sales</span>
                     @endif
                     <span class="user-name">{{ Auth::user()->email }}</span>
                 </span>

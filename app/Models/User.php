@@ -24,6 +24,12 @@ class User extends Authenticatable
         'password',
         'user_type',
         'designation',
+        'created_by',
+        'created_at',
+        'updated_by',
+        'updated_at',
+        'deleted_by',
+        'deleted_at',
     ];
 
     /**
