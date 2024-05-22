@@ -13,6 +13,8 @@ use App\Http\Middleware\PreventBackHistoryMiddleware;
 
 // === All Master
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\PackageTypeController;
+use App\Http\Controllers\PackageController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -37,4 +39,10 @@ Route::group(['prefix' => 'xoom-digital', 'middleware'=>['auth', PreventBackHist
 
     // ==== Manage Employee
     Route::resource('employee', EmployeeController::class);
+
+    // ==== Manage Package Type
+    Route::resource('package-type', PackageTypeController::class);
+
+    // ==== Manage Package
+    Route::resource('package', PackageController::class);
 });

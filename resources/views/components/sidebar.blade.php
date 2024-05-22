@@ -17,21 +17,21 @@
                     </a>
                 </li>
 
-                {{-- <li class="{{ ($currentRoute === 'unit.index') || ($currentRoute === 'unit.create') || ($currentRoute === 'unit.edit') ? 'active' : '' }}">
-                    <a href="{{ route('unit.index') }}">
+                <li class="{{ ($currentRoute === 'package-type.index') || ($currentRoute === 'package-type.create') || ($currentRoute === 'package-type.edit') ? 'active' : '' }}">
+                    <a href="{{ route('package-type.index') }}">
                         <i class="fe fe-grid"></i>
-                        <span>Manage Unit</span>
-                    </a>
-                </li> --}}
-
-                {{-- <li class="{{ ($currentRoute === 'weight.index') || ($currentRoute === 'weight.create') || ($currentRoute === 'weight.edit') ? 'active' : '' }}">
-                    <a href="{{ route('weight.index') }}">
-                        <i class="fe fe-settings"></i>
-                        <span>Manage Weights</span>
+                        <span>Manage Package Type</span>
                     </a>
                 </li>
 
-                <li class="{{ ($currentRoute === 'parcel.index') || ($currentRoute === 'parcel.create') || ($currentRoute === 'parcel.edit') ? 'active' : '' }}">
+                <li class="{{ ($currentRoute === 'package.index') || ($currentRoute === 'package.create') || ($currentRoute === 'package.edit') ? 'active' : '' }}">
+                    <a href="{{ route('package.index') }}">
+                        <i class="fe fe-settings"></i>
+                        <span>Manage Package</span>
+                    </a>
+                </li>
+
+                {{-- <li class="{{ ($currentRoute === 'parcel.index') || ($currentRoute === 'parcel.create') || ($currentRoute === 'parcel.edit') ? 'active' : '' }}">
                     <a href="{{ route('parcel.index') }}">
                         <i class="fe fe-pie-chart"></i>
                         <span>Manage Parcel</span>
