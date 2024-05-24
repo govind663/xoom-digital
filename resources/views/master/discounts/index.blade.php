@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-Package Type | List
+Discount | List
 @endsection
 
 @push('styles')
@@ -38,10 +38,10 @@ Package Type | List
         <div class="page-header">
             <div class="row">
                 <div class="col">
-                    <h3 class="page-title">Package type</h3>
+                    <h3 class="page-title">Manage Discount type</h3>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active">All Package Type List</li>
+                        <li class="breadcrumb-item active">All Discount List</li>
                     </ul>
                 </div>
             </div>
@@ -53,11 +53,11 @@ Package Type | List
                 <div class="card">
                     <div class="row card-body">
                         <div class="col-10">
-                            <h5 class="card-title">All Package Type List</h5>
+                            <h5 class="card-title">All Discount List</h5>
                         </div>
                         <div class="col-2 float-right">
-                            <a href="{{ route('package-type.create') }}" class="btn btn-primary btn-sm">
-                                <i class="fa fa-plus-circle me-2" aria-hidden="true"></i>Package Type
+                            <a href="{{ route('discount.create') }}" class="btn btn-primary btn-sm">
+                                <i class="fa fa-plus-circle me-2" aria-hidden="true"></i>Discount
                             </a>
                         </div>
                     </div>
@@ -68,22 +68,46 @@ Package Type | List
                                 <thead>
                                     <tr>
                                         <th>Sr. No.</th>
-                                        <th>Package Type</th>
+                                        <th>Coupon Name</th>
+                                        <th>Discount Type</th>
+                                        <th>Coupon Code</th>
+                                        <th>Discount Value</th>
+                                        <th>Till Valid Date</th>
                                         <th class="no-export">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($packageTypes as $key=>$value )
+                                    @foreach ($discounts as $key=>$value )
                                     <tr>
                                         <td>{{ ++$key }}</td>
-                                        <td>{{ $value->name }}</td>
+                                        <td>{{ $value->coupon_name }}</td>
+                                        <td>
+                                            @if($value->coupon_type == '1')
+                                            <span class="badge bg-success" >Percentage</span>
+                                            @elseif($value->coupon_type == '2')
+                                            <span class="badge bg-success" >Fixed</span>
+                                            @endif
+                                        </td>
+                                        <td>{{ $value->coupon_code }}</td>
+                                        @php
+                                            $discount_value = '';
+
+                                            if($value->coupon_type == '1'){
+                                                $discount_value = $value->coupon_value_percentage .'%';
+                                            }elseif($value->coupon_type == '2'){
+                                                $discount_value = $value->coupon_value_fixed .'Rs';
+                                            }
+                                        @endphp
+                                        <td>{{ $discount_value }} </td>
+
+                                        <td>{{ date("d-m-Y", strtotime($value->coupon_valid_to)) }}</td>
 
                                         <td class="no-export d-flex">
-                                            <a href="{{ route('package-type.edit', $value->id) }}" class="btn btn-warning btn-sm text-dark">
+                                            <a href="{{ route('discount.edit', $value->id) }}" class="btn btn-warning btn-sm text-dark">
                                                 <i class="far fa-edit me-2"></i>Edit
                                             </a>
                                             &nbsp;
-                                            <form action="{{ route('package-type.destroy', $value->id) }}" method="post">
+                                            <form action="{{ route('discount.destroy', $value->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
                                                 <input name="_method" type="hidden" value="DELETE">
@@ -152,7 +176,7 @@ Package Type | List
                     columns: ':not(.no-export)',
                 },
                header: true,
-               title: 'All Package Type List',
+               title: 'All Discounts List',
                orientation: 'landscape',
                pageSize: 'A4',
                customize: function(doc) {

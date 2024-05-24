@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-Package Type | List
+Task | List
 @endsection
 
 @push('styles')
@@ -38,10 +38,10 @@ Package Type | List
         <div class="page-header">
             <div class="row">
                 <div class="col">
-                    <h3 class="page-title">Package type</h3>
+                    <h3 class="page-title">Task</h3>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active">All Package Type List</li>
+                        <li class="breadcrumb-item active">All Task List</li>
                     </ul>
                 </div>
             </div>
@@ -53,11 +53,11 @@ Package Type | List
                 <div class="card">
                     <div class="row card-body">
                         <div class="col-10">
-                            <h5 class="card-title">All Package Type List</h5>
+                            <h5 class="card-title">All Task List</h5>
                         </div>
                         <div class="col-2 float-right">
-                            <a href="{{ route('package-type.create') }}" class="btn btn-primary btn-sm">
-                                <i class="fa fa-plus-circle me-2" aria-hidden="true"></i>Package Type
+                            <a href="{{ route('task.create') }}" class="btn btn-primary btn-sm">
+                                <i class="fa fa-plus-circle me-2" aria-hidden="true"></i>Task
                             </a>
                         </div>
                     </div>
@@ -68,22 +68,28 @@ Package Type | List
                                 <thead>
                                     <tr>
                                         <th>Sr. No.</th>
-                                        <th>Package Type</th>
+                                        <th>Customer Name</th>
+                                        <th>Package</th>
+                                        <th>Mobile Number</th>
+                                        <th>Date</th>
                                         <th class="no-export">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($packageTypes as $key=>$value )
+                                    @foreach ($tasks as $key=>$value )
                                     <tr>
                                         <td>{{ ++$key }}</td>
-                                        <td>{{ $value->name }}</td>
+                                        <td>{{ $value->user?->name }}</td>
+                                        <td>{{ $value->package?->name }}</td>
+                                        <td>{{ $value->customer_phone }}</td>
+                                        <td>{{ $value->inserted_at->format('d-m-Y') }}</td>
 
                                         <td class="no-export d-flex">
-                                            <a href="{{ route('package-type.edit', $value->id) }}" class="btn btn-warning btn-sm text-dark">
+                                            <a href="{{ route('task.edit', $value->id) }}" class="btn btn-warning btn-sm text-dark">
                                                 <i class="far fa-edit me-2"></i>Edit
                                             </a>
                                             &nbsp;
-                                            <form action="{{ route('package-type.destroy', $value->id) }}" method="post">
+                                            <form action="{{ route('task.destroy', $value->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
                                                 <input name="_method" type="hidden" value="DELETE">
@@ -152,7 +158,7 @@ Package Type | List
                     columns: ':not(.no-export)',
                 },
                header: true,
-               title: 'All Package Type List',
+               title: 'All Task List',
                orientation: 'landscape',
                pageSize: 'A4',
                customize: function(doc) {

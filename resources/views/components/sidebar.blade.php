@@ -10,6 +10,7 @@
                     </a>
                 </li>
 
+                @if(Auth::user()->user_type == '1')
                 <li class="{{ ($currentRoute === 'employee.index') || ($currentRoute === 'employee.create') || ($currentRoute === 'employee.edit') ? 'active' : '' }}">
                     <a href="{{ route('employee.index') }}">
                         <i class="fe fe-users"></i>
@@ -20,7 +21,7 @@
                 <li class="{{ ($currentRoute === 'package-type.index') || ($currentRoute === 'package-type.create') || ($currentRoute === 'package-type.edit') ? 'active' : '' }}">
                     <a href="{{ route('package-type.index') }}">
                         <i class="fe fe-grid"></i>
-                        <span>Manage Package Type</span>
+                        <span>Package Type</span>
                     </a>
                 </li>
 
@@ -30,6 +31,22 @@
                         <span>Manage Package</span>
                     </a>
                 </li>
+
+                <li class="{{ ($currentRoute === 'discount.index') || ($currentRoute === 'discount.create') || ($currentRoute === 'discount.edit') ? 'active' : '' }}">
+                    <a href="{{ route('discount.index') }}">
+                        <i class="fe fe-shopping-bag"></i>
+                        <span>Manage Discount</span>
+                    </a>
+                </li>
+                @elseif (Auth::user()->user_type == '2')
+                @elseif (Auth::user()->user_type == '3')
+                <li class="{{ ($currentRoute === 'task.index') || ($currentRoute === 'task.create') || ($currentRoute === 'task.edit') ? 'active' : '' }}">
+                    <a href="{{ route('task.index') }}">
+                        <i class="fe fe-pie-chart"></i>
+                        <span>Manage Task</span>
+                    </a>
+                </li>
+                @endif
 
                 {{-- <li class="{{ ($currentRoute === 'parcel.index') || ($currentRoute === 'parcel.create') || ($currentRoute === 'parcel.edit') ? 'active' : '' }}">
                     <a href="{{ route('parcel.index') }}">

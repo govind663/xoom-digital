@@ -9,7 +9,7 @@
 <meta name="csrf-token" id="csrf-token" content="{{ csrf_token() }}">
 
 <!-- Favicon -->
-<link rel="shortcut icon" href="{{ url('/') }}/assets/icons/dtdc_logo.png">
+<link rel="shortcut icon" href="{{ url('/') }}/assets/img/xoom_digital_icon.png">
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.min.css') }}">
@@ -35,6 +35,8 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.2/css/buttons.bootstrap5.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.2/css/responsive.bootstrap5.css">
 
+<!-- Sumernote css -->
+<link rel="stylesheet" href="{{ asset('/assets/plugins/summernote/summernote-lite.min.css') }}">
 
 <!-- Toaster Message -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

@@ -15,6 +15,8 @@ use App\Http\Middleware\PreventBackHistoryMiddleware;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PackageTypeController;
 use App\Http\Controllers\PackageController;
+use App\Http\Controllers\DiscountController;
+use App\Http\Controllers\TaskController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -45,4 +47,11 @@ Route::group(['prefix' => 'xoom-digital', 'middleware'=>['auth', PreventBackHist
 
     // ==== Manage Package
     Route::resource('package', PackageController::class);
+
+    // ==== Manage Discount
+    Route::resource('discount', DiscountController::class);
+
+    // ==== Manage Task
+    Route::resource('task', TaskController::class);
+    Route::post('task/package/amount', [TaskController::class, 'fetchPackageAmount'])->name('task.package.amount');
 });

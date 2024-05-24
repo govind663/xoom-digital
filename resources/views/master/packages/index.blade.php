@@ -57,8 +57,7 @@ Package | List
                         </div>
                         <div class="col-2 float-right">
                             <a href="{{ route('package.create') }}" class="btn btn-primary btn-sm">
-                                <i class="fa fa-plus-circle me-2" aria-hidden="true"></i>Package Type
-                            </a>
+                                <i class="fa fa-plus-circle me-2" aria-hidden="true"></i>Package                            </a>
                         </div>
                     </div>
                     <div class="card-body">

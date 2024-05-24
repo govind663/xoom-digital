@@ -24,17 +24,17 @@ class PackageRequest extends FormRequest
         if ($this->id){
             $rule = [
                 'name' => 'required|string|max:255',
-                'package_type_id' => 'required|numeric|min:5',
-                'description' => 'required|string|max:255',
-                'amount' => 'required|numeric|min:5',
-                'image' => 'required|string|max:255',
+                'package_type_id' => 'required|numeric',
+                'description' => 'required|string',
+                'amount' => 'required|numeric',
+                'image' => 'nullable|mimes:jpeg,png,jpg,pdf|max:2048',
             ];
         }else{
             $rule = [
                 'name' => 'required|string|max:255',
-                'package_type_id' => 'required|numeric|min:5',
-                'description' => 'required|string|max:255',
-                'amount' => 'required|numeric|min:5',
+                'package_type_id' => 'required|numeric',
+                'description' => 'required|string',
+                'amount' => 'required|numeric',
                 'image' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
             ];
         }
@@ -50,15 +50,12 @@ class PackageRequest extends FormRequest
 
             'package_type_id.required' => __('Please select a package type'),
             'package_type_id.numeric' => __('The package type must be a number.'),
-            'package_type_id.min' => __('The package type must be at least 5 characters long.'),
 
             'description.required' => __('Description is required'),
             'description.string' => __('The description must be a string.'),
-            'description.max' => __('The length of description should not exceed 255 characters'),
 
             'amount.required' => __('Amount is required'),
             'amount.numeric' => __('The amount must be a number.'),
-            'amount.min' => __('The amount must be at least 5 characters long.'),
 
             'image.required' => __('Please upload an image'),
             'image.mimes' => __('The image must be a file of type: jpeg, png, jpg, pdf.'),

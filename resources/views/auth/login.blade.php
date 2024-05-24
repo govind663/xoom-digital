@@ -12,7 +12,7 @@
     <meta name="csrf-token" id="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ url('/') }}/assets/icons/dtdc_logo.png">
+    <link rel="shortcut icon" href="{{ url('/') }}/assets/img/xoom_digital_icon.png">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ url('/') }}/assets/css/bootstrap.min.css">
@@ -37,7 +37,7 @@
         <div class="login-wrapper">
             <div class="container">
 
-                <img class="img-fluid logo-dark mb-2 logo-color" src="{{ url('/') }}/assets/icons/DTDC_icon.png" alt="Logo">
+                <img class="img-fluid logo-dark mb-2 logo-color" src="{{ url('/') }}/assets/img/xoom-logo.png" alt="Logo">
                 <div class="loginbox">
 
                     <div class="login-right">

@@ -32,17 +32,29 @@ class PackageController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PackageRequest $request)
     {
         $data = $request->validated();
         try {
 
             $package = new Package();
+
+            // ==== Upload (image)
+            if (!empty($request->hasFile('image'))) {
+                $image = $request->file('image');
+                $image_name = $image->getClientOriginalName();
+                $extension = $image->getClientOriginalExtension();
+                $new_name = time() . rand(10, 999) . '.' . $extension;
+                $image->move(public_path('/xoom_digital/package/image'), $new_name);
+
+                $image_path = "/xoom-digital/package/image" . $image_name;
+                $package->image = $new_name;
+            }
+
             $package->name = $data['name'];
             $package->package_type_id = $data['package_type_id'];
             $package->description = $data['description'];
             $package->amount = $data['amount'];
-            $package->image = $data['image'];
             $package->inserted_at = Carbon::now();
             $package->inserted_by = Auth::user()->id;
             $package->save();
@@ -70,22 +82,36 @@ class PackageController extends Controller
     public function edit(string $id)
     {
         $package = Package::find($id);
-        return view('master.packages.edit', ['package' => $package]);
+        $packageTypes = PackageType::orderBy("id","desc")->whereNull('deleted_at')->get();
+        return view('master.packages.edit', ['package' => $package, 'packageTypes'=>$packageTypes]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(PackageRequest $request, string $id)
     {
         $data = $request->validated();
         try {
+
             $package = Package::find($id);
+
+            // ==== Upload (image)
+            if (!empty($request->hasFile('image'))) {
+                $image = $request->file('image');
+                $image_name = $image->getClientOriginalName();
+                $extension = $image->getClientOriginalExtension();
+                $new_name = time() . rand(10, 999) . '.' . $extension;
+                $image->move(public_path('/xoom_digital/package/image'), $new_name);
+
+                $image_path = "/xoom_digital/package/image" . $image_name;
+                $package->image = $new_name;
+            }
+
             $package->name = $data['name'];
             $package->package_type_id = $data['package_type_id'];
             $package->description = $data['description'];
             $package->amount = $data['amount'];
-            $package->image = $data['image'];
             $package->modified_at = Carbon::now();
             $package->modified_by = Auth::user()->id;
             $package->save();
