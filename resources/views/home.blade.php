@@ -12,7 +12,7 @@ Xoom Digital | Home
     }
     .card-body {
         color: #1a1a1b;
-        border-bottom: 5px solid #0d6dfdc8 !important;
+        border-bottom: 5px solid #e77c09 !important;
         border-bottom-left-radius: 3px;
         border-bottom-right-radius: 3px;
     }

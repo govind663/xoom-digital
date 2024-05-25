@@ -7,7 +7,7 @@ Package Type | Add
 @push('styles')
 <style>
     .form-control {
-        border: 1px solid #387dff !important;
+        border: 1px solid #e77c09 !important;
     }
 </style>
 @endpush

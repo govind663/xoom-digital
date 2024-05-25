@@ -92,7 +92,7 @@ class TaskController extends Controller
     public function edit(string $id)
     {
         $task = Task::find($id);
-        $packages = Package::with('package')->orderBy("id","desc")->whereNull('deleted_at')->get();
+        $packages = Package::with('packageType')->orderBy("id","desc")->whereNull('deleted_at')->get();
         $users = User::orderBy("id","desc")->whereNull('deleted_at')->get();
         return view('master.tasks.edit', ['task'=>$task, 'packages'=>$packages, 'users'=>$users]);
     }
@@ -114,19 +114,19 @@ class TaskController extends Controller
             $task->package_id = $data['package_id'];
             $task->package_amt = $data['package_amt'];
             $task->lead_source_id = $data['lead_source_id'];
-            $task->lead_dt = date("Y-m-d", strtotime($data['lead_dt']));
-            $task->meating_dt = date("Y-m-d", strtotime($data['meating_dt']));
-            $task->meating_time = date("H:i:s", strtotime($data['meating_time']));
+            $task->lead_dt = Carbon::createFromFormat('Y-m-d', $data['lead_dt'])->format('Y-m-d');
+            $task->meating_dt = Carbon::createFromFormat('Y-m-d', $data['meating_dt'])->format('Y-m-d');
+            $task->meating_time = Carbon::createFromFormat('H:i:s', $data['meating_time'])->format('H:i:s');
             $task->payment_receive_status = $data['payment_receive_status'];
             $task->payment_type = $data['payment_type'];
-            $task->payment_date = date("Y-m-d", strtotime($data['payment_date']));
+            $task->payment_date = Carbon::createFromFormat('Y-m-d', $data['payment_date'])->format('Y-m-d');
             $task->task_status = $data['customer_phone'];
             $task->user_id = $data['user_id'];
             $task->modified_at = Carbon::now();
             $task->modified_by = Auth::user()->id;
-            $task->save();
+            $task->save($data);
 
-            return redirect()->route('package.index')->with('message','Package Updated Successfully');
+            return redirect()->route('task.index')->with('message','Task Updated Successfully');
 
         } catch(\Exception $ex){
 

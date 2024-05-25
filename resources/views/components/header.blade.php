@@ -1,3 +1,9 @@
+<style>
+    .logo-small {
+        max-width: 48px;
+        height: auto;
+    }
+</style>
 <div class="header header-one">
     <a href="{{ route('home') }}"
         class="d-inline-flex d-sm-inline-flex align-items-center d-md-inline-flex d-lg-none align-items-center device-logo">
@@ -9,7 +15,7 @@
                 <img src="{{ url('/') }}/assets/img/xoom-logo.png" class="img-fluid logo-blue" alt="Logo-Full" style="width:150px; height: 80px">
             </a>
             <a href="{{ route('home') }}">
-                <img src="{{ url('/') }}/assets/icons/dtdc_logo.png" class="img-fluid logo-small" alt="Logo-Small">
+                <img src="{{ url('/') }}/assets/img/xoom-logo.png" class="img-fluid logo-small" alt="Logo-Small" style="width:75px !important; height: 70px">
             </a>
         </div>
         <div class="logo-color">
@@ -17,7 +23,7 @@
                 <img src="{{ url('/') }}/assets/img/xoom-logo.png" class="img-fluid logo-blue" alt="Logo-Full" style="width:150px; height: 80px">
             </a>
             <a href="{{ route('home') }}">
-                <img src="{{ url('/') }}/assets/icons/dtdc_logo.png" class="img-fluid logo-small" alt="Logo-small">
+                <img src="{{ url('/') }}/assets/img/xoom-logo.png" class="img-fluid logo-small" alt="Logo-small" style="width:75px !important; height: 70px">
             </a>
         </div>
     </div>

@@ -8,12 +8,12 @@ Employee | List
 <style>
     .btn-secondary {
         color: #fff;
-        background-color: #387dff !important;
-        border-color: #387dff !important;
+        background-color: #e77c09 !important;
+        border-color: #e77c09 !important;
     }
     .pagination li.active a.page-link {
-        background: #387dff !important;
-        border-color: #387dff !important;
+        background: #e77c09 !important;
+        border-color: #e77c09 !important;
         border-radius: 5px;
     }
     table.dataTable thead > tr > th.dt-orderable-asc, table.dataTable thead > tr > th.dt-orderable-desc, table.dataTable thead > tr > th.dt-ordering-asc, table.dataTable thead > tr > th.dt-ordering-desc, table.dataTable thead > tr > td.dt-orderable-asc, table.dataTable thead > tr > td.dt-orderable-desc, table.dataTable thead > tr > td.dt-ordering-asc, table.dataTable thead > tr > td.dt-ordering-desc {
@@ -24,7 +24,7 @@ Employee | List
         text-align: left !important;
     }
     .form-control {
-        border: 1px solid #387dff !important;
+        border: 1px solid #e77c09 !important;
     }
 </style>
 @endpush

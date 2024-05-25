@@ -8,12 +8,12 @@ Task | List
 <style>
     .btn-secondary {
         color: #fff;
-        background-color: #387dff !important;
-        border-color: #387dff !important;
+        background-color: #e77c09 !important;
+        border-color: #e77c09 !important;
     }
     .pagination li.active a.page-link {
-        background: #387dff !important;
-        border-color: #387dff !important;
+        background: #e77c09 !important;
+        border-color: #e77c09 !important;
         border-radius: 5px;
     }
     table.dataTable thead > tr > th.dt-orderable-asc, table.dataTable thead > tr > th.dt-orderable-desc, table.dataTable thead > tr > th.dt-ordering-asc, table.dataTable thead > tr > th.dt-ordering-desc, table.dataTable thead > tr > td.dt-orderable-asc, table.dataTable thead > tr > td.dt-orderable-desc, table.dataTable thead > tr > td.dt-ordering-asc, table.dataTable thead > tr > td.dt-ordering-desc {
@@ -24,7 +24,7 @@ Task | List
         text-align: left !important;
     }
     .form-control {
-        border: 1px solid #387dff !important;
+        border: 1px solid #e77c09 !important;
     }
 </style>
 @endpush
@@ -64,7 +64,7 @@ Task | List
                     <div class="card-body">
 
                         <div class="table-responsive">
-                            <table class="data-table-export1 table">
+                            <table class="data-table-export1 table table-responsive table-hover">
                                 <thead>
                                     <tr>
                                         <th>Sr. No.</th>
@@ -72,7 +72,7 @@ Task | List
                                         <th>Package</th>
                                         <th>Mobile Number</th>
                                         <th>Date</th>
-                                        <th class="no-export">Action</th>
+                                        <th class="no-export d-flex">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -82,7 +82,7 @@ Task | List
                                         <td>{{ $value->user?->name }}</td>
                                         <td>{{ $value->package?->name }}</td>
                                         <td>{{ $value->customer_phone }}</td>
-                                        <td>{{ $value->inserted_at->format('d-m-Y') }}</td>
+                                        <td>{{ date('d-m-Y', strtotime($value->inserted_at)) }}</td>
 
                                         <td class="no-export d-flex">
                                             <a href="{{ route('task.edit', $value->id) }}" class="btn btn-warning btn-sm text-dark">
@@ -124,6 +124,7 @@ Task | List
             orderable: false,
         }],
         "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+        "pageLength": 10,
         "language": {
             "info": "_START_-_END_ of _TOTAL_ entries",
             searchPlaceholder: "Search",

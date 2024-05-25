@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
 class TaskRequest extends FormRequest
@@ -110,5 +111,32 @@ class TaskRequest extends FormRequest
             'task_status.required' => __('Please Select Task Status.'),
             'user_id.required' => __('Please Assign User')
         ];
+    }
+
+    protected function prepareForValidation()
+    {
+        if ($this->has('lead_dt')) {
+            $this->merge([
+                'lead_dt' => Carbon::createFromFormat('d-m-Y', $this->lead_dt)->format('Y-m-d'),
+            ]);
+        }
+
+        if ($this->has('meating_dt')) {
+            $this->merge([
+                'meating_dt' => Carbon::createFromFormat('d-m-Y', $this->meating_dt)->format('Y-m-d'),
+            ]);
+        }
+
+        if ($this->has('meating_time')) {
+            $this->merge([
+                'meating_time' => Carbon::createFromFormat('H:i:s', $this->meating_time)->format('H:i:s'),
+            ]);
+        }
+
+        if ($this->has('payment_date')) {
+            $this->merge([
+                'payment_date' => Carbon::createFromFormat('d-m-Y', $this->payment_date)->format('Y-m-d'),
+            ]);
+        }
     }
 }
