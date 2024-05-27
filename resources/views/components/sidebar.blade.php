@@ -38,6 +38,20 @@
                         <span>Manage Discount</span>
                     </a>
                 </li>
+
+                <li class="{{ ($currentRoute === 'leads.index') ? 'active' : '' }}">
+                    <a href="{{ route('leads.index') }}">
+                        <i class="fe fe-pie-chart"></i>
+                        <span>Manage leads</span>
+                    </a>
+                </li>
+
+                <li class="{{ ($currentRoute === 'customer.index') ? 'active' : '' }}">
+                    <a href="{{ route('customer.index') }}">
+                        <i class="fe fe-pie-chart"></i>
+                        <span>Manage Customers</span>
+                    </a>
+                </li>
                 @elseif (Auth::user()->user_type == '2')
                 @elseif (Auth::user()->user_type == '3')
                 <li class="{{ ($currentRoute === 'task.index') || ($currentRoute === 'task.create') || ($currentRoute === 'task.edit') ? 'active' : '' }}">
@@ -48,19 +62,12 @@
                 </li>
                 @endif
 
-                {{-- <li class="{{ ($currentRoute === 'parcel.index') || ($currentRoute === 'parcel.create') || ($currentRoute === 'parcel.edit') ? 'active' : '' }}">
-                    <a href="{{ route('parcel.index') }}">
-                        <i class="fe fe-pie-chart"></i>
-                        <span>Manage Parcel</span>
-                    </a>
-                </li>
-
-                <li class="{{ ($currentRoute === 'invoice.index') || ($currentRoute === 'invoice.create') || ($currentRoute === 'invoice.edit') ? 'active' : '' }}">
+                {{-- <li class="{{ ($currentRoute === 'invoice.index') || ($currentRoute === 'invoice.create') || ($currentRoute === 'invoice.edit') ? 'active' : '' }}">
                     <a href="{{ route('invoice.index') }}">
                         <i class="fe fe-file-text"></i>
                         <span>Manage Invoice</span>
                     </a>
-                </li> --}}
+                </li>  --}}
 
             </ul>
         </div>

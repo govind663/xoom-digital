@@ -27,7 +27,7 @@ class TaskController extends Controller
     public function create()
     {
         $packages = Package::with('packageType')->orderBy("id","desc")->whereNull('deleted_at')->get();
-        $users = User::orderBy("id","desc")->where('user_type', '3')->whereNull('deleted_at')->get();
+        $users = User::orderBy("id","desc")->where('user_type', '2')->whereNull('deleted_at')->get();
 
         return view('master.tasks.create', ['packages'=>$packages, 'users'=>$users]);
     }
@@ -37,26 +37,27 @@ class TaskController extends Controller
      */
     public function store(TaskRequest $request)
     {
-        $data = $request->validated();
+        $request->validated();
         try {
-            $task = Task::create($data);
-            $task->customer_name = $data['customer_name'];
-            $task->customer_email = $data['customer_email'];
-            $task->customer_phone = $data['customer_phone'];
-            $task->customer_address = $data['customer_address'];
-            $task->customer_city = $data['customer_city'];
-            $task->customer_pincode = $data['customer_pincode'];
-            $task->package_id = $data['package_id'];
-            $task->package_amt = $data['package_amt'];
-            $task->lead_source_id = $data['lead_source_id'];
-            $task->lead_dt = Carbon::createFromFormat('Y-m-d', $data['lead_dt'])->format('Y-m-d');
-            $task->meating_dt = Carbon::createFromFormat('Y-m-d', $data['meating_dt'])->format('Y-m-d');
-            $task->meating_time = Carbon::createFromFormat('H:i:s', $data['meating_time'])->format('H:i:s');
-            $task->payment_receive_status = $data['payment_receive_status'];
-            $task->payment_type = $data['payment_type'];
-            $task->payment_date = Carbon::createFromFormat('Y-m-d', $data['payment_date'])->format('Y-m-d');
-            $task->task_status = $data['customer_phone'];
-            $task->user_id = $data['user_id'];
+            $task = new Task();
+            $task->customer_name = $request['customer_name'];
+            $task->customer_email = $request['customer_email'];
+            $task->customer_phone = $request['customer_phone'];
+            $task->customer_address = $request['customer_address'];
+            $task->customer_city = $request['customer_city'];
+            $task->customer_pincode = $request['customer_pincode'];
+            $task->package_id = $request['package_id'];
+            $task->package_amt = $request['package_amt'];
+            $task->lead_source_id = $request['lead_source_id'];
+            $task->lead_dt = Carbon::createFromFormat('Y-m-d', $request['lead_dt'])->format('Y-m-d');
+            $task->meating_dt = Carbon::createFromFormat('Y-m-d', $request['meating_dt'])->format('Y-m-d');
+            $task->meating_time = Carbon::createFromFormat('H:i:s', $request['meating_time'])->format('H:i:s');
+            $task->payment_receive_status = $request['payment_receive_status'];
+            $task->payment_type = $request['payment_type'];
+            $task->payment_date = Carbon::createFromFormat('Y-m-d', $request['payment_date'])->format('Y-m-d');
+            $task->task_status = $request['task_status'];
+            $task->user_id = $request['user_id'];
+            $task->lead_by = $request['lead_by'];
             $task->inserted_at = Carbon::now();
             $task->inserted_by = Auth::user()->id;
             $task->save();
@@ -93,7 +94,7 @@ class TaskController extends Controller
     {
         $task = Task::find($id);
         $packages = Package::with('packageType')->orderBy("id","desc")->whereNull('deleted_at')->get();
-        $users = User::orderBy("id","desc")->whereNull('deleted_at')->get();
+        $users = User::orderBy("id","desc")->where('user_type', '2')->whereNull('deleted_at')->get();
         return view('master.tasks.edit', ['task'=>$task, 'packages'=>$packages, 'users'=>$users]);
     }
 
@@ -102,29 +103,32 @@ class TaskController extends Controller
      */
     public function update(TaskRequest $request, string $id)
     {
-        $data = $request->validated();
+        $request->validated();
         try {
+
             $task = Task::find($id);
-            $task->customer_name = $data['customer_name'];
-            $task->customer_email = $data['customer_email'];
-            $task->customer_phone = $data['customer_phone'];
-            $task->customer_address = $data['customer_address'];
-            $task->customer_city = $data['customer_city'];
-            $task->customer_pincode = $data['customer_pincode'];
-            $task->package_id = $data['package_id'];
-            $task->package_amt = $data['package_amt'];
-            $task->lead_source_id = $data['lead_source_id'];
-            $task->lead_dt = Carbon::createFromFormat('Y-m-d', $data['lead_dt'])->format('Y-m-d');
-            $task->meating_dt = Carbon::createFromFormat('Y-m-d', $data['meating_dt'])->format('Y-m-d');
-            $task->meating_time = Carbon::createFromFormat('H:i:s', $data['meating_time'])->format('H:i:s');
-            $task->payment_receive_status = $data['payment_receive_status'];
-            $task->payment_type = $data['payment_type'];
-            $task->payment_date = Carbon::createFromFormat('Y-m-d', $data['payment_date'])->format('Y-m-d');
-            $task->task_status = $data['customer_phone'];
-            $task->user_id = $data['user_id'];
+            $task->customer_name = $request['customer_name'];
+            $task->customer_email = $request['customer_email'];
+            $task->customer_phone = $request['customer_phone'];
+            $task->customer_address = $request['customer_address'];
+            $task->customer_city = $request['customer_city'];
+            $task->customer_pincode = $request['customer_pincode'];
+            $task->package_id = $request['package_id'];
+            $task->package_amt = $request['package_amt'];
+            $task->lead_source_id = $request['lead_source_id'];
+            $task->lead_dt = Carbon::createFromFormat('Y-m-d', $request['lead_dt'])->format('Y-m-d');
+            $task->meating_dt = Carbon::createFromFormat('Y-m-d', $request['meating_dt'])->format('Y-m-d');
+            $task->meating_time = Carbon::createFromFormat('H:i:s', $request['meating_time'])->format('H:i:s');
+            $task->payment_receive_status = $request['payment_receive_status'];
+            $task->payment_type = $request['payment_type'];
+            $task->payment_date = Carbon::createFromFormat('Y-m-d', $request['payment_date'])->format('Y-m-d');
+            $task->task_status = $request['task_status'];
+            $task->user_id = $request['user_id'];
+            $task->lead_by = $request['lead_by'];
+            $task->lead_by = Auth::user()->id;
             $task->modified_at = Carbon::now();
             $task->modified_by = Auth::user()->id;
-            $task->save($data);
+            $task->save();
 
             return redirect()->route('task.index')->with('message','Task Updated Successfully');
 
@@ -156,5 +160,19 @@ class TaskController extends Controller
     public function fetchPackageAmount(Request $request){
         $data['amount'] = Package::whereId($request->packageId)->pluck('amount');
         return response()->json($data);
+    }
+
+    public function search(Request $request){
+        // form validation for customer_phone
+        $request->validate([
+            'task_id' =>'nullable|string',
+            'customer_phone' => 'nullable|numeric',
+        ],[
+            'task_id.string' => 'Please Enter Task Id',
+            'customer_phone.numeric' => 'Please Enter Valid Phone Number',
+        ]);
+
+        $tasks = Task::with('package', 'user')->where('customer_phone', $request->customer_phone)->orWhere('task_id', $request->task_id)->orderBy("id","desc")->whereNull('deleted_at')->get();
+        return view('master.tasks.index', ['tasks'=>$tasks]);
     }
 }

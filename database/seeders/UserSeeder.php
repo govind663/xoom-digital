@@ -22,6 +22,7 @@ class UserSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => Hash::make('Suresh@12'),
             'user_type'=> '1',
+            'designation' => 'Admin',
             'created_by' => 1,
             'created_at' => Carbon::now(),
         ]);
@@ -33,6 +34,7 @@ class UserSeeder extends Seeder
             'email' => 'onField@gmail.com',
             'password' => Hash::make('1234567890'),
             'user_type'=> '2',
+            'designation' => 'On Field',
             'created_by' => 2,
             'created_at' => Carbon::now(),
         ]);
@@ -44,6 +46,7 @@ class UserSeeder extends Seeder
             'email' => 'sales@gmail.com',
             'password' => Hash::make('1234567890'),
             'user_type'=> '3',
+            'designation' => 'Sales',
             'created_by' => 3,
             'created_at' => Carbon::now(),
         ]);

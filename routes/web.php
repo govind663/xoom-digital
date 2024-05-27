@@ -18,6 +18,11 @@ use App\Http\Controllers\PackageController;
 use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\TaskController;
 
+// === Leads Controller
+use App\Http\Controllers\LeadsController;
+// === Customer Controller
+use App\Http\Controllers\CustomerController;
+
 Route::get('/', function () {
     return view('auth.login');
 })->name('/');
@@ -54,4 +59,14 @@ Route::group(['prefix' => 'xoom-digital', 'middleware'=>['auth', PreventBackHist
     // ==== Manage Task
     Route::resource('task', TaskController::class);
     Route::post('task/package/amount', [TaskController::class, 'fetchPackageAmount'])->name('task.package.amount');
+    // === Serch Customer by Mobile Number either Task Id
+    Route::post('task/search', [TaskController::class, 'search'])->name('task.search');
+
+    // ==== Manage Leads
+    Route::get('leads/index', [LeadsController::class, 'index'])->name('leads.index');
+
+    // ==== Manage Customer
+    Route::get('customer/index', [CustomerController::class, 'index'])->name('customer.index');
+    // === Serch Customer by mobile Number
+    Route::post('customer/search', [CustomerController::class, 'search'])->name('customer.search');
 });

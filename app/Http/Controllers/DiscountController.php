@@ -90,7 +90,7 @@ class DiscountController extends Controller
             $discount->modified_by = Auth::user()->id;
             $discount->save();
 
-            return redirect()->route('package.index')->with('message','Package Updated Successfully');
+            return redirect()->route('discount.index')->with('message','Discount Updated Successfully');
 
         } catch(\Exception $ex){
 

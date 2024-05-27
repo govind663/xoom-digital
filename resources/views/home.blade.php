@@ -88,7 +88,7 @@ Xoom Digital | Home
                             <div class="dash-count">
                                 <div class="dash-title text-dark">Total Employee</div>
                                 <div class="dash-counts text-dark">
-                                    <p>0</p>
+                                    <p>{{ $totalEmployee }}</p>
                                 </div>
                             </div>
                         </div>

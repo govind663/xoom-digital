@@ -41,6 +41,7 @@ class TaskRequest extends FormRequest
                 'payment_date' => 'required|string|max:255',
                 'task_status' => 'required|numeric',
                 'user_id' => 'required|numeric',
+                'lead_by' => 'required|numeric',
             ];
         }else{
             $rule = [
@@ -61,6 +62,7 @@ class TaskRequest extends FormRequest
                 'payment_date' => 'required|string|max:255',
                 'task_status' => 'required|numeric',
                 'user_id' => 'required|numeric',
+                'lead_by' => 'required|numeric',
             ];
         }
         return $rule;
@@ -129,7 +131,7 @@ class TaskRequest extends FormRequest
 
         if ($this->has('meating_time')) {
             $this->merge([
-                'meating_time' => Carbon::createFromFormat('H:i:s', $this->meating_time)->format('H:i:s'),
+                'meating_time' => Carbon::createFromFormat('H:i', $this->meating_time)->format('H:i:s'),
             ]);
         }
 

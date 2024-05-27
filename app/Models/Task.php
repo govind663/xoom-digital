@@ -30,6 +30,7 @@ class Task extends Model
         'payment_date',
         'task_status',
         'user_id',
+        'lead_by',
         'inserted_by',
         'inserted_at',
         'modified_by',
@@ -47,6 +48,11 @@ class Task extends Model
 
     // ==== Relationship between User
     public function user(){
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id',);
+    }
+
+    // ==== Relationship between Lead Source
+    public function leadSource(){
+        return $this->belongsTo(User::class, 'lead_by', 'id');
     }
 }

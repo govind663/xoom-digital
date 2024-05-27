@@ -83,7 +83,7 @@ Discount | List
                                         <td>{{ $value->coupon_name }}</td>
                                         <td>
                                             @if($value->coupon_type == '1')
-                                            <span class="badge bg-success" >Percentage</span>
+                                            <span class="badge bg-danger" >Percentage</span>
                                             @elseif($value->coupon_type == '2')
                                             <span class="badge bg-success" >Fixed</span>
                                             @endif

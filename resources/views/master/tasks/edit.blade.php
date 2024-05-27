@@ -33,6 +33,7 @@
                             @csrf
                             @method('PATCH')
                             <input type="text" id="id" name="id" hidden  value="{{ $task->id }}">
+                            <input type="hidden" id="lead_by" name="lead_by" value="{{ Auth::user()->id }}">
 
                             <div class="form-group-customer customer-additional-form">
                                 <div class="row">
@@ -92,7 +93,7 @@
                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="input-block mb-3">
                                             <label><b>Pincode : <span class="text-danger">*</span></b></label>
-                                            <input type="text" id="customer_pincode" name="customer_pincode" class="form-control @error('customer_pincode') is-invalid @enderror" value="{{ $task->customer_pincode }}" placeholder="Enter Pincode">
+                                            <input type="text" maxlength="6" id="customer_pincode" name="customer_pincode" class="form-control @error('customer_pincode') is-invalid @enderror" value="{{ $task->customer_pincode }}" placeholder="Enter Pincode">
 
                                             @error('customer_pincode')
                                                 <span class="invalid-feedback" role="alert">
@@ -135,7 +136,7 @@
                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="input-block mb-3">
                                             <label><b>Amount : <span class="text-danger">*</span></b></label>
-                                            <input type="text" id="package_amt" name="package_amt" class="form-control @error('package_amt') is-invalid @enderror" value="{{ $task->package_amt }}" placeholder="Enter Amount">
+                                            <input type="text" readonly id="package_amt" name="package_amt" class="form-control @error('package_amt') is-invalid @enderror" value="{{ $task->package_amt }}" placeholder="Enter Amount">
 
                                             @error('package_amt')
                                                 <span class="invalid-feedback" role="alert">

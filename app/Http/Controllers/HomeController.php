@@ -25,7 +25,10 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        return view('home');
+        // Count Total employee in users
+        $totalEmployee = User::where('user_type', '!=', '1')->whereNull('deleted_at')->count();
+
+        return view('home', ['totalEmployee'=> $totalEmployee]);
     }
 
     public function changePassword(Request $request)
