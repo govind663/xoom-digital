@@ -43,7 +43,7 @@
         <div class="login-wrapper">
             <div class="container">
 
-                <img class="img-fluid logo-dark mb-2 logo-color" src="{{ url('/') }}/assets/img/xoom-logo.png" alt="Logo">
+                <img class="img-fluid logo-dark mb-2 logo-color" src="{{ url('/') }}/assets/img/Xoom-Digital.png" alt="Logo">
                 <div class="loginbox">
 
                     <div class="login-right">
