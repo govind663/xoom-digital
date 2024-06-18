@@ -26,6 +26,12 @@ Customers | List
     .form-control {
         border: 1px solid #e77c09 !important;
     }
+
+    .form-group-customer {
+        border-bottom: 0px solid #efefef !important;
+        margin: 0 0 0px !important;
+        padding: 0 0 0px !important;
+    }
 </style>
 @endpush
 
@@ -50,34 +56,36 @@ Customers | List
 
         <div class="row">
             <div class="col-sm-12">
-                <div class="card-body">
-                    <form method="POST" action="{{ route('customer.search') }}" enctype="multipart/form-data">
-                        @csrf
+                <div class="card">
+                    <div class="card-body">
+                        <form method="POST" action="{{ route('customer.search') }}" enctype="multipart/form-data">
+                            @csrf
 
-                        <div class="form-group-customer customer-additional-form">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-12 col-sm-12">
-                                    <div class="input-block mb-3">
-                                        <label><b>Mobile Number : <span class="text-danger">*</span></b></b></label>
-                                        <input type="text" id="customer_phone" name="customer_phone" class="form-control @error('customer_phone') is-invalid @enderror" value="{{ old('customer_phone', request('customer_phone')) }}" placeholder="Enter Mobile Number">
-                                        @error('customer_phone')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                            <div class="form-group-customer customer-additional-form">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-12 col-sm-12">
+                                        <div class="input-block mb-3">
+                                            <label><b>Mobile Number : <span class="text-danger">*</span></b></b></label>
+                                            <input type="text" id="customer_phone" name="customer_phone" class="form-control @error('customer_phone') is-invalid @enderror" value="{{ old('customer_phone', request('customer_phone')) }}" placeholder="Enter Mobile Number">
+                                            @error('customer_phone')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="col-lg-3 col-md-12 col-sm-12">
-                                    <div class="input-block mt-2 text-start">
-                                        <br>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    <div class="col-lg-3 col-md-12 col-sm-12">
+                                        <div class="input-block mt-2 text-start">
+                                            <br>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                    </form>
+                        </form>
+                    </div>
                 </div>
 
                 <div class="card">
@@ -96,7 +104,7 @@ Customers | List
                                         <th>Customer Name</th>
                                         <th>Mobile Number</th>
                                         <th>City</th>
-                                        <th>Action</th>
+                                        {{-- <th>Action</th> --}}
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -106,7 +114,7 @@ Customers | List
                                         <td>{{ $value->customer_name }}</td>
                                         <td>{{ $value->customer_phone }}</td>
                                         <td>{{ $value->customer_city }}</td>
-                                        <td class="no-export d-flex">
+                                        {{-- <td class="no-export d-flex">
                                             <a href="{{ route('task.edit', $value->id) }}" class="btn btn-warning btn-sm text-dark">
                                                 <i class="far fa-edit me-2"></i>Edit
                                             </a>
@@ -119,7 +127,7 @@ Customers | List
                                                     <i class="far fa-trash-alt me-2"></i>Delete
                                                 </button>
                                             </form>
-                                        </td>
+                                        </td> --}}
                                     </tr>
                                     @endforeach
                                 </tbody>

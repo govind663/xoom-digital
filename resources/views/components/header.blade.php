@@ -64,7 +64,7 @@
                     @elseif (Auth::user()->user_type == '3')
                     <span class="user-details">Sales</span>
                     @endif
-                    <span class="user-name">{{ Auth::user()->email }}</span>
+                    <span class="user-name">{{ Auth::user()->employee_code }}</span>
                 </span>
             </a>
             <div class="dropdown-menu menu-drop-user">
@@ -72,7 +72,7 @@
                     <div class="subscription-menu">
                         <ul>
                             <li>
-                                <a class="dropdown-item" href="{{ route('employee.edit', Auth::user()->id) }}">Company Profile</a>
+                                <a class="dropdown-item" href="{{ route('employee.edit', Auth::user()->id) }}">Employee Profile</a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="{{ route('change-password') }}">Change Password</a>

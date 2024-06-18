@@ -116,7 +116,7 @@
                                     </div>
 
                                 </div>
-                            </div>
+                            </div>z
                             <div class="add-customer-btns text-start">
                                 <a href="{{ route('employee.index') }}" class="btn btn-danger">Cancel</a>
                                 <button type="submit" class="btn btn-success">Update</button>
