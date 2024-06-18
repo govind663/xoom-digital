@@ -72,6 +72,9 @@
                     <div class="subscription-menu">
                         <ul>
                             <li>
+                                <a class="dropdown-item" href="{{ route('employee.edit', Auth::user()->id) }}">Company Profile</a>
+                            </li>
+                            <li>
                                 <a class="dropdown-item" href="{{ route('change-password') }}">Change Password</a>
                             </li>
                         </ul>

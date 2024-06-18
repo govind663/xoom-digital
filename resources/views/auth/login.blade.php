@@ -54,25 +54,19 @@
                                 @csrf
 
                                 <div class="form-group mb-2">
-                                    <label class="form-control-label"><b>Mobile Number : <span class="text-danger">*</span></b></label>
-                                    <input id="mobile_no" type="mobile_no" onkeypress='validate(event)' maxlength="10"
-                                        class="form-control @error('mobile_no') is-invalid @enderror" name="mobile_no"
-                                        value="{{ old('mobile_no') }}" autocomplete="mobile_no" autofocus
-                                        placeholder="Enter Mobile Number">
-
-                                    @error('mobile_no')
+                                    <label class="form-control-label"><b>Employee Id / Mobile No. : <span class="text-danger">*</span></b></label>
+                                   <input id="employee_code_or_mobile_no" type="text" class="form-control @error('employee_code_or_mobile_no') is-invalid @enderror" name="employee_code_or_mobile_no" value="{{ old('employee_code_or_mobile_no') }}" autocomplete="employee_code_or_mobile_no" autofocus placeholder="Enter Employee Id / Mobile No.">
+                                    @error('employee_code_or_mobile_no')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
                                 </div>
+
                                 <div class="form-group mb-2">
                                     <label class="form-control-label"><b>Password : <span class="text-danger">*</span></b></label>
                                     <div class="pass-group">
-                                        <input id="password" type="password"
-                                            class="form-control pass-input @error('password') is-invalid @enderror"
-                                            name="password" autocomplete="current-password"
-                                            placeholder="Enter Password">
+                                        <input id="password" type="password" class="form-control pass-input @error('password') is-invalid @enderror" name="password" autocomplete="current-password" placeholder="Enter Password">
                                         <span class="fas fa-eye toggle-password"></span>
                                         @error('password')
                                             <span class="invalid-feedback" role="alert">
@@ -81,6 +75,8 @@
                                         @enderror
                                     </div>
                                 </div>
+
+                                <input type="hidden" name="remember_token" value="true">
                                 <br>
                                 <button class="btn btn-lg btn-block btn-primary w-100" type="submit">Login</button>
 

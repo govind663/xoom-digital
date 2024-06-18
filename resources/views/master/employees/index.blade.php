@@ -68,10 +68,10 @@ Employee | List
                                 <thead>
                                     <tr>
                                         <th>Sr. No.</th>
+                                        <th>Employee Id</th>
                                         <th>Name</th>
                                         <th>Mobile No.</th>
                                         <th>Email Id</th>
-                                        <th>Designation</th>
                                         <th>Employee Type</th>
                                         <th class="no-export">Action</th>
                                     </tr>
@@ -80,10 +80,10 @@ Employee | List
                                     @foreach ($employees as $key=>$value )
                                     <tr>
                                         <td>{{ ++$key }}</td>
+                                        <td>{{ $value->employee_code }}</td>
                                         <td>{{ $value->name }}</td>
                                         <td>{{ $value->mobile_no }}</td>
                                         <td>{{ $value->email }}</td>
-                                        <td>{{ $value->designation }}</td>
 
                                         <td>
                                             @if($value->user_type == '2')

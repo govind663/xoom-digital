@@ -23,12 +23,12 @@ class LoginRequest extends FormRequest
     {
         if ($this->id){
             $rule = [
-                'mobile_no' => 'required|string',
+                'employee_code_or_mobile_no' => 'required|string',
                 'password' => 'required|string',
             ];
         }else{
             $rule = [
-                'mobile_no' => 'required|string',
+                'employee_code_or_mobile_no' => 'required|string',
                 'password' => 'required|string',
             ];
         }
@@ -38,7 +38,7 @@ class LoginRequest extends FormRequest
     public function messages()
     {
         return [
-            'mobile_no.required' => __('Mobile Number is required'),
+            'employee_code_or_mobile_no.required' => __('Employee ID or Mobile Number is required'),
             'password.required' => __('Password is required'),
         ];
     }
