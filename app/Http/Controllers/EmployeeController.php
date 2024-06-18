@@ -48,6 +48,13 @@ class EmployeeController extends Controller
             $employee->created_by = Auth::user()->id;
             $employee->save();
 
+            // Generate employee_code and update in Users table
+            $employeeCode = "EMP". "/" . sprintf("%06d", abs((int) $employee->id + 1))  . "/" . date("Y");
+            $update = [
+                'employee_code' => $employeeCode,
+            ];
+            User::where('id', $employee->id)->update($update);
+
             return redirect()->route('employee.index')->with('message','Employee Created Successfully');
 
         } catch(\Exception $ex){
