@@ -9,7 +9,7 @@
 <meta name="csrf-token" id="csrf-token" content="{{ csrf_token() }}">
 
 <!-- Favicon -->
-<link rel="shortcut icon" href="{{ url('/') }}/assets/img/xoom-logo.png">
+<link rel="shortcut icon" href="{{ url('/') }}/assets/img/Xoom-Digital.png">
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.min.css') }}">
