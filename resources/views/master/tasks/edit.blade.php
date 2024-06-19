@@ -303,7 +303,7 @@
                                                 <div class="col-lg-4 col-md-6 col-sm-12">
                                                     <div class="input-block mb-3">
                                                         <label><b>Address : <span class="text-danger">*</span></b></label>
-                                                        <textarea type="text" id="customer_address" row="3"  name="customer_address" class="form-control @error('customer_address') is-invalid @enderror" value="{{ $task->customer_address }}" placeholder="Enter Address">{{ old('customer_address') }}</textarea>
+                                                        <textarea type="text" id="customer_address" row="3"  name="customer_address" class="form-control @error('customer_address') is-invalid @enderror" value="{{ $task->customer_address }}" placeholder="Enter Address">{{ $task->customer_address }}</textarea>
 
                                                         @error('customer_address')
                                                             <span class="invalid-feedback" role="alert">
@@ -357,7 +357,7 @@
                                                                     </h5>
                                                                 </div>
                                                                 <div id="input-group-text">
-                                                                    <input type="checkbox" id="package_id" name="package_id" style="border: 1px solid #e77c09;"  class="form-check-input" value="{{ $package->package_type_id }}" @checked(old('package_id', $task->package_type_id )) >
+                                                                    <input type="checkbox" id="package_id" name="package_id" style="border: 1px solid #e77c09;"  class="form-check-input" value="{{ $package->package_type_id }}" {{  ($task->package_id == $package->package_type_id ? ' checked' : '') }} >
                                                                 </div>
                                                             </div>
                                                         </div>

@@ -357,7 +357,7 @@ Task | Add
                                                                         </h5>
                                                                     </div>
                                                                     <div id="input-group-text">
-                                                                        <input type="checkbox" id="package_id" name="package_id" style="border: 1px solid #e77c09;"  class="form-check-input" value="{{ $package->package_type_id }}" >
+                                                                        <input type="checkbox" id="package_id" name="package_id" style="border: 1px solid #e77c09;"  class="form-check-input" value="{{ $package->package_type_id }}" {{  ( old('package_id') == $package->package_type_id ? ' checked' : '') }}>
                                                                     </div>
                                                                 </div>
                                                             </div>
