@@ -24,45 +24,47 @@ class TaskRequest extends FormRequest
     {
         if ($this->id){
             $rule = [
-                'customer_name' => 'required|string|max:255',
+                'customer_name' => 'nullable|string|max:255',
                 'customer_email' => 'nullable|string|max:255',
-                'customer_phone' => 'required|string|max:255',
-                'customer_address' => 'required|string|max:255',
-                'customer_city' => 'required|string|max:255',
-                'customer_pincode' => 'required|string|max:255',
-                'package_id' => 'required|numeric',
-                'package_amt' => 'required|numeric',
-                'lead_source_id' => 'required|numeric',
-                'lead_dt' => 'required|string|max:255',
-                'meating_dt' => 'required|string|max:255',
-                'meating_time' => 'required|string|max:255',
-                'payment_receive_status' => 'required|numeric',
-                'payment_type' => 'required|numeric',
-                'payment_date' => 'required|string|max:255',
-                'task_status' => 'required|numeric',
-                'user_id' => 'required|numeric',
-                'lead_by' => 'required|numeric',
+                'customer_phone' => 'nullable|string|max:255',
+                'customer_address' => 'nullable|string|max:255',
+                'customer_city' => 'nullable|string|max:255',
+                'customer_pincode' => 'nullable|string|max:255',
+                'package_id' => 'nullable|numeric',
+                'lead_source_id' => 'nullable|numeric',
+                'lead_dt' => 'nullable|string|max:255',
+                'meating_dt' => 'nullable|string|max:255',
+                'meating_time' => 'nullable|string|max:255',
+                'payment_receive_status' => 'nullable|numeric',
+                'payment_type' => 'nullable|numeric',
+                'payment_date' => 'nullable|string|max:255',
+                'advanced_payment' => 'nullable|string|max:255',
+                'balance_payment' => 'nullable|string|max:255',
+                'task_status' => 'nullable|numeric',
+                'user_id' => 'nullable|numeric',
+                'lead_by' => 'nullable|numeric',
             ];
         }else{
             $rule = [
-                'customer_name' => 'required|string|max:255',
+                'customer_name' => 'nullable|string|max:255',
                 'customer_email' => 'nullable|string|max:255',
-                'customer_phone' => 'required|string|max:255',
-                'customer_address' => 'required|string|max:255',
-                'customer_city' => 'required|string|max:255',
-                'customer_pincode' => 'required|string|max:255',
-                'package_id' => 'required|numeric',
-                'package_amt' => 'required|numeric',
-                'lead_source_id' => 'required|numeric',
-                'lead_dt' => 'required|string|max:255',
-                'meating_dt' => 'required|string|max:255',
-                'meating_time' => 'required|string|max:255',
-                'payment_receive_status' => 'required|numeric',
-                'payment_type' => 'required|numeric',
-                'payment_date' => 'required|string|max:255',
-                'task_status' => 'required|numeric',
-                'user_id' => 'required|numeric',
-                'lead_by' => 'required|numeric',
+                'customer_phone' => 'nullable|string|max:255',
+                'customer_address' => 'nullable|string|max:255',
+                'customer_city' => 'nullable|string|max:255',
+                'customer_pincode' => 'nullable|string|max:255',
+                'package_id' => 'nullable|numeric',
+                'lead_source_id' => 'nullable|numeric',
+                'lead_dt' => 'nullable|string|max:255',
+                'meating_dt' => 'nullable|string|max:255',
+                'meating_time' => 'nullable|string|max:255',
+                'payment_receive_status' => 'nullable|numeric',
+                'payment_type' => 'nullable|numeric',
+                'payment_date' => 'nullable|string|max:255',
+                'advanced_payment' => 'nullable|string|max:255',
+                'balance_payment' => 'nullable|string|max:255',
+                'task_status' => 'nullable|numeric',
+                'user_id' => 'nullable|numeric',
+                'lead_by' => 'nullable|numeric',
             ];
         }
         return $rule;
@@ -95,12 +97,6 @@ class TaskRequest extends FormRequest
             'customer_pincode.string' => __('The customer pincode must be a string.'),
             'customer_pincode.max' => __('The length of customer pincode should not exceed 255 characters'),
 
-            'package_id.required' => __('Please select a package name.'),
-            'package_id.numeric' => __('The package name must be a number.'),
-
-            'package_amt.required' => __('Package amount is required.'),
-            'package_amt.numeric' => __('The package name must be a number.'),
-
             'lead_source_id.required' => __('Please Select Lead Source.'),
             'lead_source_id.numeric' => __('The Lead Source must be a number.'),
 
@@ -110,35 +106,10 @@ class TaskRequest extends FormRequest
             'payment_receive_status.required' => __('Please Select Payment Received Status.'),
             'payment_type.required' => __('Please Select Payment Type.'),
             'payment_date.required' => __('Please Select Payment Date.'),
+            'advanced_payment.required' => __('Advanced Payment is required.'),
+            'balance_payment.required' => __('Balance Payment. is required'),
             'task_status.required' => __('Please Select Task Status.'),
             'user_id.required' => __('Please Assign User')
         ];
-    }
-
-    protected function prepareForValidation()
-    {
-        if ($this->has('lead_dt')) {
-            $this->merge([
-                'lead_dt' => Carbon::createFromFormat('d-m-Y', $this->lead_dt)->format('Y-m-d'),
-            ]);
-        }
-
-        if ($this->has('meating_dt')) {
-            $this->merge([
-                'meating_dt' => Carbon::createFromFormat('d-m-Y', $this->meating_dt)->format('Y-m-d'),
-            ]);
-        }
-
-        if ($this->has('meating_time')) {
-            $this->merge([
-                'meating_time' => Carbon::createFromFormat('H:i', $this->meating_time)->format('H:i:s'),
-            ]);
-        }
-
-        if ($this->has('payment_date')) {
-            $this->merge([
-                'payment_date' => Carbon::createFromFormat('d-m-Y', $this->payment_date)->format('Y-m-d'),
-            ]);
-        }
     }
 }

@@ -37,9 +37,11 @@ class TaskController extends Controller
      */
     public function store(TaskRequest $request)
     {
-        $request->validated();
+        // $request->validated();
         try {
+            // dd($request);
             $task = new Task();
+
             $task->customer_name = $request['customer_name'];
             $task->customer_email = $request['customer_email'];
             $task->customer_phone = $request['customer_phone'];
@@ -47,7 +49,6 @@ class TaskController extends Controller
             $task->customer_city = $request['customer_city'];
             $task->customer_pincode = $request['customer_pincode'];
             $task->package_id = $request['package_id'];
-            $task->package_amt = $request['package_amt'];
             $task->lead_source_id = $request['lead_source_id'];
             $task->lead_dt = Carbon::createFromFormat('Y-m-d', $request['lead_dt'])->format('Y-m-d');
             $task->meating_dt = Carbon::createFromFormat('Y-m-d', $request['meating_dt'])->format('Y-m-d');
@@ -55,6 +56,8 @@ class TaskController extends Controller
             $task->payment_receive_status = $request['payment_receive_status'];
             $task->payment_type = $request['payment_type'];
             $task->payment_date = Carbon::createFromFormat('Y-m-d', $request['payment_date'])->format('Y-m-d');
+            $task->advanced_payment = $request['advanced_payment'];
+            $task->balance_payment = $request['balance_payment'];
             $task->task_status = $request['task_status'];
             $task->user_id = $request['user_id'];
             $task->lead_by = $request['lead_by'];
@@ -114,7 +117,6 @@ class TaskController extends Controller
             $task->customer_city = $request['customer_city'];
             $task->customer_pincode = $request['customer_pincode'];
             $task->package_id = $request['package_id'];
-            $task->package_amt = $request['package_amt'];
             $task->lead_source_id = $request['lead_source_id'];
             $task->lead_dt = Carbon::createFromFormat('Y-m-d', $request['lead_dt'])->format('Y-m-d');
             $task->meating_dt = Carbon::createFromFormat('Y-m-d', $request['meating_dt'])->format('Y-m-d');
@@ -122,6 +124,8 @@ class TaskController extends Controller
             $task->payment_receive_status = $request['payment_receive_status'];
             $task->payment_type = $request['payment_type'];
             $task->payment_date = Carbon::createFromFormat('Y-m-d', $request['payment_date'])->format('Y-m-d');
+            $task->advanced_payment = $request['advanced_payment'];
+            $task->balance_payment = $request['balance_payment'];
             $task->task_status = $request['task_status'];
             $task->user_id = $request['user_id'];
             $task->lead_by = $request['lead_by'];

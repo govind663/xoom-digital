@@ -95,7 +95,7 @@
                                             <br>
                                             <div class="col-sm-6 col-md-6">
                                                 @if(!empty($package->image))
-                                                    <a href="{{url('/')}}/xoom-digital/package/image/{{ $package->image }}" target="_blank" class="btn btn-primary btn-sm">
+                                                    <a href="{{ url('/') }}/xoom_digital/package/image/{{ $package->image }}" target="_blank" class="btn btn-primary btn-sm">
                                                         <b> View Document</b>
                                                     </a>
                                                 @endif

@@ -26,6 +26,11 @@ Task | List
     .form-control {
         border: 1px solid #e77c09 !important;
     }
+    .form-group-customer {
+        border-bottom: 0px solid #efefef !important;
+        margin: 0 0 0px !important;
+        padding: 0 0 0px !important;
+    }
 </style>
 @endpush
 
