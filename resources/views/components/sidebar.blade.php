@@ -53,6 +53,27 @@
                     </a>
                 </li>
                 @elseif (Auth::user()->user_type == '2')
+                <li class="submenu {{ ($currentRoute === 'sales-report-list.index') ? 'no-active' : '' }}">
+                    <a href="javascript:void(0);">
+                        <i class="fe fe-box"></i>
+                        <span>Reports</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul style="display: none;">
+                        <li class="">
+                            <a href="{{ route('sales-report-list.index', ['task_status'=>1]) }}"><span>Pending</span></a>
+                        </li>
+                        <li class="">
+                            <a href="{{ route('sales-report-list.index', ['task_status'=>2]) }}"><span>In Progress</span></a>
+                        </li>
+                        <li class="">
+                            <a href="{{ route('sales-report-list.index', ['task_status'=>3]) }}"><span>Completed</span></a>
+                        </li>
+                        <li class="">
+                            <a href="{{ route('sales-report-list.index', ['task_status'=>4]) }}"><span>Cancelled</span></a>
+                        </li>
+                    </ul>
+                </li>
                 @elseif (Auth::user()->user_type == '3')
                 <li class="{{ ($currentRoute === 'task.index') || ($currentRoute === 'task.create') || ($currentRoute === 'task.edit') ? 'active' : '' }}">
                     <a href="{{ route('task.index') }}">
@@ -61,23 +82,23 @@
                     </a>
                 </li>
 
-                <li class="submenu">
+                <li class="submenu {{ ($currentRoute === 'sales-report-list.index') ? 'no-active' : '' }}">
                     <a href="javascript:void(0);">
                         <i class="fe fe-box"></i>
                         <span>Reports</span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul style="display: none;">
-                        <li class="{{ ($currentRoute === 'sales-report-list.index/1') ? 'active' : '' }}">
+                        <li class="">
                             <a href="{{ route('sales-report-list.index', ['task_status'=>1]) }}"><span>Pending</span></a>
                         </li>
-                        <li class="{{ ($currentRoute === 'sales-report-list.index/2') ? 'active' : '' }}">
+                        <li class="">
                             <a href="{{ route('sales-report-list.index', ['task_status'=>2]) }}"><span>In Progress</span></a>
                         </li>
-                        <li class="{{ ($currentRoute === 'sales-report-list.index/3') ? 'active' : '' }}">
+                        <li class="">
                             <a href="{{ route('sales-report-list.index', ['task_status'=>3]) }}"><span>Completed</span></a>
                         </li>
-                        <li class="{{ ($currentRoute === 'sales-report-list.index/4') ? 'active' : '' }}">
+                        <li class="">
                             <a href="{{ route('sales-report-list.index', ['task_status'=>4]) }}"><span>Cancelled</span></a>
                         </li>
                     </ul>

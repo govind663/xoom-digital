@@ -23,7 +23,7 @@ class Sidebar extends Component
     {
         // === which tab is currentlt Active or not in CRUD operation
         $currentRoute = request()->route()->getName();
-        // dd($currentRoute);
+        // dd($currentUrlName);
         return view('components.sidebar', ['currentRoute'=>$currentRoute]);
     }
 }

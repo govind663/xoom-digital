@@ -37,7 +37,6 @@ class SalesReportController extends Controller
         $package_id = $task->package_id;
         // get package details
         $packages = Package::with('packageType')->where('id', $package_id)->whereNull('deleted_at')->first();
-        $users = User::orderBy("id","desc")->where('user_type', '2')->whereNull('deleted_at')->get();
-        return view('reports.sales-report.view', ['task'=>$task, 'packages'=>$packages, 'users'=>$users, 'task_status'=>$task_status]);
+        return view('reports.sales-report.view', ['task'=>$task, 'packages'=>$packages, 'task_status'=>$task_status]);
     }
 }

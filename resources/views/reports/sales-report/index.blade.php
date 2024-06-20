@@ -63,7 +63,7 @@ Task | List
 
         <div class="row">
             <div class="col-sm-12">
-                <div class="card">
+                <div class="card p-3">
                     <div class="card-body">
                         {{-- <form method="POST" action="{{ route('task.search') }}" enctype="multipart/form-data">
                             @csrf
@@ -102,6 +102,20 @@ Task | List
                             </div>
 
                         </form> --}}
+                        {{-- <div class="invoices-main-tabs">
+                            <div class="row align-items-center">
+                                <div class="col-lg-12">
+                                    <div class="invoices-tabs">
+                                        <ul>
+                                            <li><a href="{{ route('sales-report-list.index', ['task_status'=>1]) }}">Pending</a></li>
+                                            <li><a href="{{ route('sales-report-list.index', ['task_status'=>2]) }}">In Progress</a></li>
+                                            <li><a href="{{ route('sales-report-list.index', ['task_status'=>3]) }}">Completed</a></li>
+                                            <li><a href="{{ route('sales-report-list.index', ['task_status'=>4]) }}">Cancelled</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> --}}
                     </div>
 
                     <div class="row card-body">
@@ -117,6 +131,7 @@ Task | List
                             @endif
                         </div>
                     </div>
+
                     <div class="row card-body">
 
                         <div class="table-responsive">
@@ -149,11 +164,19 @@ Task | List
                                         <td><span class="badge bg-danger">Cancelled</span></td>
                                         @endif
 
+                                        @if (Auth::user()->user_type == '1')
                                         <td class="no-export d-flex">
                                             <a href="{{ route('sales-report-list.view', ['task_status'=>$value->task_status, 'task_id' => $value->id]) }}" class="btn btn-warning btn-sm text-dark">
                                                 <i class="far fa-eye me-2"></i>view
                                             </a>
                                         </td>
+                                        @elseif (Auth::user()->user_type == '2')
+                                        <td class="no-export d-flex">
+                                            <a href="{{ route('task.edit', $value->id) }}" class="btn btn-warning btn-sm text-dark">
+                                                <i class="far fa-edit me-2"></i>Edit
+                                            </a>
+                                        </td>
+                                        @endif
                                     </tr>
                                     @endforeach
                                 </tbody>
