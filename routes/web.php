@@ -26,6 +26,9 @@ use App\Http\Controllers\CustomerController;
 // === Sales Report Controller
 use App\Http\Controllers\SalesReportController;
 
+// Assigned Lead Controller
+use App\Http\Controllers\AssignedLeadsController;
+
 Route::get('/', function () {
     return view('auth.login');
 })->name('/');
@@ -76,5 +79,9 @@ Route::group(['prefix' => 'xoom-digital', 'middleware'=>['auth', PreventBackHist
     // === Sales Reports List with Status
     Route::get('sales-report-list/{task_status?}', [SalesReportController::class,'salesReportList'])->name('sales-report-list.index');
     Route::get('sales-report-list/view/{task_status?}/{task_id?}', [SalesReportController::class,'salesReportView'])->name('sales-report-list.view');
-    // Route::post('sales-report-list/search', [SalesReportController::class,'salesReportListSearch'])->name('sales-report-list.search');
+    Route::get('sales-report-list/edit/{task_status?}/{task_id?}', [SalesReportController::class,'salesReportEdit'])->name('sales-report-list.edit');
+    Route::post('sales-report-list/update/{task_status?}/{task_id?}', [SalesReportController::class,'salesReportUpdate'])->name('sales-report-list.update');
+
+    // Assigned Leads
+    Route::get('leads/assigned-leads', [AssignedLeadsController::class, 'assignedLeads'])->name('leads.assigned-leads');
 });

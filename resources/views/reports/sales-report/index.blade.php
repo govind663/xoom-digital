@@ -172,7 +172,7 @@ Task | List
                                         </td>
                                         @elseif (Auth::user()->user_type == '2')
                                         <td class="no-export d-flex">
-                                            <a href="{{ route('task.edit', $value->id) }}" class="btn btn-warning btn-sm text-dark">
+                                            <a href="{{ route('sales-report-list.edit', ['task_status'=>$value->task_status, 'task_id' => $value->id]) }}" class="btn btn-warning btn-sm text-dark">
                                                 <i class="far fa-edit me-2"></i>Edit
                                             </a>
                                         </td>

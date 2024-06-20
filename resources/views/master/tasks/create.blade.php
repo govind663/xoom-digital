@@ -228,7 +228,7 @@ Task | Add
 
                                     <div class="tab-content" id="myTabContent">
                                         {{-- Customer Details --}}
-                                        <div class="tab-pane fade show active" role="tabpanel" id="step1" aria-labelledby="step1-tab">
+                                        <div class="tab-pane fade show active p-5" role="tabpanel" id="step1" aria-labelledby="step1-tab">
                                             <div class="mb-4">
                                                 <h5 class="card-title text-primary mb-2">Customer Details : -</h5>
                                             </div>
@@ -319,7 +319,7 @@ Task | Add
                                         </div>
 
                                         {{-- Packages Details --}}
-                                        <div class="tab-pane fade" role="tabpanel" id="step2" aria-labelledby="step2-tab">
+                                        <div class="tab-pane fade p-5" role="tabpanel" id="step2" aria-labelledby="step2-tab">
                                             <div class="mb-4">
                                                 <h5 class="card-title text-primary mb-2">Packages Details : -</h5>
                                             </div>
@@ -374,7 +374,7 @@ Task | Add
                                         </div>
 
                                         {{-- Lead Details --}}
-                                        <div class="tab-pane fade" role="tabpanel" id="step3"  aria-labelledby="step3-tab">
+                                        <div class="tab-pane fade p-5" role="tabpanel" id="step3"  aria-labelledby="step3-tab">
                                             <div class="mb-4">
                                                 <h5 class="card-title text-primary mb-2">Lead Details : -</h5>
                                             </div>
@@ -450,7 +450,7 @@ Task | Add
                                         </div>
 
                                         {{-- Task Details --}}
-                                        <div class="tab-pane fade" role="tabpanel" id="step4"  aria-labelledby="step4-tab">
+                                        <div class="tab-pane fade p-5" role="tabpanel" id="step4"  aria-labelledby="step4-tab">
                                             <div class="mb-4">
                                                 <h5 class="card-title text-primary mb-2">Task Details : -</h5>
                                             </div>
@@ -499,7 +499,7 @@ Task | Add
                                         </div>
 
                                         {{-- Payment Details --}}
-                                        <div class="tab-pane fade" role="tabpanel" id="step5"  aria-labelledby="step5-tab">
+                                        <div class="tab-pane fade p-5" role="tabpanel" id="step5"  aria-labelledby="step5-tab">
                                             <div class="mb-4">
                                                 <h5 class="card-title text-primary mb-2">Payment Details : -</h5>
                                             </div>

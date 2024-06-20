@@ -189,9 +189,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="wizard">
-                            <form method="POST" action="{{ route('task.update', $task->id) }}"  enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('sales-report-list.update', ['task_status'=>$task->task_status, 'task_id' => $task->id]) }}"  enctype="multipart/form-data">
                                 @csrf
-                                @method('PATCH')
+                                @method('POST')
                                 <input type="text" id="id" name="id" hidden  value="{{ $task->id }}">
                                 <input type="hidden" id="lead_by" name="lead_by" value="{{ Auth::user()->id }}">
 
@@ -237,8 +237,8 @@
                                             <div class="row">
                                                 <div class="col-lg-4 col-md-6 col-sm-12">
                                                     <div class="input-block mb-3">
-                                                        <label><b>Name : <span class="text-danger">*</span></b></label>
-                                                        <input type="text" id="customer_name" name="customer_name" class="form-control @error('customer_name') is-invalid @enderror" value="{{ $task->customer_name }}" placeholder="Enter Name">
+                                                        <label><b>Name : </b></label>
+                                                        <input type="text" readonly id="customer_name" name="customer_name" class="form-control @error('customer_name') is-invalid @enderror" value="{{ $task->customer_name }}" placeholder="Enter Name">
 
                                                         @error('customer_name')
                                                             <span class="invalid-feedback" role="alert">
@@ -251,7 +251,7 @@
                                                 <div class="col-lg-4 col-md-6 col-sm-12">
                                                     <div class="input-block mb-3">
                                                         <label><b>Email : </b></label>
-                                                        <input type="email" id="customer_email" name="customer_email" class="form-control @error('customer_email') is-invalid @enderror" value="{{ $task->customer_email }}" placeholder="Enter Email">
+                                                        <input type="email" readonly id="customer_email" name="customer_email" class="form-control @error('customer_email') is-invalid @enderror" value="{{ $task->customer_email }}" placeholder="Enter Email">
 
                                                         @error('customer_email')
                                                             <span class="invalid-feedback" role="alert">
@@ -263,8 +263,8 @@
 
                                                 <div class="col-lg-4 col-md-6 col-sm-12">
                                                     <div class="input-block mb-3">
-                                                        <label><b>Mobile Number : <span class="text-danger">*</span></b></label>
-                                                        <input type="text" id="customer_phone" maxlength="10" name="customer_phone" class="form-control @error('customer_phone') is-invalid @enderror" value="{{ $task->customer_phone }}" placeholder="Enter Mobile Number">
+                                                        <label><b>Mobile Number : </b></label>
+                                                        <input type="text" readonly id="customer_phone" maxlength="10" name="customer_phone" class="form-control @error('customer_phone') is-invalid @enderror" value="{{ $task->customer_phone }}" placeholder="Enter Mobile Number">
 
                                                         @error('customer_phone')
                                                             <span class="invalid-feedback" role="alert">
@@ -276,8 +276,8 @@
 
                                                 <div class="col-lg-4 col-md-6 col-sm-12">
                                                     <div class="input-block mb-3">
-                                                        <label><b>Pincode : <span class="text-danger">*</span></b></label>
-                                                        <input type="text" maxlength="6" id="customer_pincode" name="customer_pincode" class="form-control @error('customer_pincode') is-invalid @enderror" value="{{ $task->customer_pincode }}" placeholder="Enter Pincode">
+                                                        <label><b>Pincode : </b></label>
+                                                        <input type="text" readonly maxlength="6" id="customer_pincode" name="customer_pincode" class="form-control @error('customer_pincode') is-invalid @enderror" value="{{ $task->customer_pincode }}" placeholder="Enter Pincode">
 
                                                         @error('customer_pincode')
                                                             <span class="invalid-feedback" role="alert">
@@ -289,8 +289,8 @@
 
                                                 <div class="col-lg-4 col-md-6 col-sm-12">
                                                     <div class="input-block mb-3">
-                                                        <label><b>City : <span class="text-danger">*</span></b></label>
-                                                        <input type="text" id="customer_city" name="customer_city" class="form-control @error('customer_city') is-invalid @enderror" value="{{ $task->customer_city }}" placeholder="Enter City">
+                                                        <label><b>City : </b></label>
+                                                        <input type="text" readonly id="customer_city" name="customer_city" class="form-control @error('customer_city') is-invalid @enderror" value="{{ $task->customer_city }}" placeholder="Enter City">
 
                                                         @error('customer_city')
                                                             <span class="invalid-feedback" role="alert">
@@ -302,8 +302,8 @@
 
                                                 <div class="col-lg-4 col-md-6 col-sm-12">
                                                     <div class="input-block mb-3">
-                                                        <label><b>Address : <span class="text-danger">*</span></b></label>
-                                                        <textarea type="text" id="customer_address" row="3"  name="customer_address" class="form-control @error('customer_address') is-invalid @enderror" value="{{ $task->customer_address }}" placeholder="Enter Address">{{ $task->customer_address }}</textarea>
+                                                        <label><b>Address : </b></label>
+                                                        <textarea type="text" readonly id="customer_address" row="3"  name="customer_address" class="form-control @error('customer_address') is-invalid @enderror" value="{{ $task->customer_address }}" placeholder="Enter Address">{{ $task->customer_address }}</textarea>
 
                                                         @error('customer_address')
                                                             <span class="invalid-feedback" role="alert">
@@ -378,34 +378,39 @@
                                         <div class="mb-4">
                                             <h5 class="card-title text-primary mb-2">Lead Details : -</h5>
                                         </div>
+                                        @php
+                                        $leadBy = '';
+                                            if($task->lead_source_id == 1){
+                                                $leadBy = "Google";
+                                            } elseif($task->lead_source_id == 2){
+                                                $leadBy = "Facebook";
+                                            } elseif($task->lead_source_id == 3){
+                                                $leadBy = "Instagram";
+                                            } elseif($task->lead_source_id == 4){
+                                                $leadBy = "WhatsApp";
+                                            } elseif($task->lead_source_id == 5){
+                                                $leadBy = "Online";
+                                            } elseif($task->lead_source_id == 6){
+                                                $leadBy = "Direct Call";
+                                            } elseif($task->lead_source_id == 7){
+                                                $leadBy = "Social Media";
+                                            }
+                                        @endphp
                                         <fieldset>
                                             <div class="row">
                                                 <div class="col-lg-4 col-md-6 col-sm-12">
                                                     <div class="input-block mb-3" >
-                                                        <label><b>Select Lead Source : <span class="text-danger">*</span></b></label>
-                                                        <select class="@error('lead_source_id') is-invalid @enderror select" id="lead_source_id" name="lead_source_id">
-                                                            <option value="">Select Lead Source</option>
-                                                            <option value="1" {{ ($task->lead_source_id == "1" ? "selected":"") }}>Google</option>
-                                                            <option value="2" {{ ($task->lead_source_id == "2" ? "selected":"") }}>Facebook</option>
-                                                            <option value="3" {{ ($task->lead_source_id == "3" ? "selected":"") }}>Instagram</option>
-                                                            <option value="4" {{ ($task->lead_source_id == "4" ? "selected":"") }}>WhatsApp</option>
-                                                            <option value="5" {{ ($task->lead_source_id == "5" ? "selected":"") }}>Online</option>
-                                                            <option value="6" {{ ($task->lead_source_id == "6" ? "selected":"") }}>Direct Call</option>
-                                                            <option value="7" {{ ($task->lead_source_id == "7" ? "selected":"") }}>Social Media</option>
-                                                        </select>
-                                                        @error('lead_source_id')
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $message }}</strong>
-                                                            </span>
-                                                        @enderror
+                                                        <label><b>Select Lead Source : </b></label>
+                                                        <input type="text" readonly class="form-control" value="{{ $leadBy }}">
+                                                        <input type="hidden" id="lead_source_id" name="lead_source_id" class="form-control" value="{{ $task->lead_source_id }}">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-lg-4 col-md-6 col-sm-12">
                                                     <div class="input-block mb-3">
-                                                        <label><b>Lead Date : <span class="text-danger">*</span></b></b></label>
+                                                        <label><b>Lead Date : </b></b></label>
                                                         <div class="cal-icon cal-icon-info">
-                                                            <input type="text"  id="lead_dt" name="lead_dt" class="form-control datetimepicker @error('lead_dt') is-invalid @enderror" value="{{ $task->lead_dt }}" placeholder="DD-MM-YYYY">
+                                                            <input type="text" readonly id="lead_dt" name="lead_dt" class="form-control datetimepicker @error('lead_dt') is-invalid @enderror" value="{{ $task->lead_dt }}" placeholder="DD-MM-YYYY">
                                                             @error('lead_dt')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
@@ -476,18 +481,9 @@
 
                                                 <div class="col-lg-4 col-md-6 col-sm-12">
                                                     <div class="input-block mb-3" >
-                                                        <label><b>Select Assign To : <span class="text-danger">*</span></b></label>
-                                                        <select class="@error('user_id') is-invalid @enderror select" id="user_id" name="user_id">
-                                                            <option value="">Select Assign To</option>
-                                                            @foreach($users as $user)
-                                                            <option value="{{ $user->id }}" {{ ($task->user_id == $user->id ? "selected":"") }}>{{ $user->name }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        @error('user_id')
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $message }}</strong>
-                                                            </span>
-                                                        @enderror
+                                                        <label><b>Select Assign To : </b></label>
+                                                        <input type="text" readonly class="form-control" value="{{ $task->user?->name }}">
+                                                        <input type="hidden" id="user_id" name="user_id" class="form-control" value="{{ $task->user_id }}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -569,8 +565,8 @@
                                             </div>
                                         </fieldset>
                                         <div class="d-flex">
-                                            <a href="{{ route('task.index') }}" class="btn btn-danger me-2">Cancel</a>
                                             <a class="btn btn-primary previous me-2">Previous</a>
+                                            <a href="{{ route('sales-report-list.index') }}" class="btn btn-danger me-2">Cancel</a>
                                             <button type="submit" class="btn btn-success">Submit</button>
                                         </div>
                                     </div>

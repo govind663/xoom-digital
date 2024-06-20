@@ -74,6 +74,13 @@
                         </li>
                     </ul>
                 </li>
+
+                <li class="{{ ($currentRoute === 'leads.assigned-leads') ? 'active' : '' }}">
+                    <a href="{{ route('leads.assigned-leads') }}">
+                        <i class="fe fe-pie-chart"></i>
+                        <span>Assign Leads</span>
+                    </a>
+                </li>
                 @elseif (Auth::user()->user_type == '3')
                 <li class="{{ ($currentRoute === 'task.index') || ($currentRoute === 'task.create') || ($currentRoute === 'task.edit') ? 'active' : '' }}">
                     <a href="{{ route('task.index') }}">
