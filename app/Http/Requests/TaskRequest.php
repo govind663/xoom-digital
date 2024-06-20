@@ -24,12 +24,12 @@ class TaskRequest extends FormRequest
     {
         if ($this->id){
             $rule = [
-                'customer_name' => 'nullable|string|max:255',
+                'customer_name' => 'required|string|max:255',
                 'customer_email' => 'nullable|string|max:255',
-                'customer_phone' => 'nullable|string|max:255',
-                'customer_address' => 'nullable|string|max:255',
-                'customer_city' => 'nullable|string|max:255',
-                'customer_pincode' => 'nullable|string|max:255',
+                'customer_phone' => 'required|string|max:255',
+                'customer_address' => 'required|string|max:255',
+                'customer_city' => 'required|string|max:255',
+                'customer_pincode' => 'required|string|max:255',
                 'package_id' => 'nullable|numeric',
                 'lead_source_id' => 'nullable|numeric',
                 'lead_dt' => 'nullable|string|max:255',
@@ -46,12 +46,12 @@ class TaskRequest extends FormRequest
             ];
         }else{
             $rule = [
-                'customer_name' => 'nullable|string|max:255',
+                'customer_name' => 'required|string|max:255',
                 'customer_email' => 'nullable|string|max:255',
-                'customer_phone' => 'nullable|string|max:255',
-                'customer_address' => 'nullable|string|max:255',
-                'customer_city' => 'nullable|string|max:255',
-                'customer_pincode' => 'nullable|string|max:255',
+                'customer_phone' => 'required|string|max:255',
+                'customer_address' => 'required|string|max:255',
+                'customer_city' => 'required|string|max:255',
+                'customer_pincode' => 'required|string|max:255',
                 'package_id' => 'nullable|numeric',
                 'lead_source_id' => 'nullable|numeric',
                 'lead_dt' => 'nullable|string|max:255',
@@ -77,7 +77,6 @@ class TaskRequest extends FormRequest
             'customer_name.string' => __('The customer name must be a string.'),
             'customer_name.max' => __('The length of customer name should not exceed 255 characters'),
 
-            'customer_email.required' => 'Customer Email is required',
             'customer_email.string' => __('The customer email must be a string.'),
             'customer_email.max' => __('The length of customer email should not exceed 255 characters'),
 
