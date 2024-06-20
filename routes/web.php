@@ -23,6 +23,9 @@ use App\Http\Controllers\LeadsController;
 // === Customer Controller
 use App\Http\Controllers\CustomerController;
 
+// === Sales Report Controller
+use App\Http\Controllers\SalesReportController;
+
 Route::get('/', function () {
     return view('auth.login');
 })->name('/');
@@ -69,4 +72,11 @@ Route::group(['prefix' => 'xoom-digital', 'middleware'=>['auth', PreventBackHist
     Route::get('customer/index', [CustomerController::class, 'index'])->name('customer.index');
     // === Serch Customer by mobile Number
     Route::post('customer/search', [CustomerController::class, 'search'])->name('customer.search');
+
+    // === Sales Reports List with Status
+    Route::get('sales-report-list/{task_status?}', [SalesReportController::class,'salesReportList'])->name('sales-report-list.index');
+    // === Sales Reports view with Status
+    Route::get('sales-report-list/view/{task_status?}/{task_id?}', [SalesReportController::class,'salesReportView'])->name('sales-report-list.view');
+    // === Sales Reports Search with Status
+    Route::post('sales-report-list/search', [SalesReportController::class,'salesReportListSearch'])->name('sales-report-list.search');
 });

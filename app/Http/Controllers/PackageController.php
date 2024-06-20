@@ -47,7 +47,7 @@ class PackageController extends Controller
                 $new_name = time() . rand(10, 999) . '.' . $extension;
                 $image->move(public_path('/xoom_digital/package/image'), $new_name);
 
-                $image_path = "/xoom-digital/package/image" . $image_name;
+                $image_path = "/xoom_digital/package/image" . $image_name;
                 $package->image = $new_name;
             }
 
