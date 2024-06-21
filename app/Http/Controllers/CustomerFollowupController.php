@@ -35,4 +35,7 @@ class CustomerFollowupController extends Controller
             return redirect()->back()->with('error','Something Went Wrong - '.$ex->getMessage());
         }
     }
+
+    // Fetch Balance Amount
+    public function fetchPackageAmount(Request $request){}
 }

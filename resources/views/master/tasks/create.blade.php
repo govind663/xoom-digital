@@ -563,6 +563,7 @@ Task | Add
                                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                                         <div class="input-block mb-3">
                                                             <label><b>Advanced Payment : <span class="text-danger">*</span></b></b></label>
+                                                            <input type="hidden"  id="current_package_amt" name="current_package_amt" class="form-control" value="{{ old('current_package_amt') }}" >
                                                             <input type="text"  id="advanced_payment" name="advanced_payment" class="form-control @error('advanced_payment') is-invalid @enderror" value="{{ old('advanced_payment') }}" placeholder="Enter Advanced Payment">
                                                             @error('advanced_payment')
                                                                 <span class="invalid-feedback" role="alert">
@@ -603,4 +604,25 @@ Task | Add
 @endsection
 
 @push('scripts')
+{{-- Fetch Balance Amounts --}}
+<script>
+    $(document).ready(function(){
+        $(document).on('change','#package_id', function() {
+            let package_id = $(this).val();
+            $('#current_package_amt').show();
+            $.ajax({
+                method: 'POST',
+                url: "{{ route('task.package.amount') }}",
+                data: {
+                    packageId: package_id,
+                    _token : '{{ csrf_token() }}'
+                },
+                dataType: 'json',
+                success: function (result) {
+                    $('#current_package_amt').val(result.amount);
+                },
+            });
+        });
+    });
+</script>
 @endpush

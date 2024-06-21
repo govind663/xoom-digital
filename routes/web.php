@@ -90,4 +90,5 @@ Route::group(['prefix' => 'xoom-digital', 'middleware'=>['auth', PreventBackHist
 
     // FollowUp On Field Store
     Route::post('followup/store', [CustomerFollowupController::class, 'followUpStore'])->name('followup.store');
+
 });
