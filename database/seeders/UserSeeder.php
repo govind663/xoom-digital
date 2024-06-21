@@ -16,6 +16,7 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::create([
+            'employee_code' => 'EMP/000002/2024',
             'name' => 'Shiv Santosh Singh',
             'city' => 'Mumbai',
             'mobile_no' => '1234567890',

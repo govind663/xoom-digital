@@ -29,6 +29,9 @@ use App\Http\Controllers\SalesReportController;
 // Assigned Lead Controller
 use App\Http\Controllers\AssignedLeadsController;
 
+// Customer Followup Controller
+use App\Http\Controllers\CustomerFollowupController;
+
 Route::get('/', function () {
     return view('auth.login');
 })->name('/');
@@ -84,4 +87,7 @@ Route::group(['prefix' => 'xoom-digital', 'middleware'=>['auth', PreventBackHist
 
     // Assigned Leads
     Route::get('leads/assigned-leads', [AssignedLeadsController::class, 'assignedLeads'])->name('leads.assigned-leads');
+
+    // FollowUp On Field Store
+    Route::post('followup/store', [CustomerFollowupController::class, 'followUpStore'])->name('followup.store');
 });
