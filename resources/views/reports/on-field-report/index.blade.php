@@ -162,7 +162,7 @@ Assigned Task Leads | List
 
                     <div class="row card-body">
                         @foreach ($tasks as $key=>$value )
-                            <div class="table-responsive">
+                            <div class="table-responsive mb-10">
                                 <div class="wrapper">
                                     <div class="user-card">
                                         <div class="user-card-img">
@@ -184,7 +184,6 @@ Assigned Task Leads | List
                                     </div>
                                 </div>
                             </div>
-                            <br>
 
                             {{-- Update Followup Model Start --}}
                             <div class="modal custom-modal fade" id="add_followup" role="dialog">
