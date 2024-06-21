@@ -34,8 +34,8 @@ Assigned Task Leads | List
     .user-card {
         display: flex;
         flex-direction: column;
-        /* align-items: center;
-        justify-content: center; */
+        align-items: center;
+        justify-content: space-evenly;
         background-color: #fff;
         border-radius: 10px;
         padding: 40px;
@@ -50,10 +50,10 @@ Assigned Task Leads | List
         content: '';
         position: absolute;
         height: 300%;
-        width: 213px;
-        background: #262626;
-        top: -60px;
-        left: -125px;
+        width: 300px;
+        background: #1a1716;
+        top: -70px;
+        left: -135px;
         z-index: 0;
         transform: rotate(17deg);
     }
@@ -73,7 +73,7 @@ Assigned Task Leads | List
     }
 
     .user-card-info {
-        text-align: center;
+        text-align: justify;
     }
 
     .user-card-info h2 {
@@ -176,7 +176,7 @@ Assigned Task Leads | List
                                             <p><span>City : - </span> {{ $value->customer_city }}</p>
                                             <p><span>Address : - </span> {{ $value->customer_address }}</p>
                                         </div>
-                                        <div class="col-6 float-end">
+                                        <div style="col-2 float-end">
                                             <a class="btn btn-primary" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#add_followup">
                                                 <i class="fa fa-edit me-2" aria-hidden="true"></i>Update
                                             </a>
