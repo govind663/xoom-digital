@@ -177,7 +177,7 @@ Assigned Task Leads | List
                                             <p><span>Address : - </span> {{ $value->customer_address }}</p>
                                         </div>
                                         <div style="float-end">
-                                            <a class="btn btn-warning" href="javascript:void(0);" data-bs-toggle="modal_{{ $value->customer_name }}" data-bs-target="#add_followup">
+                                            <a class="btn btn-warning" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#add_followup_{{ $value->id }}">
                                                 <i class="fa fa-edit me-2"></i>Update
                                             </a>
                                         </div>
@@ -191,14 +191,14 @@ Assigned Task Leads | List
                             </div>
 
                             {{-- Update Followup Model Start --}}
-                            <div class="modal custom-modal fade" id="add_followup" role="dialog">
+                            <div class="modal custom-modal fade" id="add_followup_{{ $value->id }}" role="dialog">
                                 <div class="modal-dialog modal-dialog-centered modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header border-0 pb-0">
                                             <div class="form-header modal-header-title text-start mb-0">
                                                 <h4 class="mb-0">Update Follow Up</h4>
                                             </div>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal_{{ $value->customer_name }}" aria-label="Close"></button>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <form action="#">
                                             <div class="modal-body">
