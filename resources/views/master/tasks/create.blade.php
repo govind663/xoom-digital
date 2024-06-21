@@ -348,7 +348,7 @@ Task | Add
                                                         {{-- <input type="checkbox" id="package_id" name="package_id" style="border: 1px solid #e77c09;"  class="form-check-input" value="1" > --}}
                                                         @foreach($packages as $package)
                                                         <div class="ptable-item">
-                                                            <div class="ptable-single"  style="height: 600px !important;">
+                                                            <div class="ptable-single"  style="height: 500px !important;">
                                                                 <img src="{{ url('/') }}/xoom_digital/package/image/{{ $package->image }}" alt="priceing Banner" style="height: 130px; width:100%" >
 
                                                                 <div class="ptable-body p-3">

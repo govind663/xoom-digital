@@ -23,7 +23,7 @@
         background: #ffffff;
     }
 
-        .pricing-table .ptable-item {
+    .pricing-table .ptable-item {
         width: 33.33%;
         padding: 0 15px;
         margin-bottom: 30px;
@@ -62,7 +62,11 @@
     }
 
     .pricing-table .ptable-status ,
-    .pricing-table .ptable-title,
+    .pricing-table .ptable-title {
+        position: relative;
+        width: 100%;
+        text-align: justify;
+    }
     .pricing-table .ptable-price {
         position: relative;
         width: 100%;
@@ -93,7 +97,7 @@
         width: 50px;
         height: 30px;
         padding: 5px 0;
-        text-align: center;
+        text-align: justify;
         color: #FF6F61;
         font-size: 14px;
         font-weight: 300;
@@ -126,7 +130,13 @@
         font-size: 22px;
         font-weight: 300;
         letter-spacing: 2px;
-        text-align: left;
+        text-align: justify;
+    }
+    .pricing-table .ptable-title h3 {
+        color: #0c0c0c;
+        font-size: 23px;
+        font-weight: 500;
+        text-align: justify;
     }
 
     .pricing-table .ptable-title h4 {
@@ -134,7 +144,14 @@
         font-size: 18px;
         font-weight: 200;
         letter-spacing: 2px;
-        text-align: left;
+        text-align: justify;
+    }
+
+    .pricing-table .ptable-title h5 {
+        color: #1f1818;
+        font-size: 18px;
+        font-weight: 500;
+        text-align: justify;
     }
 
     .pricing-table .ptable-price h2 {
@@ -288,7 +305,7 @@
                                             {{-- Pricing Section Start --}}
                                             <div class="pricing-table">
                                                 <div class="ptable-item">
-                                                    <div class="ptable-single">
+                                                    <div class="ptable-single" style="height: 500px !important;">
                                                         <img src="{{ url('/') }}/xoom_digital/package/image/{{ $packages->image }}" alt="priceing Banner" style="height: 130px; width:100%" >
 
                                                         <div class="ptable-body p-3">
