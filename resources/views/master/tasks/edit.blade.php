@@ -353,7 +353,7 @@
                                                             <div class="ptable-footer">
                                                                 <div class="ptable-price">
                                                                     <h5>
-                                                                        {{ $package->amount }} <span>RS</span>
+                                                                        <span>RS</span> {{ $package->amount }}
                                                                     </h5>
                                                                 </div>
                                                                 <div id="input-group-text">

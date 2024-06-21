@@ -164,13 +164,13 @@ Task | List
                                         <td><span class="badge bg-danger">Cancelled</span></td>
                                         @endif
 
-                                        @if (Auth::user()->user_type == '3') //==== User Type '3' (Sales)
+                                        @if (Auth::user()->user_type == '3')
                                         <td class="no-export d-flex">
                                             <a href="{{ route('sales-report-list.view', ['task_status'=>$value->task_status, 'task_id' => $value->id]) }}" class="btn btn-warning btn-sm text-dark">
                                                 <i class="far fa-eye me-2"></i>view
                                             </a>
                                         </td>
-                                        @elseif (Auth::user()->user_type == '2') //==== User Type '2' (On Field)
+                                        @elseif (Auth::user()->user_type == '2')
                                         <td class="no-export d-flex">
                                             <a href="{{ route('sales-report-list.edit', ['task_status'=>$value->task_status, 'task_id' => $value->id]) }}" class="btn btn-warning btn-sm text-dark">
                                                 <i class="far fa-edit me-2"></i>Edit

@@ -23,7 +23,7 @@ Task | Add
         background: #ffffff;
     }
 
-        .pricing-table .ptable-item {
+    .pricing-table .ptable-item {
         width: 33.33%;
         padding: 0 15px;
         margin-bottom: 30px;
@@ -62,7 +62,11 @@ Task | Add
     }
 
     .pricing-table .ptable-status ,
-    .pricing-table .ptable-title,
+    .pricing-table .ptable-title {
+        position: relative;
+        width: 100%;
+        text-align: justify;
+    }
     .pricing-table .ptable-price {
         position: relative;
         width: 100%;
@@ -93,7 +97,7 @@ Task | Add
         width: 50px;
         height: 30px;
         padding: 5px 0;
-        text-align: center;
+        text-align: justify;
         color: #FF6F61;
         font-size: 14px;
         font-weight: 300;
@@ -126,7 +130,13 @@ Task | Add
         font-size: 22px;
         font-weight: 300;
         letter-spacing: 2px;
-        text-align: left;
+        text-align: justify;
+    }
+    .pricing-table .ptable-title h3 {
+        color: #0c0c0c;
+        font-size: 23px;
+        font-weight: 500;
+        text-align: justify;
     }
 
     .pricing-table .ptable-title h4 {
@@ -134,7 +144,14 @@ Task | Add
         font-size: 18px;
         font-weight: 200;
         letter-spacing: 2px;
-        text-align: left;
+        text-align: justify;
+    }
+
+    .pricing-table .ptable-title h5 {
+        color: #1f1818;
+        font-size: 18px;
+        font-weight: 500;
+        text-align: justify;
     }
 
     .pricing-table .ptable-price h2 {
@@ -331,7 +348,7 @@ Task | Add
                                                         {{-- <input type="checkbox" id="package_id" name="package_id" style="border: 1px solid #e77c09;"  class="form-check-input" value="1" > --}}
                                                         @foreach($packages as $package)
                                                         <div class="ptable-item">
-                                                            <div class="ptable-single">
+                                                            <div class="ptable-single"  style="height: 600px !important;">
                                                                 <img src="{{ url('/') }}/xoom_digital/package/image/{{ $package->image }}" alt="priceing Banner" style="height: 130px; width:100%" >
 
                                                                 <div class="ptable-body p-3">
@@ -353,7 +370,7 @@ Task | Add
                                                                 <div class="ptable-footer">
                                                                     <div class="ptable-price">
                                                                         <h5>
-                                                                            {{ $package->amount }} <span>RS</span>
+                                                                            <span>RS</span> {{ $package->amount }}
                                                                         </h5>
                                                                     </div>
                                                                     <div id="input-group-text">
