@@ -162,7 +162,7 @@ Assigned Task Leads | List
 
                     <div class="row card-body">
                         @foreach ($tasks as $key=>$value )
-                            <div class="table-responsive p-5">
+                            <div class="table-responsive pb-3">
                                 <div class="wrapper">
                                     <div class="user-card">
                                         <div class="user-card-img">
