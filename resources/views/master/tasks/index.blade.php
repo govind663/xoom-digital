@@ -118,7 +118,8 @@ Task | List
                                         <th>Package</th>
                                         <th>Mobile Number</th>
                                         <th>Date</th>
-                                        <th class="no-export d-flex">Action</th>
+                                        <th class="no-export">Edit </th>
+                                        <th class="no-export">Delete </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -131,17 +132,21 @@ Task | List
                                         <td>{{ $value->customer_phone }}</td>
                                         <td>{{ date('d-m-Y', strtotime($value->inserted_at)) }}</td>
 
-                                        <td class="no-export d-flex">
-                                            <a href="{{ route('task.edit', $value->id) }}" class="btn btn-warning btn-sm text-dark">
-                                                <i class="far fa-edit me-2"></i>Edit
+                                        <td class="no-export">
+                                            <a href="{{ route('task.edit', $value->id) }}" >
+                                                <button class="btn btn-warning btn-sm text-dark">
+                                                    <i class="far fa-edit"></i>
+                                                </button>
                                             </a>
-                                            &nbsp;
+                                        </td>
+
+                                        <td class="no-export">
                                             <form action="{{ route('task.destroy', $value->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
                                                 <input name="_method" type="hidden" value="DELETE">
                                                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete?')">
-                                                    <i class="far fa-trash-alt me-2"></i>Delete
+                                                    <i class="far fa-trash-alt"></i>
                                                 </button>
                                             </form>
                                         </td>

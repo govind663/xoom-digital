@@ -78,7 +78,7 @@
                 <li class="{{ ($currentRoute === 'leads.assigned-leads') ? 'active' : '' }}">
                     <a href="{{ route('leads.assigned-leads') }}">
                         <i class="fe fe-pie-chart"></i>
-                        <span>Assign Leads</span>
+                        <span>Assigned Leads</span>
                     </a>
                 </li>
                 @elseif (Auth::user()->user_type == '3')

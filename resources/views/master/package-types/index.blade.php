@@ -69,7 +69,8 @@ Package Type | List
                                     <tr>
                                         <th>Sr. No.</th>
                                         <th>Package Type</th>
-                                        <th class="no-export">Action</th>
+                                        <th class="no-export">Edit </th>
+                                        <th class="no-export">Delete </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -78,17 +79,21 @@ Package Type | List
                                         <td>{{ ++$key }}</td>
                                         <td>{{ $value->name }}</td>
 
-                                        <td class="no-export d-flex">
-                                            <a href="{{ route('package-type.edit', $value->id) }}" class="btn btn-warning btn-sm text-dark">
-                                                <i class="far fa-edit me-2"></i>Edit
+                                        <td class="no-export">
+                                            <a href="{{ route('package-type.edit', $value->id) }}">
+                                                <button class="btn btn-warning btn-sm text-dark">
+                                                    <i class="far fa-edit"></i>
+                                                </button>
                                             </a>
-                                            &nbsp;
+                                        </td>
+
+                                        <td class="no-export">
                                             <form action="{{ route('package-type.destroy', $value->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
                                                 <input name="_method" type="hidden" value="DELETE">
                                                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete?')">
-                                                    <i class="far fa-trash-alt me-2"></i>Delete
+                                                    <i class="far fa-trash-alt"></i>
                                                 </button>
                                             </form>
                                         </td>

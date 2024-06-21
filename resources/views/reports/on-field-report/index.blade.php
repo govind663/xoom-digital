@@ -177,13 +177,95 @@ Assigned Task Leads | List
                                             <p><span>Address : - </span> {{ $value->customer_address }}</p>
                                         </div>
                                         <div class="col-6 float-end">
-                                            <a href="{{ route('task.create') }}" class="btn btn-primary btn-sm">
-                                                <i class="fa fa-plus-circle me-2" aria-hidden="true"></i>Update
+                                            <a class="btn btn-primary" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#add_followup">
+                                                <i class="fa fa-edit me-2" aria-hidden="true"></i>Update
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+                            {{-- Update Followup Model Start --}}
+                            <div class="modal custom-modal fade" id="add_followup" role="dialog">
+                                <div class="modal-dialog modal-dialog-centered modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header border-0 pb-0">
+                                            <div class="form-header modal-header-title text-start mb-0">
+                                                <h4 class="mb-0">Update Follow Up</h4>
+                                            </div>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <form action="#">
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                                        <div class="input-block mb-3" >
+                                                            <label><b>Select Status : <span class="text-danger">*</span></b></label>
+                                                            <select class="@error('task_status') is-invalid @enderror select" id="task_status" name="task_status">
+                                                                <option value="">Select Status</option>
+                                                                <option value="1" {{ (old("task_status") == "1" ? "selected":"") }}>Pending</option>
+                                                                <option value="2" {{ (old("task_status") == "2" ? "selected":"") }}>In Progress</option>
+                                                                <option value="3" {{ (old("task_status") == "3" ? "selected":"") }}>Completed</option>
+                                                                <option value="4" {{ (old("task_status") == "4" ? "selected":"") }}>Cancelled</option>
+                                                            </select>
+                                                            @error('task_status')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                                        <div class="input-block mb-3">
+                                                            <label><b>Date : <span class="text-danger">*</span></b></b></label>
+                                                            <div class="cal-icon cal-icon-info">
+                                                                <input type="text"  id="meating_dt" name="meating_dt" class="form-control datetimepicker @error('meating_dt') is-invalid @enderror" value="{{ old('meating_dt') }}" placeholder="DD-MM-YYYY">
+                                                                @error('meating_dt')
+                                                                    <span class="invalid-feedback" role="alert">
+                                                                        <strong>{{ $message }}</strong>
+                                                                    </span>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                                        <div class="input-block mb-3">
+                                                            <label><b>Time : <span class="text-danger">*</span></b></label>
+                                                            <input type="time" id="meating_time" name="meating_time" class="form-control @error('meating_time') is-invalid @enderror" value="{{ old('meating_time') }}" placeholder="Enter Time">
+
+                                                            @error('meating_time')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                                        <div class="input-block mb-3">
+                                                            <label><b>Description : <span class="text-danger">*</span></b></label>
+                                                            <textarea type="text" id="customer_address" row="5" col="5"  name="customer_address" class="form-control @error('customer_address') is-invalid @enderror" value="{{ old('customer_address') }}" placeholder="Enter Description">{{ old('customer_address') }}</textarea>
+
+                                                            @error('customer_address')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" data-bs-dismiss="modal" class="btn btn-danger me-2">Cancel</button>
+                                                <button type="submit" data-bs-dismiss="modal" class="btn btn-success me-2">Update</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- Update Followup Model End --}}
                         @endforeach
                     </div>
                 </div>

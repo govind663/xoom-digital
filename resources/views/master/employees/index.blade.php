@@ -73,7 +73,8 @@ Employee | List
                                         <th>Mobile No.</th>
                                         <th>Email Id</th>
                                         <th>Employee Type</th>
-                                        <th class="no-export">Action</th>
+                                        <th class="no-export">Edit </th>
+                                        <th class="no-export">Delete </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -94,16 +95,20 @@ Employee | List
                                         </td>
 
                                         <td class="no-export d-flex">
-                                            <a href="{{ route('employee.edit', $value->id) }}" class="btn btn-warning btn-sm text-dark">
-                                                <i class="far fa-edit me-2"></i>Edit
+                                            <a href="{{ route('employee.edit', $value->id) }}">
+                                                <button class="btn btn-warning btn-sm text-dark">
+                                                    <i class="far fa-edit"></i>
+                                                </button>
                                             </a>
-                                            &nbsp;
+                                        </td>
+
+                                        <td class="no-export">
                                             <form action="{{ route('employee.destroy', $value->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
                                                 <input name="_method" type="hidden" value="DELETE">
                                                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete?')">
-                                                    <i class="far fa-trash-alt me-2"></i>Delete
+                                                    <i class="far fa-trash-alt"></i>
                                                 </button>
                                             </form>
                                         </td>
