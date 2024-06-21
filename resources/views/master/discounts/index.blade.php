@@ -103,7 +103,7 @@ Discount | List
 
                                         <td>{{ date("d-m-Y", strtotime($value->coupon_valid_to)) }}</td>
 
-                                        <td class="no-export d-flex">
+                                        <td class="no-export">
                                             <a href="{{ route('discount.edit', $value->id) }}">
                                                 <button class="btn btn-warning btn-sm text-dark">
                                                     <i class="far fa-edit"></i>

@@ -94,7 +94,7 @@ Employee | List
                                             @endif
                                         </td>
 
-                                        <td class="no-export d-flex">
+                                        <td class="no-export">
                                             <a href="{{ route('employee.edit', $value->id) }}">
                                                 <button class="btn btn-warning btn-sm text-dark">
                                                     <i class="far fa-edit"></i>

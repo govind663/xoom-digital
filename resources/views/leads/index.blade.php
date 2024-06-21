@@ -80,13 +80,13 @@ Leads | List
                                         <td>{{ $value->leadSource?->name }}</td>
 
                                         @if(!empty($value->task_status == '1'))
-                                        <td><span class="badge bg-warning">{{ $status }}</span></td>
+                                        <td><span class="badge bg-warning">Pending</span></td>
                                         @elseif(!empty($value->task_status == '2'))
-                                        <td><span class="badge bg-info">{{ $status }}</span></td>
+                                        <td><span class="badge bg-info">In Progress</span></td>
                                         @elseif(!empty($value->task_status == '3'))
                                         <td><span class="badge bg-success">Completed</span></td>
                                         @elseif(!empty($value->task_status == '4'))
-                                        <td><span class="badge bg-danger">{{ $status }}</span></td>
+                                        <td><span class="badge bg-danger">Rejected</span></td>
                                         @endif
                                     </tr>
                                     @endforeach

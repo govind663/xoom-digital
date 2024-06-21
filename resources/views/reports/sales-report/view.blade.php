@@ -293,10 +293,10 @@
 
                                                         <div class="ptable-body p-3">
                                                             <div class="ptable-title pb-2">
-                                                                <h3>
+                                                                <h3 style="text-align: left !important;">
                                                                     {{ $packages->name }}
                                                                 </h3>
-                                                                <h5>
+                                                                <h5 style="text-align: left !important;">
                                                                     {{ $packages->packageType?->name }}
                                                                 </h5>
                                                             </div>
@@ -310,7 +310,7 @@
                                                         <div class="ptable-footer">
                                                             <div class="ptable-price">
                                                                 <h5>
-                                                                    {{ $packages->amount }} <span>RS</span>
+                                                                    <span>RS</span> {{ $packages->amount }}
                                                                 </h5>
                                                             </div>
                                                             <div id="input-group-text">
