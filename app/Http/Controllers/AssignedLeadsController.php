@@ -13,7 +13,8 @@ class AssignedLeadsController extends Controller
      * Display a listing of the resource.
      */
     public function assignedLeads(){
-        $tasks = Task::with('package', 'user')->orderBy("id","desc")->whereNull('deleted_at')->get();
+        $tasks = Task::with('package', 'user')->where('lead_by', Auth::user()->id)->orderBy("id","desc")->whereNull('deleted_at')->get();
+
         return view('reports.on-field-report.index', ['tasks'=>$tasks]);
     }
 }

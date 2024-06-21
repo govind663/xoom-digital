@@ -17,7 +17,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::with('package', 'user')->orderBy("id","desc")->whereNull('deleted_at')->get();
+        $tasks = Task::with('package', 'user')->where('lead_by', Auth::user()->id)->orderBy("id","desc")->whereNull('deleted_at')->get();
         return view('master.tasks.index', ['tasks'=>$tasks]);
     }
 
