@@ -166,7 +166,7 @@ Assigned Task Leads | List
                                 <div class="wrapper">
                                     <div class="user-card">
                                         <div class="user-card-img">
-                                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxivAs4UknzmDfLBXGMxQkayiZDhR2ftB4jcIV7LEnIEStiUyMygioZnbLXCAND-I_xWQpVp0jv-dv9NVNbuKn4sNpXYtLIJk2-IOdWQNpC2Ldapnljifu0pnQqAWU848Ja4lT9ugQex-nwECEh3a96GXwiRXlnGEE6FFF_tKm66IGe3fzmLaVIoNL/s1600/img_avatar.png" alt="">
+                                            <img src="{{ asset('assets/profile/img_avatar.png') }}" alt="">
                                         </div>
                                         <div class="user-card-info">
                                             <h2>{{ $value->customer_name }}</h2>
@@ -184,6 +184,7 @@ Assigned Task Leads | List
                                     </div>
                                 </div>
                             </div>
+                            <br>
 
                             {{-- Update Followup Model Start --}}
                             <div class="modal custom-modal fade" id="add_followup" role="dialog">
