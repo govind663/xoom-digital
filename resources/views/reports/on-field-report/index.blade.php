@@ -176,9 +176,14 @@ Assigned Task Leads | List
                                             <p><span>City : - </span> {{ $value->customer_city }}</p>
                                             <p><span>Address : - </span> {{ $value->customer_address }}</p>
                                         </div>
-                                        <div style="col-2 float-end">
-                                            <a class="btn btn-primary" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#add_followup">
-                                                <i class="fa fa-edit me-2" aria-hidden="true"></i>Update
+                                        <div style="float-end">
+                                            <a class="btn btn-warning" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#add_followup">
+                                                <i class="fa fa-edit me-2"></i>Update
+                                            </a>
+                                        </div>
+                                        <div style="float-end">
+                                            <a href="" class="btn btn-primary btn-sm">
+                                                <i class="far fa-eye me-2"></i>View History
                                             </a>
                                         </div>
                                     </div>
