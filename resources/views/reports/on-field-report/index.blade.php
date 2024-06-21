@@ -49,7 +49,7 @@ Assigned Task Leads | List
     .user-card:before {
         content: '';
         position: absolute;
-        height: 300%;
+        height: 193%;
         width: 300px;
         background: #1a1716;
         top: -70px;
