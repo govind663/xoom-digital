@@ -206,7 +206,7 @@ Assigned Task Leads | List
                                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                                         <div class="input-block mb-3" >
                                                             <label><b>Select Status : <span class="text-danger">*</span></b></label>
-                                                            <select class="@error('task_status') is-invalid @enderror select" id="task_status" name="task_status">
+                                                            <select class="form-control @error('task_status') is-invalid @enderror select" id="task_status" name="task_status">
                                                                 <option value="">Select Status</option>
                                                                 <option value="1" {{ (old("task_status") == "1" ? "selected":"") }}>Pending</option>
                                                                 <option value="2" {{ (old("task_status") == "2" ? "selected":"") }}>In Progress</option>
