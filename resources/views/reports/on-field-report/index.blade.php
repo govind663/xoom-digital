@@ -202,6 +202,7 @@ Assigned Task Leads | List
                                         </div>
                                         <form action="#">
                                             <div class="modal-body">
+                                                <link rel="stylesheet" href="{{ asset('/assets/plugins/select2/css/select2.min.css') }}">
                                                 <div class="row">
                                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                                         <div class="input-block mb-3" >
@@ -261,6 +262,7 @@ Assigned Task Leads | List
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <script src="{{ asset('/assets/plugins/select2/js/select2.min.js') }}"></script>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" data-bs-dismiss="modal" class="btn btn-danger me-2">Cancel</button>
