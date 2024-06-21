@@ -117,7 +117,7 @@ Discount | List
                                                 @method('DELETE')
                                                 <input name="_method" type="hidden" value="DELETE">
                                                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete?')">
-                                                    <i class="far fa-trash-al"></i>
+                                                    <i class="far fa-trash-alt"></i>
                                                 </button>
                                             </form>
                                         </td>
