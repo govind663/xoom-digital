@@ -559,6 +559,7 @@
                                                 <div class="col-lg-4 col-md-6 col-sm-12">
                                                     <div class="input-block mb-3">
                                                         <label><b>Advanced Payment : <span class="text-danger">*</span></b></b></label>
+                                                        <input type="hidden"  id="current_package_amt" name="current_package_amt" class="form-control" value="{{ old('current_package_amt') }}" >
                                                         <input type="text"  id="advanced_payment" name="advanced_payment" class="form-control @error('advanced_payment') is-invalid @enderror" value="{{ $task->advanced_payment }}" placeholder="Enter Advanced Payment">
                                                         @error('advanced_payment')
                                                             <span class="invalid-feedback" role="alert">
@@ -571,7 +572,7 @@
                                                 <div class="col-lg-4 col-md-6 col-sm-12">
                                                     <div class="input-block mb-3">
                                                         <label><b>Balance Payment : <span class="text-danger">*</span></b></b></label>
-                                                        <input type="text"  id="balance_payment" name="balance_payment" class="form-control @error('balance_payment') is-invalid @enderror" value="{{ $task->balance_payment }}" placeholder="Enter Balance Payment">
+                                                        <input type="text" readonly  id="balance_payment" name="balance_payment" class="form-control @error('balance_payment') is-invalid @enderror" value="{{ $task->balance_payment }}" placeholder="Enter Balance Payment">
                                                         @error('balance_payment')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
@@ -599,4 +600,37 @@
 @endsection
 
 @push('scripts')
+{{-- Fetch Balance Amounts --}}
+<script>
+    $(document).ready(function(){
+        $(document).on('change','#package_id', function() {
+            let package_id = $(this).val();
+            $('#current_package_amt').show();
+            $.ajax({
+                method: 'POST',
+                url: "{{ route('task.package.amount') }}",
+                data: {
+                    packageId: package_id,
+                    _token : '{{ csrf_token() }}'
+                },
+                dataType: 'json',
+                success: function (result) {
+                    $('#current_package_amt').val(result.amount);
+                },
+            });
+        });
+    });
+</script>
+
+{{-- Calculate Balance Amount Based on (current_package_amt) --}}
+<script>
+    $(document).ready(function(){
+        $(document).on('keyup','#advanced_payment', function() {
+            let current_package_amt = $('#current_package_amt').val();
+            let advanced_payment = $('#advanced_payment').val();
+            let balance_payment = current_package_amt - advanced_payment;
+            $('#balance_payment').val(balance_payment);
+        });
+    });
+</script>
 @endpush

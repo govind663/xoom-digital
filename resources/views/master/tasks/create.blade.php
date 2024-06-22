@@ -576,7 +576,7 @@ Task | Add
                                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                                         <div class="input-block mb-3">
                                                             <label><b>Balance Payment : <span class="text-danger">*</span></b></b></label>
-                                                            <input type="text"  id="balance_payment" name="balance_payment" class="form-control @error('balance_payment') is-invalid @enderror" value="{{ old('balance_payment') }}" placeholder="Enter Balance Payment">
+                                                            <input type="text" readonly  id="balance_payment" name="balance_payment" class="form-control @error('balance_payment') is-invalid @enderror" value="{{ old('balance_payment') }}" placeholder="Enter Balance Payment">
                                                             @error('balance_payment')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
@@ -622,6 +622,18 @@ Task | Add
                     $('#current_package_amt').val(result.amount);
                 },
             });
+        });
+    });
+</script>
+
+{{-- Calculate Balance Amount Based on (current_package_amt) --}}
+<script>
+    $(document).ready(function(){
+        $(document).on('keyup','#advanced_payment', function() {
+            let current_package_amt = $('#current_package_amt').val();
+            let advanced_payment = $('#advanced_payment').val();
+            let balance_payment = current_package_amt - advanced_payment;
+            $('#balance_payment').val(balance_payment);
         });
     });
 </script>
