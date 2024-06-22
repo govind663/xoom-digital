@@ -156,7 +156,7 @@ Assigned Task Leads | List
 
                     <div class="row card-body">
                         <div class="col-10">
-                            <h5 class="card-title">All Assigned Task Leads List</h5>
+                            <h5 class="card-title text-primary">All Assigned Task Leads List</h5>
                         </div>
                     </div>
 
@@ -176,13 +176,25 @@ Assigned Task Leads | List
                                             <p><span>City : - </span> {{ $value->customer_city }}</p>
                                             <p><span>Address : - </span> {{ $value->customer_address }}</p>
                                         </div>
-                                        <div style="float-end">
+                                        <div class="user-card-info">
+                                            {{-- <p><span>Lead Date : - </span> {{ date('d-m-Y', strtotime($value->lead_dt)) }}</p>
+                                            <p><span>Lead By : - </span> {{ $value->leadSource?->name }}</p>
+                                            <p><span>Meating Date : - </span> {{ date('d-m-Y', strtotime($value->meating_dt)) }}</p>
+                                            <p><span>Meating Time : - </span> {{ date('h:i A', strtotime($value->meating_time)) }}</p> --}}
+                                        </div>
+                                        <div class="user-card-info">
+                                        </div>
+                                        <div class="user-card-info">
+                                        </div>
+                                        <div class="user-card-info">
+                                        </div>
+                                        <div class="user-card-info">
+                                        </div>
+                                        <div class="user-card-info">
                                             <a class="btn btn-warning" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#add_followup_{{ $value->id }}">
                                                 <i class="fa fa-edit me-2"></i>Update
                                             </a>
-                                        </div>
-                                        <div style="float-end">
-                                            <a href="" class="btn btn-primary btn-sm">
+                                            <a href="{{ route('view-history-log', $value->id) }}" class="btn btn-primary btn-sm">
                                                 <i class="far fa-eye me-2"></i>View History
                                             </a>
                                         </div>
@@ -200,17 +212,17 @@ Assigned Task Leads | List
                                             </div>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
-                                        <form method="POST" action="{{ route('followup.store') }}" enctype="multipart/form-data">
-                                            @csrf
+                                        <div class="modal-body">
+                                            <link rel="stylesheet" href="{{ asset('/assets/plugins/select2/css/select2.min.css') }}">
+                                            <form method="POST" action="{{ route('followup.store') }}" enctype="multipart/form-data">
+                                                @csrf
 
-                                            <input type="text" id="task_id" name="task_id" hidden  value="{{ $value->id }}">
-                                            <div class="modal-body">
-                                                <link rel="stylesheet" href="{{ asset('/assets/plugins/select2/css/select2.min.css') }}">
+                                                <input type="text" id="task_id" name="task_id" hidden  value="{{ $value->id }}">
                                                 <div class="row">
                                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                                         <div class="input-block mb-3" >
                                                             <label><b>Select Status : <span class="text-danger">*</span></b></label>
-                                                            <select class="form-control @error('followup_status') is-invalid @enderror select" id="followup_status" name="followup_status">
+                                                            <select class="form-control @error('followup_status') is-invalid @enderror select" id="followup_status" required name="followup_status">
                                                                 <option value="">Select Status</option>
                                                                 <option value="1" {{ (old("followup_status") == "1" ? "selected":"") }}>Pending</option>
                                                                 <option value="2" {{ (old("followup_status") == "2" ? "selected":"") }}>In Progress</option>
@@ -229,7 +241,7 @@ Assigned Task Leads | List
                                                         <div class="input-block mb-3">
                                                             <label><b>Date : <span class="text-danger">*</span></b></b></label>
                                                             <div class="cal-icon cal-icon-info">
-                                                                <input type="text"  id="followup_date" name="followup_date" class="form-control datetimepicker @error('followup_date') is-invalid @enderror" value="{{ old('followup_date') }}" placeholder="DD-MM-YYYY">
+                                                                <input type="text" required id="followup_date" name="followup_date" class="form-control datetimepicker @error('followup_date') is-invalid @enderror" value="{{ old('followup_date') }}" placeholder="DD-MM-YYYY">
                                                                 @error('followup_date')
                                                                     <span class="invalid-feedback" role="alert">
                                                                         <strong>{{ $message }}</strong>
@@ -242,7 +254,7 @@ Assigned Task Leads | List
                                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                                         <div class="input-block mb-3">
                                                             <label><b>Time : <span class="text-danger">*</span></b></label>
-                                                            <input type="time" id="followup_time" name="followup_time" class="form-control @error('followup_time') is-invalid @enderror" value="{{ old('followup_time') }}" placeholder="Enter Time">
+                                                            <input type="time" required id="followup_time" name="followup_time" class="form-control @error('followup_time') is-invalid @enderror" value="{{ old('followup_time') }}" placeholder="Enter Time">
 
                                                             @error('followup_time')
                                                                 <span class="invalid-feedback" role="alert">
@@ -255,7 +267,7 @@ Assigned Task Leads | List
                                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                                         <div class="input-block mb-3">
                                                             <label><b>Description : <span class="text-danger">*</span></b></label>
-                                                            <textarea type="text" id="followup_description" name="followup_description" class="form-control @error('followup_description') is-invalid @enderror" value="{{ old('followup_description') }}" placeholder="Enter Description">{{ old('followup_description') }}</textarea>
+                                                            <textarea type="text" required id="followup_description" name="followup_description" class="form-control @error('followup_description') is-invalid @enderror" value="{{ old('followup_description') }}" placeholder="Enter Description">{{ old('followup_description') }}</textarea>
 
                                                             @error('followup_description')
                                                                 <span class="invalid-feedback" role="alert">
@@ -265,13 +277,13 @@ Assigned Task Leads | List
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <script src="{{ asset('/assets/plugins/select2/js/select2.min.js') }}"></script>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" data-bs-dismiss="modal" class="btn btn-danger me-2">Cancel</button>
-                                                <button type="submit" data-bs-dismiss="modal" class="btn btn-success me-2">Update</button>
-                                            </div>
-                                        </form>
+                                                <div class="modal-footer">
+                                                    <button type="button" data-bs-dismiss="modal" class="btn btn-danger me-2">Cancel</button>
+                                                    <button type="submit" class="btn btn-success me-2">Update</button>
+                                                </div>
+                                            </form>
+                                            <script src="{{ asset('/assets/plugins/select2/js/select2.min.js') }}"></script>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

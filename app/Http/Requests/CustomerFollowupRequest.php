@@ -25,20 +25,20 @@ class CustomerFollowupRequest extends FormRequest
             $rule = [
                 'task_id' => 'required|numeric|max:10',
                 'followup_status' => 'required|numeric|max:10',
-                'followup_date' => 'required|date|after_or_equal:'.now()->format('Y-m-d'),
+                'followup_date' => 'required|date_format:d-m-Y',
                 'followup_time' => 'required|date_format:H:i',
-                'followup_by' => 'required|numeric|max:10',
-                'followup_by_type' => 'required|numeric|max:10',
+                'followup_by' => 'nullable|numeric|max:10',
+                'followup_by_type' => 'nullable|numeric|max:10',
                 'followup_description' => 'required|string|max:255',
             ];
         }else{
             $rule = [
                 'task_id' => 'required|numeric|max:10',
                 'followup_status' => 'required|numeric|max:10',
-                'followup_date' => 'required|date|after_or_equal:'.now()->format('Y-m-d'),
+                'followup_date' => 'required|date_format:d-m-Y',
                 'followup_time' => 'required|date_format:H:i',
-                'followup_by' => 'required|numeric|max:10',
-                'followup_by_type' => 'required|numeric|max:10',
+                'followup_by' => 'nullable|numeric|max:10',
+                'followup_by_type' => 'nullable|numeric|max:10',
                 'followup_description' => 'required|string|max:255',
             ];
         }
@@ -56,18 +56,15 @@ class CustomerFollowupRequest extends FormRequest
             'followup_status.numeric' => 'Followup status must be a number.',
             'followup_status.max' => 'Followup status must not be greater than 10.',
 
-            'followup_date.after_or_equal' => 'Followup date must be greater than or equal to today.',
             'followup_date.required' => 'Followup date is required.',
-            'followup_date.date' => 'Followup date is not valid.',
+            'followup_date.date_format' => 'Followup date is not valid.',
 
             'followup_time.required' => 'Followup time is required.',
             'followup_time.date_format' => 'Followup time is not valid.',
 
-            'followup_by.required' => 'Followup by is required.',
             'followup_by.numeric' => 'Followup by type must be a number.',
             'followup_by.max' => 'Followup by type must not be greater than 10.',
 
-            'followup_by_type.required' => 'Followup by type is required.',
             'followup_by_type.numeric' => 'Followup by type must be a number.',
             'followup_by_type.max' => 'Followup by type must not be greater than 10.',
 

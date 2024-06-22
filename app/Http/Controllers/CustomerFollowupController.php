@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CustomerFollowupRequest;
 use App\Models\CustomerFollowup;
+use App\Models\Task;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -36,6 +37,13 @@ class CustomerFollowupController extends Controller
         }
     }
 
-    // Fetch Balance Amount
-    public function fetchPackageAmount(Request $request){}
+    // === viewHistoryLog
+    public function viewHistoryLog($id){
+
+        $task = Task::find($id)->where('user_id', Auth::user()->id)->orderBy("id","desc")->whereNull('deleted_at')->first();
+
+        $taskHistory = CustomerFollowup::where('task_id', $id)->orderBy("created_at","desc")->whereNull('deleted_at')->get();
+
+        return view('reports.on-field-report.history', ['task'=>$task, 'taskHistory'=>$taskHistory]);
+    }
 }

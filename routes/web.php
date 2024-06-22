@@ -85,10 +85,13 @@ Route::group(['prefix' => 'xoom-digital', 'middleware'=>['auth', PreventBackHist
     Route::get('sales-report-list/edit/{task_status?}/{task_id?}', [SalesReportController::class,'salesReportEdit'])->name('sales-report-list.edit');
     Route::post('sales-report-list/update/{task_status?}/{task_id?}', [SalesReportController::class,'salesReportUpdate'])->name('sales-report-list.update');
 
-    // Assigned Leads
+    // === Assigned Leads
     Route::get('leads/assigned-leads', [AssignedLeadsController::class, 'assignedLeads'])->name('leads.assigned-leads');
 
-    // FollowUp On Field Store
+    // === FollowUp On Field Store
     Route::post('followup/store', [CustomerFollowupController::class, 'followUpStore'])->name('followup.store');
+
+    // === View HistoryLog
+    Route::get('view-history-log/{task_id}', [CustomerFollowupController::class, 'viewHistoryLog'])->name('view-history-log');
 
 });

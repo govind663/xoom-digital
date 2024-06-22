@@ -53,28 +53,6 @@
                     </a>
                 </li>
                 @elseif (Auth::user()->user_type == '2')
-                <li class="submenu {{ ($currentRoute === 'sales-report-list.index') ? 'no-active' : '' }}">
-                    <a href="javascript:void(0);">
-                        <i class="fe fe-box"></i>
-                        <span>Reports</span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <ul style="display: none;">
-                        <li class="">
-                            <a href="{{ route('sales-report-list.index', ['task_status'=>1]) }}"><span>Pending</span></a>
-                        </li>
-                        <li class="">
-                            <a href="{{ route('sales-report-list.index', ['task_status'=>2]) }}"><span>In Progress</span></a>
-                        </li>
-                        <li class="">
-                            <a href="{{ route('sales-report-list.index', ['task_status'=>3]) }}"><span>Completed</span></a>
-                        </li>
-                        <li class="">
-                            <a href="{{ route('sales-report-list.index', ['task_status'=>4]) }}"><span>Cancelled</span></a>
-                        </li>
-                    </ul>
-                </li>
-
                 <li class="{{ ($currentRoute === 'leads.assigned-leads') ? 'active' : '' }}">
                     <a href="{{ route('leads.assigned-leads') }}">
                         <i class="fe fe-pie-chart"></i>
@@ -88,6 +66,7 @@
                         <span>Manage Task</span>
                     </a>
                 </li>
+                @endif
 
                 <li class="submenu {{ ($currentRoute === 'sales-report-list.index') ? 'no-active' : '' }}">
                     <a href="javascript:void(0);">
@@ -110,7 +89,6 @@
                         </li>
                     </ul>
                 </li>
-                @endif
 
             </ul>
         </div>
