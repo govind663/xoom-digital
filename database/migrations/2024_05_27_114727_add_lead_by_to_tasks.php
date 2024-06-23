@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('tasks', function (Blueprint $table) {
-            $table->foreignId('lead_by')->after('task_status')->references('id')->on('users')->nullable()->comment('The user who give lead.');
+            $table->foreignId('lead_by')
+            ->constrained('users')
+            ->onUpdate('cascade')
+            ->onDelete('cascade')
+            ->after('task_status')->nullable()->comment('The user who give lead.');
         });
     }
 
@@ -22,6 +26,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('tasks', function (Blueprint $table) {
+            $table->dropForeign(['lead_by']);
             $table->dropColumn('lead_by');
         });
     }
