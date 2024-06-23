@@ -45,7 +45,7 @@ class UserSeeder extends Seeder
                 'name' => 'Josue Becker',
                 'city' => 'Mumbai',
                 'mobile_no' => '1234567889',
-                'email' => 'sales@gmail.com',
+                'email' => 'onfield@gmail.com',
                 'password' => Hash::make('1234567890'),
                 'user_type'=> '3',
                 'designation' => 'On Field',
