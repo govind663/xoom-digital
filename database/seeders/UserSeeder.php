@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
 
-        User::created([
+        User::create([
             [
                 'employee_code' => 'EMP/000003/2024',
                 'name' => 'Stephanie Moore',
@@ -44,7 +44,7 @@ class UserSeeder extends Seeder
             ]
         ]);
 
-        User::created([
+        User::create([
             [
                 'employee_code' => 'EMP/000004/2024',
                 'name' => 'Josue Becker',
