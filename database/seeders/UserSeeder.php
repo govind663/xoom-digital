@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::create(
+        DB::table('users')->insert([
             [
                 'employee_code' => 'EMP/000002/2024',
                 'name' => 'Valentina Robbins',
@@ -27,9 +27,7 @@ class UserSeeder extends Seeder
                 'designation' => 'Administrative',
                 'created_by' => 1,
                 'created_at' => Carbon::now(),
-            ]);
-
-        User::create([
+            ],
             [
                 'employee_code' => 'EMP/000003/2024',
                 'name' => 'Stephanie Moore',
@@ -41,10 +39,7 @@ class UserSeeder extends Seeder
                 'designation' => 'Sales Manager',
                 'created_by' => 2,
                 'created_at' => Carbon::now(),
-            ]
-        ]);
-
-        User::create([
+            ],
             [
                 'employee_code' => 'EMP/000004/2024',
                 'name' => 'Josue Becker',
