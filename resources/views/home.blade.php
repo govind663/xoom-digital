@@ -38,45 +38,6 @@ Xoom Digital | Home
         <!-- /Page Header -->
 
         <div class="row">
-            {{-- Total Earning Money --}}
-            {{-- <div class="col-xl-3 col-sm-6 col-12">
-                <div class="card">
-                    <div class="card-body border shadow">
-                        <div class="dash-widget-header">
-                            <span class="dash-widget-icon bg-1">
-                                <img src="{{ asset('assets/img/indian_rupees_curancy.png') }}" alt="">
-                                <i class="fa fa-file-alt"></i>
-                            </span>
-                            <div class="dash-count">
-                                <div class="dash-title text-dark">Total Earning</div>
-                                <div class="dash-counts text-dark">
-                                    <p>0</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
-
-            {{-- Total Agents Count --}}
-            {{-- <div class="col-xl-3 col-sm-6 col-12">
-                <div class="card">
-                    <div class="card-body border shadow">
-                        <div class="dash-widget-header">
-                            <span class="dash-widget-icon bg-2">
-                                <i class="fas fa-user"></i>
-                            </span>
-                            <div class="dash-count">
-                                <div class="dash-title text-dark">Total Agents</div>
-                                <div class="dash-counts text-dark">
-                                    <p>0</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
-
             {{-- Total Retailer Count --}}
             <div class="col-xl-3 col-sm-6 col-12">
                 <div class="card">
@@ -96,8 +57,8 @@ Xoom Digital | Home
                 </div>
             </div>
 
-            {{-- Total Policy Count --}}
-            {{-- <div class="col-xl-3 col-sm-6 col-12">
+            {{-- Total Task Counts --}}
+            <div class="col-xl-3 col-sm-6 col-12">
                 <div class="card">
                     <div class="card-body border shadow">
                         <div class="dash-widget-header">
@@ -105,7 +66,7 @@ Xoom Digital | Home
                                 <i class="fas fa-file-alt"></i>
                             </span>
                             <div class="dash-count">
-                                <div class="dash-title text-dark">Total Policy</div>
+                                <div class="dash-title text-dark">Total Task</div>
                                 <div class="dash-counts text-dark">
                                     <p>0</p>
                                 </div>
@@ -113,9 +74,85 @@ Xoom Digital | Home
                         </div>
                     </div>
                 </div>
-            </div> --}}
-        </div>
+            </div>
 
+            {{-- Total Pending Task Counts --}}
+            <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card">
+                    <div class="card-body border shadow">
+                        <div class="dash-widget-header">
+                            <span class="dash-widget-icon bg-3">
+                                <i class="fas fa-file-alt"></i>
+                            </span>
+                            <div class="dash-count">
+                                <div class="dash-title text-dark">Total Pending Task</div>
+                                <div class="dash-counts text-dark">
+                                    <p>0</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Total In Progress Task Counts --}}
+            <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card">
+                    <div class="card-body border shadow">
+                        <div class="dash-widget-header">
+                            <span class="dash-widget-icon bg-3">
+                                <i class="fas fa-file-alt"></i>
+                            </span>
+                            <div class="dash-count">
+                                <div class="dash-title text-dark">Total In Progress Task</div>
+                                <div class="dash-counts text-dark">
+                                    <p>0</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Total Completed Task Counts --}}
+            <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card">
+                    <div class="card-body border shadow">
+                        <div class="dash-widget-header">
+                            <span class="dash-widget-icon bg-3">
+                                <i class="fas fa-file-alt"></i>
+                            </span>
+                            <div class="dash-count">
+                                <div class="dash-title text-dark">Total Completed Task</div>
+                                <div class="dash-counts text-dark">
+                                    <p>0</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Total Cancelled Task Counts --}}
+            <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card">
+                    <div class="card-body border shadow">
+                        <div class="dash-widget-header">
+                            <span class="dash-widget-icon bg-3">
+                                <i class="fas fa-file-alt"></i>
+                            </span>
+                            <div class="dash-count">
+                                <div class="dash-title text-dark">Total Cancelled Task</div>
+                                <div class="dash-counts text-dark">
+                                    <p>0</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 </div>
 <!-- /Page Wrapper -->
