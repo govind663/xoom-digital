@@ -53,7 +53,7 @@
         <li class="nav-item dropdown">
             <a href="javascript:void(0)" class="user-link  nav-link" data-bs-toggle="dropdown">
                 <span class="user-img">
-                    <img src="{{ url('/') }}/assets/img/user_logo.png" alt="img" class="profilesidebar">
+                    <img src="{{ url('/') }}/assets/img/admin.jpg" alt="img" class="profilesidebar">
                     <span class="animate-circle"></span>
                 </span>
                 <span class="user-content">

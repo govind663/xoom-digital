@@ -27,70 +27,106 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        // Check Auth User Type
-        if (Auth::user()->user_type == 1) {
 
-            // Count Total employee in users
-            $totalEmployee = User::where('user_type', '!=', '1')->whereNull('deleted_at')->count();
+        $user = Auth::user();
 
-            // Count Total Task
-            $totalTask = Task::whereNull('deleted_at')->count();
+        // Define the base query
+        $taskQuery = Task::whereNull('deleted_at');
 
-            // Count Total Pending Task
-            $totalPendingTask = Task::where('task_status', 1)->whereNull('deleted_at')->count();
-
-            // Count Total In Progress Task
-            $totalInProgressTask = Task::where('task_status', 2)->whereNull('deleted_at')->count();
-
-            // Count Total Completed Task
-            $totalCompletedTask = Task::where('task_status', 3)->whereNull('deleted_at')->count();
-
-            // Count Total Cancelled Task
-            $totalCancelledTask = Task::where('task_status', 4)->whereNull('deleted_at')->count();
-
-        } elseif (Auth::user()->user_type == 2){
-
-            // Count Total Task
-            $totalSalesTask = Task::where('lead_by', Auth::user()->id)->Where('user_type', Auth::user()->user_type)->whereNull('deleted_at')->count();
-
-            // Count Total Pending Task
-            $totalSalesPendingTask = Task::where('task_status', 1)->where('lead_by', Auth::user()->id)->Where('user_type', Auth::user()->user_type)->whereNull('deleted_at')->count();
-
-            // Count Total In Progress Task
-            $totalSalesInProgressTask = Task::where('task_status', 2)->where('lead_by', Auth::user()->id)->Where('user_type', Auth::user()->user_type)->whereNull('deleted_at')->count();
-
-            // Count Total Completed Task
-            $totalSalesCompletedTask = Task::where('task_status', 3)->where('lead_by', Auth::user()->id)->Where('user_type', Auth::user()->user_type)->whereNull('deleted_at')->count();
-
-            // Count Total Cancelled Task
-            $totalSalesCancelledTask = Task::where('task_status', 4)->where('lead_by', Auth::user()->id)->Where('user_type', Auth::user()->user_type)->whereNull('deleted_at')->count();
-
-            // Count Total Assigned Task
-            $totalSalesAssignedTask = Task::where('user_id', Auth::user()->id)->Where('user_type', Auth::user()->user_type)->whereNull('deleted_at')->count();
-
-        } elseif (Auth::user()->user_type == 3){
-
-            /// Count Total Task
-            $totalOnFiledTask = Task::whereNull('deleted_at')->count();
-
-            // Count Total Pending Task
-            $totalOnFiledPendingTask = Task::where('task_status', 1)->whereNull('deleted_at')->count();
-
-            // Count Total In Progress Task
-            $totalOnFiledInProgressTask = Task::where('task_status', 2)->whereNull('deleted_at')->count();
-
-            // Count Total Completed Task
-            $totalOnFiledCompletedTask = Task::where('task_status', 3)->whereNull('deleted_at')->count();
-
-            // Count Total Cancelled Task
-            $totalOnFiledCancelledTask = Task::where('task_status', 4)->whereNull('deleted_at')->count();
-
-            // Count Total Assigned Task
-            $totalOnfieldAssignedTask = Task::where('user_id', Auth::user()->id)->Where('user_type', Auth::user()->user_type)->whereNull('deleted_at')->count();
-
+        if ($user->user_type == 1) {
+            return $this->renderAdminDashboard($taskQuery);
+        } elseif ($user->user_type == 2) {
+            return $this->renderSalesDashboard($taskQuery, $user);
+        } elseif ($user->user_type == 3) {
+            return $this->renderOnFieldDashboard($taskQuery, $user);
         }
+        else {
+            // Invalid user type
+            abort(403, 'Unauthorized action.');
+        }
+    }
 
-        return view('home', ['totalEmployee'=> $totalEmployee]);
+    private function renderAdminDashboard($taskQuery){
+        // Count Total employee in users
+        $totalEmployee = User::where('user_type', '!=', '1')->whereNull('deleted_at')->count();
+
+        // Count Total Task
+        $totalTask = $taskQuery->count();
+
+        // Count Total Pending Task
+        $totalPendingTask = $taskQuery->where('task_status', 1)->count();
+
+        // Count Total In Progress Task
+        $totalInProgressTask = $taskQuery->where('task_status', 2)->count();
+
+        // Count Total Completed Task
+        $totalCompletedTask = $taskQuery->where('task_status', 3)->count();
+
+        // Count Total Cancelled Task
+        $totalCancelledTask = $taskQuery->where('task_status', 4)->count();
+
+        return view('home', [
+            'totalEmployee'=> $totalEmployee,
+            'totalTask'=> $totalTask,
+            'totalPendingTask'=> $totalPendingTask,
+            'totalInProgressTask'=> $totalInProgressTask,
+            'totalCompletedTask'=> $totalCompletedTask,
+            'totalCancelledTask'=> $totalCancelledTask,
+        ]);
+    }
+
+    private function renderSalesDashboard($taskQuery, $user){
+        // Count Total Task
+        $totalSalesTask = $taskQuery->where('lead_by', $user->id)->count();
+
+        // Count Total Pending Task
+        $totalSalesPendingTask = $taskQuery->where('task_status', 1)->where('lead_by', $user->id)->count();
+
+        // Count Total In Progress Task
+        $totalSalesInProgressTask = $taskQuery->where('task_status', 2)->where('lead_by', $user->id)->count();
+
+        // Count Total Completed Task
+        $totalSalesCompletedTask = $taskQuery->where('task_status', 3)->where('lead_by', $user->id)->count();
+
+        // Count Total Cancelled Task
+        $totalSalesCancelledTask = $taskQuery->where('task_status', 4)->where('lead_by', $user->id)->count();
+
+        // Count Total Assigned Task
+        $totalSalesAssignedTask = $taskQuery->where('user_id', $user->id)->count();
+
+        return view('home', [
+            'totalSalesTask'=> $totalSalesTask,
+            'totalSalesPendingTask'=> $totalSalesPendingTask,
+            'totalSalesInProgressTask'=> $totalSalesInProgressTask,
+            'totalSalesCompletedTask'=> $totalSalesCompletedTask,
+            'totalSalesCancelledTask'=> $totalSalesCancelledTask,
+            'totalSalesAssignedTask'=> $totalSalesAssignedTask,
+        ]);
+    }
+    private function renderOnFieldDashboard($taskQuery, $user){
+
+        // Count Total Pending Task
+        $totalOnFiledPendingTask = $taskQuery->where('task_status', 1)->where('user_id', $user->id)->count();
+
+        // Count Total In Progress Task
+        $totalOnFiledInProgressTask = $taskQuery->where('task_status', 2)->where('user_id', $user->id)->count();
+
+        // Count Total Completed Task
+        $totalOnFiledCompletedTask = $taskQuery->where('task_status', 3)->where('user_id', $user->id)->count();
+
+        // Count Total Cancelled Task
+        $totalOnFiledCancelledTask = $taskQuery->where('task_status', 4)->where('user_id', $user->id)->count();
+
+        // Count Total Assigned Task
+        $totalOnFiledAssignedTask = $taskQuery->where('user_id', $user->id)->count();
+
+        return view('home', [
+            'totalOnFiledPendingTask'=> $totalOnFiledPendingTask,
+            'totalOnFiledInProgressTask'=> $totalOnFiledInProgressTask,
+            'totalOnFiledCompletedTask'=> $totalOnFiledCompletedTask,
+            'totalOnFiledCancelledTask'=> $totalOnFiledCancelledTask,
+            'totalOnFiledAssignedTask'=> $totalOnFiledAssignedTask,
+        ]);
     }
 
     public function changePassword(Request $request)

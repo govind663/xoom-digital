@@ -36,123 +36,365 @@ Xoom Digital | Home
             </div>
         </div>
         <!-- /Page Header -->
+        @if(Auth::user()->user_type == 1)
+            <div class="row">
+                {{-- Total Employee Count --}}
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card">
+                        <div class="card-body border shadow">
+                            <div class="dash-widget-header">
+                                <span class="dash-widget-icon bg-2">
+                                    <i class="fas fa-users"></i>
+                                </span>
+                                <div class="dash-count">
+                                    <div class="dash-title text-dark">Total Employee</div>
+                                    <div class="dash-counts text-dark">
+                                        <p>{{ $totalEmployee ? $totalEmployee : 0 }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="row">
-            {{-- Total Retailer Count --}}
-            <div class="col-xl-3 col-sm-6 col-12">
-                <div class="card">
-                    <div class="card-body border shadow">
-                        <div class="dash-widget-header">
-                            <span class="dash-widget-icon bg-2">
-                                <i class="fas fa-users"></i>
-                            </span>
-                            <div class="dash-count">
-                                <div class="dash-title text-dark">Total Employee</div>
-                                <div class="dash-counts text-dark">
-                                    <p>{{ $totalEmployee }}</p>
+                {{-- Total Task Counts --}}
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card">
+                        <div class="card-body border shadow">
+                            <div class="dash-widget-header">
+                                <span class="dash-widget-icon bg-3">
+                                    <i class="fas fa-file-alt"></i>
+                                </span>
+                                <div class="dash-count">
+                                    <div class="dash-title text-dark">Total Task</div>
+                                    <div class="dash-counts text-dark">
+                                        <p>{{ $totalTask ? $totalTask : 0 }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Total Pending Task Counts --}}
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card">
+                        <div class="card-body border shadow">
+                            <div class="dash-widget-header">
+                                <span class="dash-widget-icon bg-3">
+                                    <i class="fas fa-file-alt"></i>
+                                </span>
+                                <div class="dash-count">
+                                    <div class="dash-title text-dark">Total Pending Task</div>
+                                    <div class="dash-counts text-dark">
+                                        <p>
+                                            {{ $totalPendingTask ? $totalPendingTask : 0 }}</p>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Total In Progress Task Counts --}}
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card">
+                        <div class="card-body border shadow">
+                            <div class="dash-widget-header">
+                                <span class="dash-widget-icon bg-3">
+                                    <i class="fas fa-file-alt"></i>
+                                </span>
+                                <div class="dash-count">
+                                    <div class="dash-title text-dark">Total In Progress Task</div>
+                                    <div class="dash-counts text-dark">
+                                        <p>
+                                            {{ $totalInProgressTask ? $totalInProgressTask : 0 }}</p>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Total Completed Task Counts --}}
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card">
+                        <div class="card-body border shadow">
+                            <div class="dash-widget-header">
+                                <span class="dash-widget-icon bg-3">
+                                    <i class="fas fa-file-alt"></i>
+                                </span>
+                                <div class="dash-count">
+                                    <div class="dash-title text-dark">Total Completed Task</div>
+                                    <div class="dash-counts text-dark">
+                                        <p>
+                                            {{ $totalCompletedTask ? $totalCompletedTask : 0 }}</p>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Total Cancelled Task Counts --}}
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card">
+                        <div class="card-body border shadow">
+                            <div class="dash-widget-header">
+                                <span class="dash-widget-icon bg-3">
+                                    <i class="fas fa-file-alt"></i>
+                                </span>
+                                <div class="dash-count">
+                                    <div class="dash-title text-dark">Total Cancelled Task</div>
+                                    <div class="dash-counts text-dark">
+                                        <p>
+                                            {{ $totalCancelledTask ? $totalCancelledTask : 0 }}</p>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            {{-- Total Task Counts --}}
-            <div class="col-xl-3 col-sm-6 col-12">
-                <div class="card">
-                    <div class="card-body border shadow">
-                        <div class="dash-widget-header">
-                            <span class="dash-widget-icon bg-3">
-                                <i class="fas fa-file-alt"></i>
-                            </span>
-                            <div class="dash-count">
-                                <div class="dash-title text-dark">Total Task</div>
-                                <div class="dash-counts text-dark">
-                                    <p>0</p>
+        @elseif (Auth::user()->user_type == 2)
+            <div class="row">
+                {{-- Total Task Counts --}}
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card">
+                        <div class="card-body border shadow">
+                            <div class="dash-widget-header">
+                                <span class="dash-widget-icon bg-3">
+                                    <i class="fas fa-file-alt"></i>
+                                </span>
+                                <div class="dash-count">
+                                    <div class="dash-title text-dark">Total Task</div>
+                                    <div class="dash-counts text-dark">
+                                        <p>{{ $totalSalesTask ? $totalSalesTask : 0 }}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            {{-- Total Pending Task Counts --}}
-            <div class="col-xl-3 col-sm-6 col-12">
-                <div class="card">
-                    <div class="card-body border shadow">
-                        <div class="dash-widget-header">
-                            <span class="dash-widget-icon bg-3">
-                                <i class="fas fa-file-alt"></i>
-                            </span>
-                            <div class="dash-count">
-                                <div class="dash-title text-dark">Total Pending Task</div>
-                                <div class="dash-counts text-dark">
-                                    <p>0</p>
+                {{-- Total Assigned Task Counts --}}
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card">
+                        <div class="card-body border shadow">
+                            <div class="dash-widget-header">
+                                <span class="dash-widget-icon bg-3">
+                                    <i class="fas fa-file-alt"></i>
+                                </span>
+                                <div class="dash-count">
+                                    <div class="dash-title text-dark">Total Assigned Task</div>
+                                    <div class="dash-counts text-dark">
+                                        <p>
+                                            {{ $totalSalesAssignedTask ? $totalSalesAssignedTask : 0 }}</p>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            {{-- Total In Progress Task Counts --}}
-            <div class="col-xl-3 col-sm-6 col-12">
-                <div class="card">
-                    <div class="card-body border shadow">
-                        <div class="dash-widget-header">
-                            <span class="dash-widget-icon bg-3">
-                                <i class="fas fa-file-alt"></i>
-                            </span>
-                            <div class="dash-count">
-                                <div class="dash-title text-dark">Total In Progress Task</div>
-                                <div class="dash-counts text-dark">
-                                    <p>0</p>
+                {{-- Total Pending Task Counts --}}
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card">
+                        <div class="card-body border shadow">
+                            <div class="dash-widget-header">
+                                <span class="dash-widget-icon bg-3">
+                                    <i class="fas fa-file-alt"></i>
+                                </span>
+                                <div class="dash-count">
+                                    <div class="dash-title text-dark">Total Pending Task</div>
+                                    <div class="dash-counts text-dark">
+                                        <p>
+                                            {{ $totalSalesPendingTask ? $totalSalesPendingTask : 0 }}</p>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            {{-- Total Completed Task Counts --}}
-            <div class="col-xl-3 col-sm-6 col-12">
-                <div class="card">
-                    <div class="card-body border shadow">
-                        <div class="dash-widget-header">
-                            <span class="dash-widget-icon bg-3">
-                                <i class="fas fa-file-alt"></i>
-                            </span>
-                            <div class="dash-count">
-                                <div class="dash-title text-dark">Total Completed Task</div>
-                                <div class="dash-counts text-dark">
-                                    <p>0</p>
+                {{-- Total In Progress Task Counts --}}
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card">
+                        <div class="card-body border shadow">
+                            <div class="dash-widget-header">
+                                <span class="dash-widget-icon bg-3">
+                                    <i class="fas fa-file-alt"></i>
+                                </span>
+                                <div class="dash-count">
+                                    <div class="dash-title text-dark">Total In Progress Task</div>
+                                    <div class="dash-counts text-dark">
+                                        <p>
+                                            {{ $totalSalesInProgressTask ? $totalSalesInProgressTask : 0 }}</p>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            {{-- Total Cancelled Task Counts --}}
-            <div class="col-xl-3 col-sm-6 col-12">
-                <div class="card">
-                    <div class="card-body border shadow">
-                        <div class="dash-widget-header">
-                            <span class="dash-widget-icon bg-3">
-                                <i class="fas fa-file-alt"></i>
-                            </span>
-                            <div class="dash-count">
-                                <div class="dash-title text-dark">Total Cancelled Task</div>
-                                <div class="dash-counts text-dark">
-                                    <p>0</p>
+                {{-- Total Completed Task Counts --}}
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card">
+                        <div class="card-body border shadow">
+                            <div class="dash-widget-header">
+                                <span class="dash-widget-icon bg-3">
+                                    <i class="fas fa-file-alt"></i>
+                                </span>
+                                <div class="dash-count">
+                                    <div class="dash-title text-dark">Total Completed Task</div>
+                                    <div class="dash-counts text-dark">
+                                        <p>
+                                            {{ $totalSalesCompletedTask ? $totalSalesCompletedTask : 0 }}</p>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
+                {{-- Total Cancelled Task Counts --}}
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card">
+                        <div class="card-body border shadow">
+                            <div class="dash-widget-header">
+                                <span class="dash-widget-icon bg-3">
+                                    <i class="fas fa-file-alt"></i>
+                                </span>
+                                <div class="dash-count">
+                                    <div class="dash-title text-dark">Total Cancelled Task</div>
+                                    <div class="dash-counts text-dark">
+                                        <p>
+                                            {{ $totalSalesCancelledTask ? $totalSalesCancelledTask : 0 }}</p>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        @elseif (Auth::user()->user_type == 3)
+            <div class="row">
+                {{-- Total Assigned Task Counts --}}
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card">
+                        <div class="card-body border shadow">
+                            <div class="dash-widget-header">
+                                <span class="dash-widget-icon bg-3">
+                                    <i class="fas fa-file-alt"></i>
+                                </span>
+                                <div class="dash-count">
+                                    <div class="dash-title text-dark">Total Assigned Task</div>
+                                    <div class="dash-counts text-dark">
+                                        <p>{{ $totalOnFiledAssignedTask ? $totalOnFiledAssignedTask : 0 }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Total Pending Task Counts --}}
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card">
+                        <div class="card-body border shadow">
+                            <div class="dash-widget-header">
+                                <span class="dash-widget-icon bg-3">
+                                    <i class="fas fa-file-alt"></i>
+                                </span>
+                                <div class="dash-count">
+                                    <div class="dash-title text-dark">Total Pending Task</div>
+                                    <div class="dash-counts text-dark">
+                                        <p>
+                                            {{ $totalOnFiledPendingTask ? $totalOnFiledPendingTask : 0 }}</p>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Total In Progress Task Counts --}}
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card">
+                        <div class="card-body border shadow">
+                            <div class="dash-widget-header">
+                                <span class="dash-widget-icon bg-3">
+                                    <i class="fas fa-file-alt"></i>
+                                </span>
+                                <div class="dash-count">
+                                    <div class="dash-title text-dark">Total In Progress Task</div>
+                                    <div class="dash-counts text-dark">
+                                        <p>
+                                            {{ $totalOnFiledInProgressTask ? $totalOnFiledInProgressTask : 0 }}</p>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Total Completed Task Counts --}}
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card">
+                        <div class="card-body border shadow">
+                            <div class="dash-widget-header">
+                                <span class="dash-widget-icon bg-3">
+                                    <i class="fas fa-file-alt"></i>
+                                </span>
+                                <div class="dash-count">
+                                    <div class="dash-title text-dark">Total Completed Task</div>
+                                    <div class="dash-counts text-dark">
+                                        <p>
+                                            {{ $totalOnFiledCompletedTask ? $totalOnFiledCompletedTask : 0 }}</p>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Total Cancelled Task Counts --}}
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card">
+                        <div class="card-body border shadow">
+                            <div class="dash-widget-header">
+                                <span class="dash-widget-icon bg-3">
+                                    <i class="fas fa-file-alt"></i>
+                                </span>
+                                <div class="dash-count">
+                                    <div class="dash-title text-dark">Total Cancelled Task</div>
+                                    <div class="dash-counts text-dark">
+                                        <p>
+                                            {{ $totalOnFiledCancelledTask ? $totalOnFiledCancelledTask : 0 }}</p>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        @endif
+
     </div>
 </div>
 <!-- /Page Wrapper -->
