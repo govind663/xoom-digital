@@ -57,6 +57,8 @@
                     <span class="animate-circle"></span>
                 </span>
                 <span class="user-content">
+                    <span class="user-name">{{ Auth::user()->name }}</span>
+                    <span class="user-name">{{ Auth::user()->employee_code }}</span>
                     @if (Auth::user()->user_type == '1')
                     <span class="user-details">Admin</span>
                     @elseif (Auth::user()->user_type == '2')
@@ -64,7 +66,6 @@
                     @elseif (Auth::user()->user_type == '3')
                     <span class="user-details">Sales</span>
                     @endif
-                    <span class="user-name">{{ Auth::user()->employee_code }}</span>
                 </span>
             </a>
             <div class="dropdown-menu menu-drop-user">

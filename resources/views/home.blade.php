@@ -160,7 +160,7 @@ Xoom Digital | Home
                     </div>
                 </div>
             </div>
-        @elseif (Auth::user()->user_type == 2)
+        @elseif (Auth::user()->user_type == 3)
             <div class="row">
                 {{-- Total Task Counts --}}
                 <div class="col-xl-3 col-sm-6 col-12">
@@ -174,27 +174,6 @@ Xoom Digital | Home
                                     <div class="dash-title text-dark">Total Task</div>
                                     <div class="dash-counts text-dark">
                                         <p>{{ $totalSalesTask ? $totalSalesTask : 0 }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Total Assigned Task Counts --}}
-                <div class="col-xl-3 col-sm-6 col-12">
-                    <div class="card">
-                        <div class="card-body border shadow">
-                            <div class="dash-widget-header">
-                                <span class="dash-widget-icon bg-3">
-                                    <i class="fas fa-file-alt"></i>
-                                </span>
-                                <div class="dash-count">
-                                    <div class="dash-title text-dark">Total Assigned Task</div>
-                                    <div class="dash-counts text-dark">
-                                        <p>
-                                            {{ $totalSalesAssignedTask ? $totalSalesAssignedTask : 0 }}</p>
-                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -287,7 +266,7 @@ Xoom Digital | Home
                 </div>
 
             </div>
-        @elseif (Auth::user()->user_type == 3)
+        @elseif (Auth::user()->user_type == 2)
             <div class="row">
                 {{-- Total Assigned Task Counts --}}
                 <div class="col-xl-3 col-sm-6 col-12">

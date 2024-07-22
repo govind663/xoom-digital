@@ -35,9 +35,9 @@ class HomeController extends Controller
 
         if ($user->user_type == 1) {
             return $this->renderAdminDashboard($taskQuery);
-        } elseif ($user->user_type == 2) {
-            return $this->renderSalesDashboard($taskQuery, $user);
         } elseif ($user->user_type == 3) {
+            return $this->renderSalesDashboard($taskQuery, $user);
+        } elseif ($user->user_type == 2) {
             return $this->renderOnFieldDashboard($taskQuery, $user);
         }
         else {
@@ -91,16 +91,12 @@ class HomeController extends Controller
         // Count Total Cancelled Task
         $totalSalesCancelledTask = $taskQuery->where('task_status', 4)->where('lead_by', $user->id)->count();
 
-        // Count Total Assigned Task
-        $totalSalesAssignedTask = $taskQuery->where('user_id', $user->id)->count();
-
         return view('home', [
             'totalSalesTask'=> $totalSalesTask,
             'totalSalesPendingTask'=> $totalSalesPendingTask,
             'totalSalesInProgressTask'=> $totalSalesInProgressTask,
             'totalSalesCompletedTask'=> $totalSalesCompletedTask,
             'totalSalesCancelledTask'=> $totalSalesCancelledTask,
-            'totalSalesAssignedTask'=> $totalSalesAssignedTask,
         ]);
     }
     private function renderOnFieldDashboard($taskQuery, $user){
@@ -119,6 +115,7 @@ class HomeController extends Controller
 
         // Count Total Assigned Task
         $totalOnFiledAssignedTask = $taskQuery->where('user_id', $user->id)->count();
+        // dd($totalOnFiledAssignedTask);
 
         return view('home', [
             'totalOnFiledPendingTask'=> $totalOnFiledPendingTask,
