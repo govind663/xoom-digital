@@ -6,6 +6,7 @@ use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
@@ -113,9 +114,14 @@ class HomeController extends Controller
         // Count Total Cancelled Task
         $totalOnFiledCancelledTask = $taskQuery->where('task_status', 4)->where('user_id', $user->id)->count();
 
-        // Count Total Assigned Task
-        $totalOnFiledAssignedTask = $taskQuery->where('user_id', $user->id)->count();
-        // dd($totalOnFiledAssignedTask);
+        // Enable the query log
+        // DB::enableQueryLog();
+
+        // Count Total Assigned Task with get query log
+        $totalOnFiledAssignedTask =$taskQuery = Task::where('user_id', $user->id)->whereNull('deleted_at')->count();
+
+        // Retrieve the query log
+        // $queryLog = DB::getQueryLog();
 
         return view('home', [
             'totalOnFiledPendingTask'=> $totalOnFiledPendingTask,
