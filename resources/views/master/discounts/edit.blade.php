@@ -141,4 +141,35 @@
         }).change();
     });
 </script>
+
+<script>
+    var typed = "";
+    $('#coupon_type').select2({
+        language: {
+            noResults: function(term) {
+                typed = $('.select2-search__field').val();
+            }
+        }
+
+    });
+    $('#coupon_type').on('select2:select', function(e) {
+        typed = ""; // clear
+    });
+    $("#but").on("click", function() {
+        if (typed) {
+            // var value = prompt("Do you have a state abbriviation for "+typed+"?"); // change typed to value where necessary
+
+            // Set the value, creating a new option if necessary
+            if ($('#coupon_type').find("option[value='" + typed + "']").length) {
+                $('#coupon_type').val(typed).trigger('change');
+            } else {
+                // Create a DOM Option and pre-select by default
+
+                var newOption = new Option(typed, typed, true, true);
+                // Append it to the select
+                $('#coupon_type').append(newOption).trigger('change');
+            }
+        }
+    });
+</script>
 @endpush

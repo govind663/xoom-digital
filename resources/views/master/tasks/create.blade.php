@@ -637,4 +637,164 @@ Task | Add
         });
     });
 </script>
+
+{{-- Add Search Filter Lead Source --}}
+<script>
+    var typed = "";
+    $('#lead_source_id').select2({
+        language: {
+            noResults: function(term) {
+                typed = $('.select2-search__field').val();
+            }
+        }
+
+    });
+    $('#lead_source_id').on('select2:select', function(e) {
+        typed = ""; // clear
+    });
+    $("#but").on("click", function() {
+        if (typed) {
+            // var value = prompt("Do you have a state abbriviation for "+typed+"?"); // change typed to value where necessary
+
+            // Set the value, creating a new option if necessary
+            if ($('#lead_source_id').find("option[value='" + typed + "']").length) {
+                $('#lead_source_id').val(typed).trigger('change');
+            } else {
+                // Create a DOM Option and pre-select by default
+
+                var newOption = new Option(typed, typed, true, true);
+                // Append it to the select
+                $('#lead_source_id').append(newOption).trigger('change');
+            }
+        }
+    });
+</script>
+
+{{-- Add Search Filter Task Status --}}
+<script>
+    var typed = "";
+    $('#task_status').select2({
+        language: {
+            noResults: function(term) {
+                typed = $('.select2-search__field').val();
+            }
+        }
+
+    });
+    $('#task_status').on('select2:select', function(e) {
+        typed = ""; // clear
+    });
+    $("#but").on("click", function() {
+        if (typed) {
+            // var value = prompt("Do you have a state abbriviation for "+typed+"?"); // change typed to value where necessary
+
+            // Set the value, creating a new option if necessary
+            if ($('#task_status').find("option[value='" + typed + "']").length) {
+                $('#task_status').val(typed).trigger('change');
+            } else {
+                // Create a DOM Option and pre-select by default
+
+                var newOption = new Option(typed, typed, true, true);
+                // Append it to the select
+                $('#task_status').append(newOption).trigger('change');
+            }
+        }
+    });
+</script>
+
+{{-- Add Search Filter Assign To --}}
+<script>
+    var typed = "";
+    $('#user_id').select2({
+        language: {
+            noResults: function(term) {
+                typed = $('.select2-search__field').val();
+            }
+        }
+
+    });
+    $('#user_id').on('select2:select', function(e) {
+        typed = ""; // clear
+    });
+    $("#but").on("click", function() {
+        if (typed) {
+            // var value = prompt("Do you have a state abbriviation for "+typed+"?"); // change typed to value where necessary
+
+            // Set the value, creating a new option if necessary
+            if ($('#user_id').find("option[value='" + typed + "']").length) {
+                $('#user_id').val(typed).trigger('change');
+            } else {
+                // Create a DOM Option and pre-select by default
+
+                var newOption = new Option(typed, typed, true, true);
+                // Append it to the select
+                $('#user_id').append(newOption).trigger('change');
+            }
+        }
+    });
+</script>
+
+{{-- Add Search Filter Payment Received Status --}}
+<script>
+    var typed = "";
+    $('#payment_receive_status').select2({
+        language: {
+            noResults: function(term) {
+                typed = $('.select2-search__field').val();
+            }
+        }
+
+    });
+    $('#payment_receive_status').on('select2:select', function(e) {
+        typed = ""; // clear
+    });
+    $("#but").on("click", function() {
+        if (typed) {
+            // var value = prompt("Do you have a state abbriviation for "+typed+"?"); // change typed to value where necessary
+
+            // Set the value, creating a new option if necessary
+            if ($('#payment_receive_status').find("option[value='" + typed + "']").length) {
+                $('#payment_receive_status').val(typed).trigger('change');
+            } else {
+                // Create a DOM Option and pre-select by default
+
+                var newOption = new Option(typed, typed, true, true);
+                // Append it to the select
+                $('#payment_receive_status').append(newOption).trigger('change');
+            }
+        }
+    });
+</script>
+
+{{-- Add Search Filter Payment Type --}}
+<script>
+    var typed = "";
+    $('#payment_type').select2({
+        language: {
+            noResults: function(term) {
+                typed = $('.select2-search__field').val();
+            }
+        }
+
+    });
+    $('#payment_type').on('select2:select', function(e) {
+        typed = ""; // clear
+    });
+    $("#but").on("click", function() {
+        if (typed) {
+            // var value = prompt("Do you have a state abbriviation for "+typed+"?"); // change typed to value where necessary
+
+            // Set the value, creating a new option if necessary
+            if ($('#payment_type').find("option[value='" + typed + "']").length) {
+                $('#payment_type').val(typed).trigger('change');
+            } else {
+                // Create a DOM Option and pre-select by default
+
+                var newOption = new Option(typed, typed, true, true);
+                // Append it to the select
+                $('#payment_type').append(newOption).trigger('change');
+            }
+        }
+    });
+</script>
 @endpush

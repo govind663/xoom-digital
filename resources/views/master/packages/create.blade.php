@@ -167,4 +167,35 @@ Package | Add
     }
 
 </script>
+
+<script>
+    var typed = "";
+    $('#package_type_id').select2({
+        language: {
+            noResults: function(term) {
+                typed = $('.select2-search__field').val();
+            }
+        }
+
+    });
+    $('#package_type_id').on('select2:select', function(e) {
+        typed = ""; // clear
+    });
+    $("#but").on("click", function() {
+        if (typed) {
+            // var value = prompt("Do you have a state abbriviation for "+typed+"?"); // change typed to value where necessary
+
+            // Set the value, creating a new option if necessary
+            if ($('#package_type_id').find("option[value='" + typed + "']").length) {
+                $('#package_type_id').val(typed).trigger('change');
+            } else {
+                // Create a DOM Option and pre-select by default
+
+                var newOption = new Option(typed, typed, true, true);
+                // Append it to the select
+                $('#package_type_id').append(newOption).trigger('change');
+            }
+        }
+    });
+</script>
 @endpush
