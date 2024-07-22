@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('coupon_name')->nullable();
             $table->string('coupon_code')->nullable();
             $table->string('coupon_type')->nullable()->comment('1.Percentage, 2.Fixed');
-            $table->integer('coupon_value_percentage')->nullable();
-            $table->integer('coupon_value_fixed')->nullable();
+            $table->string('coupon_value_percentage')->nullable();
+            $table->string('coupon_value_fixed')->nullable();
             $table->date('coupon_valid_to')->nullable()->comment('Coupon Valid To Date');
             $table->integer('coupon_status')->default('1')->comment('1.Active, 2.Inactive, 3.Expired');
             $table->integer('inserted_by')->nullable();
