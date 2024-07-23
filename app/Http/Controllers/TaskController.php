@@ -46,6 +46,7 @@ class TaskController extends Controller
             $task->customer_email = $request['customer_email'];
             $task->customer_phone = $request['customer_phone'];
             $task->customer_address = $request['customer_address'];
+            $task->customer_area = $request['customer_area'];
             $task->customer_city = $request['customer_city'];
             $task->customer_pincode = $request['customer_pincode'];
             $task->package_id = $request['package_id'];
@@ -114,6 +115,7 @@ class TaskController extends Controller
             $task->customer_email = $request['customer_email'];
             $task->customer_phone = $request['customer_phone'];
             $task->customer_address = $request['customer_address'];
+            $task->customer_area = $request['customer_area'];
             $task->customer_city = $request['customer_city'];
             $task->customer_pincode = $request['customer_pincode'];
             $task->package_id = $request['package_id'];

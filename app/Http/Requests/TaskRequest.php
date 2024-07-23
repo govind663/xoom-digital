@@ -28,6 +28,7 @@ class TaskRequest extends FormRequest
                 'customer_email' => 'nullable|string|max:255',
                 'customer_phone' => 'required|string|max:255',
                 'customer_address' => 'required|string|max:255',
+                'customer_area' => 'required|string|max:255',
                 'customer_city' => 'required|string|max:255',
                 'customer_pincode' => 'required|string|max:255',
                 'package_id' => 'nullable|numeric',
@@ -50,6 +51,7 @@ class TaskRequest extends FormRequest
                 'customer_email' => 'nullable|string|max:255',
                 'customer_phone' => 'required|string|max:255',
                 'customer_address' => 'required|string|max:255',
+                'customer_area' => 'required|string|max:255',
                 'customer_city' => 'required|string|max:255',
                 'customer_pincode' => 'required|string|max:255',
                 'package_id' => 'nullable|numeric',
@@ -87,6 +89,10 @@ class TaskRequest extends FormRequest
             'customer_address.required' => 'Customer Address is required',
             'customer_address.string' => __('The customer address must be a string.'),
             'customer_address.max' => __('The length of customer address should not exceed 255 characters'),
+
+            'customer_area.required' => 'Customer Area is required',
+            'customer_area.string' => __('The customer area must be a string.'),
+            'customer_area.max' => __('The length of customer area should not exceed 255 characters'),
 
             'customer_city.required' => 'Customer City is required',
             'customer_city.string' => __('The customer city must be a string.'),

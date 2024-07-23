@@ -40,8 +40,8 @@
                                             <select  class="form-control select @error('user_type') is-invalid @enderror" id="user_type" name="user_type">
                                                 <option value="">Select Employee Type</option>
                                                 {{-- <option value="1" {{ ( $employee->user_type == "1" ? "selected":"") }}>Admin</option> --}}
-                                                <option value="2" {{ ( $employee->user_type == "2" ? "selected":"") }}>On Field</option>
-                                                <option value="3" {{ ( $employee->user_type == "3" ? "selected":"") }}>Sales</option>
+                                                <option value="2" {{ ( $employee->user_type == "2" ? "selected":"") }}>Marketing Executive</option>
+                                                <option value="3" {{ ( $employee->user_type == "3" ? "selected":"") }}>Telesales</option>
                                             </select>
                                             @error('user_type')
                                                 <span class="invalid-feedback" role="alert">

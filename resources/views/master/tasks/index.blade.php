@@ -31,6 +31,14 @@ Task | List
         margin: 0 0 0px !important;
         padding: 0 0 0px !important;
     }
+    .d-flex1 {
+        display: flex !important;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        align-content: center;
+        justify-content: space-between;
+        align-items: stretch;
+    }
 </style>
 @endpush
 
@@ -56,7 +64,7 @@ Task | List
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="row card-body">
                         <form method="POST" action="{{ route('task.search') }}" enctype="multipart/form-data">
                             @csrf
 
@@ -96,16 +104,17 @@ Task | List
                         </form>
                     </div>
 
-                    <div class="row card-body">
-                        <div class="col-10">
+                    <div class="card-body d-flex1">
+                        <div class="justify-content-start">
                             <h5 class="card-title">All Task List</h5>
                         </div>
-                        <div class="col-2 float-right">
+                        <div class="justify-content-end">
                             <a href="{{ route('task.create') }}" class="btn btn-primary btn-sm">
-                                <i class="fa fa-plus-circle me-2" aria-hidden="true"></i>Task
+                                <i class="fa fa-plus me-2" aria-hidden="true"></i>Task
                             </a>
                         </div>
                     </div>
+
                     <div class="row card-body">
 
                         <div class="table-responsive">

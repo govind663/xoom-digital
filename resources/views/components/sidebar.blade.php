@@ -10,6 +10,7 @@
                     </a>
                 </li>
 
+                {{-- Admin Rights --}}
                 @if(Auth::user()->user_type == '1')
                 <li class="{{ ($currentRoute === 'employee.index') || ($currentRoute === 'employee.create') || ($currentRoute === 'employee.edit') ? 'active' : '' }}">
                     <a href="{{ route('employee.index') }}">
@@ -52,13 +53,31 @@
                         <span>Manage Customers</span>
                     </a>
                 </li>
+
+                <li class="{{ ($currentRoute === 'task.index') || ($currentRoute === 'task.create') || ($currentRoute === 'task.edit') ? 'active' : '' }}">
+                    <a href="{{ route('task.index') }}">
+                        <i class="fe fe-pie-chart"></i>
+                        <span>Manage Task</span>
+                    </a>
+                </li>
+
+                {{-- Markiting Executive Rights --}}
                 @elseif (Auth::user()->user_type == '2')
+                <li class="{{ ($currentRoute === 'task.index') || ($currentRoute === 'task.create') || ($currentRoute === 'task.edit') ? 'active' : '' }}">
+                    <a href="{{ route('task.index') }}">
+                        <i class="fe fe-pie-chart"></i>
+                        <span>Manage Task</span>
+                    </a>
+                </li>
+
                 <li class="{{ ($currentRoute === 'leads.assigned-leads') ? 'active' : '' }}">
                     <a href="{{ route('leads.assigned-leads') }}">
                         <i class="fe fe-pie-chart"></i>
                         <span>Assigned Leads</span>
                     </a>
                 </li>
+
+                {{-- Telesales Right --}}
                 @elseif (Auth::user()->user_type == '3')
                 <li class="{{ ($currentRoute === 'task.index') || ($currentRoute === 'task.create') || ($currentRoute === 'task.edit') ? 'active' : '' }}">
                     <a href="{{ route('task.index') }}">

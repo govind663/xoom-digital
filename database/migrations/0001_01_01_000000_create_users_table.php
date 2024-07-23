@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('user_type')->nullable()->comment('1 = Admin, 2 = On Field, 3 = Sales');
+            $table->string('user_type')->nullable()->comment('1 = Admin, 2 = Marketing Executive, 3 = Telesales');
             $table->string('designation')->nullable();
             $table->rememberToken();
             $table->integer('created_by')->nullable();

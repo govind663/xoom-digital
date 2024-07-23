@@ -293,6 +293,32 @@
 
                                                 <div class="col-lg-4 col-md-6 col-sm-12">
                                                     <div class="input-block mb-3">
+                                                        <label><b>Address : <span class="text-danger">*</span></b></label>
+                                                        <textarea type="text" id="customer_address" row="3"  name="customer_address" class="form-control @error('customer_address') is-invalid @enderror" value="{{ $task->customer_address }}" placeholder="Enter Address">{{ $task->customer_address }}</textarea>
+
+                                                        @error('customer_address')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-4 col-md-6 col-sm-12">
+                                                    <div class="input-block mb-3">
+                                                        <label><b>Area : <span class="text-danger">*</span></b></label>
+                                                        <input type="text" id="customer_area" name="customer_area" class="form-control @error('customer_area') is-invalid @enderror" value="{{ $task->customer_area }}" placeholder="Enter Area">
+
+                                                        @error('customer_area')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-4 col-md-6 col-sm-12">
+                                                    <div class="input-block mb-3">
                                                         <label><b>Pincode : <span class="text-danger">*</span></b></label>
                                                         <input type="text" maxlength="6" id="customer_pincode" name="customer_pincode" class="form-control @error('customer_pincode') is-invalid @enderror" value="{{ $task->customer_pincode }}" placeholder="Enter Pincode">
 
@@ -317,18 +343,6 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-lg-4 col-md-6 col-sm-12">
-                                                    <div class="input-block mb-3">
-                                                        <label><b>Address : <span class="text-danger">*</span></b></label>
-                                                        <textarea type="text" id="customer_address" row="3"  name="customer_address" class="form-control @error('customer_address') is-invalid @enderror" value="{{ $task->customer_address }}" placeholder="Enter Address">{{ $task->customer_address }}</textarea>
-
-                                                        @error('customer_address')
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $message }}</strong>
-                                                            </span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
                                             </div>
                                         </fieldset>
                                         <div class="d-flex">

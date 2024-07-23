@@ -26,6 +26,14 @@ Package | List
     .form-control {
         border: 1px solid #e77c09 !important;
     }
+    .d-flex1 {
+        display: flex !important;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        align-content: center;
+        justify-content: space-between;
+        align-items: stretch;
+    }
 </style>
 @endpush
 
@@ -51,13 +59,14 @@ Package | List
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="row card-body">
-                        <div class="col-10">
+                    <div class="card-body d-flex1">
+                        <div class="justify-content-start">
                             <h5 class="card-title">All Package List</h5>
                         </div>
-                        <div class="col-2 float-right">
+                        <div class="justify-content-end">
                             <a href="{{ route('package.create') }}" class="btn btn-primary btn-sm">
-                                <i class="fa fa-plus-circle me-2" aria-hidden="true"></i>Package                            </a>
+                                <i class="fa fa-plus me-2" aria-hidden="true"></i>Package
+                            </a>
                         </div>
                     </div>
                     <div class="card-body">

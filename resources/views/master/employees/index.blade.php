@@ -26,6 +26,14 @@ Employee | List
     .form-control {
         border: 1px solid #e77c09 !important;
     }
+    .d-flex1 {
+        display: flex !important;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        align-content: center;
+        justify-content: space-between;
+        align-items: stretch;
+    }
 </style>
 @endpush
 
@@ -51,13 +59,13 @@ Employee | List
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="row card-body">
-                        <div class="col-10">
+                    <div class="card-body d-flex1">
+                        <div class="justify-content-start">
                             <h5 class="card-title">All Employee List</h5>
                         </div>
-                        <div class="col-2 float-right">
+                        <div class="justify-content-end">
                             <a href="{{ route('employee.create') }}" class="btn btn-primary btn-sm">
-                                <i class="fa fa-plus-circle me-2" aria-hidden="true"></i>Employee
+                                <i class="fa fa-plus me-2" aria-hidden="true"></i>Employee
                             </a>
                         </div>
                     </div>
@@ -88,9 +96,9 @@ Employee | List
 
                                         <td>
                                             @if($value->user_type == '2')
-                                            <span class="badge bg-success" >On Field</span>
+                                            <span class="badge bg-success" >Marketing Executive</span>
                                             @elseif($value->user_type == '3')
-                                            <span class="badge bg-dark" >Sales</span>
+                                            <span class="badge bg-dark" >Telesales</span>
                                             @endif
                                         </td>
 

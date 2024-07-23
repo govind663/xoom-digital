@@ -31,7 +31,7 @@ Customers | List
         border-bottom: 0px solid #efefef !important;
         margin: 0 0 0px !important;
         padding: 0 0 0px !important;
-    }
+    }    
 </style>
 @endpush
 
@@ -61,8 +61,7 @@ Customers | List
                         <form method="POST" action="{{ route('customer.search') }}" enctype="multipart/form-data">
                             @csrf
 
-                            <div class="form-group-customer customer-additional-form">
-                                <div class="row">
+                            <div class="row">
                                     <div class="col-lg-3 col-md-12 col-sm-12">
                                         <div class="input-block mb-3">
                                             <label><b>Mobile Number : <span class="text-danger">*</span></b></b></label>
@@ -82,7 +81,6 @@ Customers | List
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
                         </form>
                     </div>
@@ -97,14 +95,17 @@ Customers | List
                     <div class="card-body">
 
                         <div class="table-responsive">
-                            <table class="data-table-export1 table table-responsive table-hover">
+                            <table class="data-table-export1 table">
                                 <thead>
                                     <tr>
                                         <th>Sr. No.</th>
-                                        <th>Customer Name</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
                                         <th>Mobile Number</th>
+                                        <th>Address</th>
+                                        <th>Area</th>
                                         <th>City</th>
-                                        {{-- <th>Action</th> --}}
+                                        <th>Pincode</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -112,22 +113,12 @@ Customers | List
                                     <tr>
                                         <td>{{ ++$key }}</td>
                                         <td>{{ $value->customer_name }}</td>
+                                        <td>{{ $value->customer_email }}</td>
                                         <td>{{ $value->customer_phone }}</td>
+                                        <td>{{ $value->customer_address }}</td>
+                                        <td>{{ $value->customer_area }}</td>
                                         <td>{{ $value->customer_city }}</td>
-                                        {{-- <td class="no-export d-flex">
-                                            <a href="{{ route('task.edit', $value->id) }}" class="btn btn-warning btn-sm text-dark">
-                                                <i class="far fa-edit me-2"></i>Edit
-                                            </a>
-                                            &nbsp;
-                                            <form action="{{ route('task.destroy', $value->id) }}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                                <input name="_method" type="hidden" value="DELETE">
-                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete?')">
-                                                    <i class="far fa-trash-alt me-2"></i>Delete
-                                                </button>
-                                            </form>
-                                        </td> --}}
+                                        <td>{{ $value->customer_pincode }}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>

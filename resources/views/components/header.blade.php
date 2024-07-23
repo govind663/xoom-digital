@@ -58,13 +58,13 @@
                 </span>
                 <span class="user-content">
                     <span class="user-name">{{ Auth::user()->name }}</span>
-                    <span class="user-name">{{ Auth::user()->employee_code }}</span>
+                    {{-- <span class="user-name">{{ Auth::user()->employee_code }}</span> --}}
                     @if (Auth::user()->user_type == '1')
-                    <span class="user-details">Admin</span>
+                    <span class="user-name">Admin</span>
                     @elseif (Auth::user()->user_type == '2')
-                    <span class="user-details">On Field</span>
+                    <span class="user-name">Marketing Executive</span>
                     @elseif (Auth::user()->user_type == '3')
-                    <span class="user-details">Sales</span>
+                    <span class="user-name">Telesales</span>
                     @endif
                 </span>
             </a>

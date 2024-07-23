@@ -17,6 +17,7 @@ class Task extends Model
         'customer_email',
         'customer_phone',
         'customer_address',
+        'customer_area',
         'customer_city',
         'customer_pincode',
         'package_id',
