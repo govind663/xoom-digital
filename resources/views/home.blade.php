@@ -36,6 +36,7 @@ Xoom Digital | Home
             </div>
         </div>
         <!-- /Page Header -->
+
         @if(Auth::user()->user_type == 1)
             <div class="row">
                 {{-- Total Employee Count --}}
@@ -63,7 +64,7 @@ Xoom Digital | Home
                         <div class="card-body border shadow">
                             <div class="dash-widget-header">
                                 <span class="dash-widget-icon bg-3">
-                                    <i class="fas fa-file-alt"></i>
+                                    <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
                                     <div class="dash-title text-dark">Total Task</div>
@@ -82,7 +83,7 @@ Xoom Digital | Home
                         <div class="card-body border shadow">
                             <div class="dash-widget-header">
                                 <span class="dash-widget-icon bg-3">
-                                    <i class="fas fa-file-alt"></i>
+                                    <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
                                     <div class="dash-title text-dark">Total Pending Task</div>
@@ -103,7 +104,7 @@ Xoom Digital | Home
                         <div class="card-body border shadow">
                             <div class="dash-widget-header">
                                 <span class="dash-widget-icon bg-3">
-                                    <i class="fas fa-file-alt"></i>
+                                    <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
                                     <div class="dash-title text-dark">Total In Progress Task</div>
@@ -124,7 +125,7 @@ Xoom Digital | Home
                         <div class="card-body border shadow">
                             <div class="dash-widget-header">
                                 <span class="dash-widget-icon bg-3">
-                                    <i class="fas fa-file-alt"></i>
+                                    <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
                                     <div class="dash-title text-dark">Total Completed Task</div>
@@ -145,7 +146,7 @@ Xoom Digital | Home
                         <div class="card-body border shadow">
                             <div class="dash-widget-header">
                                 <span class="dash-widget-icon bg-3">
-                                    <i class="fas fa-file-alt"></i>
+                                    <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
                                     <div class="dash-title text-dark">Total Cancelled Task</div>
@@ -168,7 +169,7 @@ Xoom Digital | Home
                         <div class="card-body border shadow">
                             <div class="dash-widget-header">
                                 <span class="dash-widget-icon bg-3">
-                                    <i class="fas fa-file-alt"></i>
+                                    <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
                                     <div class="dash-title text-dark">Total Task</div>
@@ -187,7 +188,7 @@ Xoom Digital | Home
                         <div class="card-body border shadow">
                             <div class="dash-widget-header">
                                 <span class="dash-widget-icon bg-3">
-                                    <i class="fas fa-file-alt"></i>
+                                    <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
                                     <div class="dash-title text-dark">Total Pending Task</div>
@@ -208,7 +209,7 @@ Xoom Digital | Home
                         <div class="card-body border shadow">
                             <div class="dash-widget-header">
                                 <span class="dash-widget-icon bg-3">
-                                    <i class="fas fa-file-alt"></i>
+                                    <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
                                     <div class="dash-title text-dark">Total In Progress Task</div>
@@ -229,7 +230,7 @@ Xoom Digital | Home
                         <div class="card-body border shadow">
                             <div class="dash-widget-header">
                                 <span class="dash-widget-icon bg-3">
-                                    <i class="fas fa-file-alt"></i>
+                                    <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
                                     <div class="dash-title text-dark">Total Completed Task</div>
@@ -250,7 +251,7 @@ Xoom Digital | Home
                         <div class="card-body border shadow">
                             <div class="dash-widget-header">
                                 <span class="dash-widget-icon bg-3">
-                                    <i class="fas fa-file-alt"></i>
+                                    <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
                                     <div class="dash-title text-dark">Total Cancelled Task</div>
@@ -274,7 +275,7 @@ Xoom Digital | Home
                         <div class="card-body border shadow">
                             <div class="dash-widget-header">
                                 <span class="dash-widget-icon bg-3">
-                                    <i class="fas fa-file-alt"></i>
+                                    <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
                                     <div class="dash-title text-dark">Total Assigned Task</div>
@@ -293,7 +294,7 @@ Xoom Digital | Home
                         <div class="card-body border shadow">
                             <div class="dash-widget-header">
                                 <span class="dash-widget-icon bg-3">
-                                    <i class="fas fa-file-alt"></i>
+                                    <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
                                     <div class="dash-title text-dark">Total Pending Task</div>
@@ -314,7 +315,7 @@ Xoom Digital | Home
                         <div class="card-body border shadow">
                             <div class="dash-widget-header">
                                 <span class="dash-widget-icon bg-3">
-                                    <i class="fas fa-file-alt"></i>
+                                    <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
                                     <div class="dash-title text-dark">Total In Progress Task</div>
@@ -335,7 +336,7 @@ Xoom Digital | Home
                         <div class="card-body border shadow">
                             <div class="dash-widget-header">
                                 <span class="dash-widget-icon bg-3">
-                                    <i class="fas fa-file-alt"></i>
+                                    <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
                                     <div class="dash-title text-dark">Total Completed Task</div>
@@ -356,7 +357,7 @@ Xoom Digital | Home
                         <div class="card-body border shadow">
                             <div class="dash-widget-header">
                                 <span class="dash-widget-icon bg-3">
-                                    <i class="fas fa-file-alt"></i>
+                                    <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
                                     <div class="dash-title text-dark">Total Cancelled Task</div>
