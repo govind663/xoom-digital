@@ -236,7 +236,7 @@ Task | Add
                                             </a>
                                         </li>
 
-                                        <li class="nav-item flex-fill" role="presentation" data-bs-toggle="tooltip" data-bs-placement="top" title="Payment Details">
+                                        <li class="nav-item flex-fill 03 box" role="presentation" data-bs-toggle="tooltip" data-bs-placement="top" title="Payment Details">
                                             <a class="nav-link rounded-circle mx-auto d-flex align-items-center justify-content-center" href="#step5" id="step5-tab" data-bs-toggle="tab" role="tab" aria-controls="step5" aria-selected="false">
                                                 <i class="fas fa-credit-card"></i>
                                             </a>
@@ -493,10 +493,10 @@ Task | Add
                                                             <label><b>Select Task Status : <span class="text-danger">*</span></b></label>
                                                             <select class="@error('task_status') is-invalid @enderror select" id="task_status" name="task_status">
                                                                 <option value="">Select Task Status</option>
-                                                                <option value="1" {{ (old("task_status") == "1" ? "selected":"") }}>Pending</option>
-                                                                <option value="2" {{ (old("task_status") == "2" ? "selected":"") }}>In Progress</option>
-                                                                <option value="3" {{ (old("task_status") == "3" ? "selected":"") }}>Completed</option>
-                                                                <option value="4" {{ (old("task_status") == "4" ? "selected":"") }}>Cancelled</option>
+                                                                <option value="01" {{ (old("task_status") == "01" ? "selected":"") }}>Meating</option>
+                                                                <option value="02" {{ (old("task_status") == "02" ? "selected":"") }}>Follow Up</option>
+                                                                <option value="03" {{ (old("task_status") == "03" ? "selected":"") }}>Deal Closed</option>
+                                                                <option value="04" {{ (old("task_status") == "04" ? "selected":"") }}>Not Interested</option>
                                                             </select>
                                                             @error('task_status')
                                                                 <span class="invalid-feedback" role="alert">
@@ -522,12 +522,69 @@ Task | Add
                                                             @enderror
                                                         </div>
                                                     </div>
+
+                                                    <div class="row 02 box" style="display:none">
+                                                        <h6 class="card-title text-primary mb-1">Follow-Up Details : -</h6>
+                                                        <div class="col-lg-4 col-md-6 col-sm-12">
+                                                            <div class="input-block mb-3">
+                                                                <label><b>Date : </b></b></label>
+                                                                <div class="cal-icon cal-icon-info">
+                                                                    <input type="text"  id="follow_up_dt" name="follow_up_dt" class="form-control datetimepicker @error('follow_up_dt') is-invalid @enderror" value="{{ old('follow_up_dt') }}" placeholder="DD-MM-YYYY">
+                                                                    @error('follow_up_dt')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-lg-4 col-md-6 col-sm-12">
+                                                            <div class="input-block mb-3">
+                                                                <label><b>Notes : </b></b></label>
+                                                                <textarea type="text"  id="comment" name="comment" class="form-control @error('comment') is-invalid @enderror" value="{{ old('comment') }}" placeholder="Enter Notes">{{ old('comment') }}</textarea>
+                                                                @error('comment')
+                                                                    <span class="invalid-feedback" role="alert">
+                                                                        <strong>{{ $message }}</strong>
+                                                                    </span>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-lg-4 col-md-6 col-sm-12">
+                                                            <div class="input-block mb-3 ">
+                                                                <label><b>Upload Perposel : </b></label>
+                                                                <input type="file" onchange="agentPreviewFile()" id="perposel_doc" name="perposel_doc"  class="form-control @error('perposel_doc') is-invalid @enderror" value="{{ old('perposel_doc') }}" accept=".pdf, .png, .jpg, .jpeg">
+                                                                <small class="text-secondary"><b>Note : The file size  should be less than 2MB .</b></small>
+                                                                <br>
+                                                                <small class="text-secondary"><b>Note : Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .</b></small>
+                                                                @error('perposel_doc')
+                                                                    <span class="invalid-feedback" role="alert">
+                                                                        <strong>{{ $message }}</strong>
+                                                                    </span>
+                                                                @enderror
+                                                            </div>
+                                                            <div id="agent-preview-container">
+                                                                <div id="agent-file-preview"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 </div>
                                             </fieldset>
+
                                             <div class="d-flex">
+                                                <a class="btn btn-primary previous me-2">Back</a>
+                                                <a href="{{ route('task.index') }}" class="btn btn-danger me-2">Cancel</a>
+                                                <button type="submit" class="btn btn-success">Submit</button>
+                                            </div>
+
+                                            <div class="d-flex 03"  style="display:none !important;">
                                                 <a class="btn btn btn-primary previous me-2"> Back</a>
                                                 <a class="btn btn btn-primary next">Continue</a>
                                             </div>
+
+
                                         </div>
 
                                         {{-- Payment Details --}}
@@ -602,7 +659,7 @@ Task | Add
                                                 </div>
                                             </fieldset>
                                             <div class="d-flex">
-                                                <a class="btn btn-primary previous me-2">Previous</a>
+                                                <a class="btn btn-primary previous me-2">Back</a>
                                                 <a href="{{ route('task.index') }}" class="btn btn-danger me-2">Cancel</a>
                                                 <button type="submit" class="btn btn-success">Submit</button>
                                             </div>
@@ -811,5 +868,60 @@ Task | Add
             }
         }
     });
+</script>
+
+<script>
+    $(document).ready(function(){
+        $("select").change(function(){
+            $(this).find("option:selected").each(function(){
+                var optionValue = $(this).attr("value");
+                if(optionValue){
+                    $(".box").not("." + optionValue).hide();
+                    $("." + optionValue).show();
+                } else{
+                    $(".box").hide();
+                }
+            });
+        }).change();
+    });
+</script>
+
+{{-- preview both image and PDF --}}
+<script>
+    function agentPreviewFile() {
+        const fileInput = document.getElementById('perposel_doc');
+        const previewContainer = document.getElementById('agent-preview-container');
+        const filePreview = document.getElementById('agent-file-preview');
+        const file = fileInput.files[0];
+
+        if (file) {
+            const fileType = file.type;
+            const validImageTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+            const validPdfTypes = ['application/pdf'];
+
+            if (validImageTypes.includes(fileType)) {
+                // Image preview
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    filePreview.innerHTML = `<img src="${e.target.result}" alt="File Preview" width="50%" height="50">`;
+                };
+                reader.readAsDataURL(file);
+            } else if (validPdfTypes.includes(fileType)) {
+                // PDF preview using an embed element
+                filePreview.innerHTML =
+                    `<embed src="${URL.createObjectURL(file)}" type="application/pdf" width="100%" height="150px" />`;
+            } else {
+                // Unsupported file type
+                filePreview.innerHTML = '<p>Unsupported file type</p>';
+            }
+
+            previewContainer.style.display = 'block';
+        } else {
+            // No file selected
+            previewContainer.style.display = 'none';
+        }
+
+    }
+
 </script>
 @endpush

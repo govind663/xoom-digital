@@ -51,10 +51,10 @@ return new class extends Migration
             $table->date('payment_date')->nullable();
 
             $table->string('task_status')->nullable()->comment('
-            1 - Pending,
-            2 - In Progress,
-            3 - Completed,
-            4 - Cancelled,
+            1 - Meating,
+            2 - Follow Up,
+            3 - Deal Closed,
+            4 - Not Interested,
             ');
 
             // ===== onField User Id Accepted

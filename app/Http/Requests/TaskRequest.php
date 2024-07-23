@@ -42,6 +42,9 @@ class TaskRequest extends FormRequest
                 'advanced_payment' => 'nullable|string|max:255',
                 'balance_payment' => 'nullable|string|max:255',
                 'task_status' => 'nullable|numeric',
+                'date' => 'nullable|string|max:255',
+                'comment' => 'nullable|string|max:255',
+                'personal_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:2048',
                 'user_id' => 'nullable|numeric',
                 'lead_by' => 'nullable|numeric',
             ];
@@ -65,6 +68,9 @@ class TaskRequest extends FormRequest
                 'advanced_payment' => 'nullable|string|max:255',
                 'balance_payment' => 'nullable|string|max:255',
                 'task_status' => 'nullable|numeric',
+                'date' => 'nullable|string|max:255',
+                'comment' => 'nullable|string|max:255',
+                'personal_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:2048',
                 'user_id' => 'nullable|numeric',
                 'lead_by' => 'nullable|numeric',
             ];

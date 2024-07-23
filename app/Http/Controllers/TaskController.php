@@ -42,6 +42,18 @@ class TaskController extends Controller
             // dd($request);
             $task = new Task();
 
+            // ==== Upload (personal_doc)
+            if (!empty($request->hasFile('personal_doc'))) {
+                $image = $request->file('personal_doc');
+                $image_name = $image->getClientOriginalName();
+                $extension = $image->getClientOriginalExtension();
+                $new_name = time() . rand(10, 999) . '.' . $extension;
+                $image->move(public_path('/xoom_digital/perposel_doc'), $new_name);
+
+                $image_path = "/xoom_digital/perposel_doc" . $image_name;
+                $task->personal_doc = $new_name;
+            }
+
             $task->customer_name = $request['customer_name'];
             $task->customer_email = $request['customer_email'];
             $task->customer_phone = $request['customer_phone'];
@@ -60,6 +72,8 @@ class TaskController extends Controller
             $task->advanced_payment = $request['advanced_payment'];
             $task->balance_payment = $request['balance_payment'];
             $task->task_status = $request['task_status'];
+            $task->date = date("Y-m-d ", strtotime($request['date']));
+            $task->comment = $request['comment'];
             $task->user_id = $request['user_id'];
             $task->lead_by = $request['lead_by'];
             $task->inserted_at = Carbon::now();
@@ -111,6 +125,19 @@ class TaskController extends Controller
         try {
 
             $task = Task::find($id);
+
+            // ==== Upload (personal_doc)
+            if (!empty($request->hasFile('personal_doc'))) {
+                $image = $request->file('personal_doc');
+                $image_name = $image->getClientOriginalName();
+                $extension = $image->getClientOriginalExtension();
+                $new_name = time() . rand(10, 999) . '.' . $extension;
+                $image->move(public_path('/xoom_digital/perposel_doc'), $new_name);
+
+                $image_path = "/xoom_digital/perposel_doc" . $image_name;
+                $task->personal_doc = $new_name;
+            }
+            
             $task->customer_name = $request['customer_name'];
             $task->customer_email = $request['customer_email'];
             $task->customer_phone = $request['customer_phone'];
@@ -129,6 +156,8 @@ class TaskController extends Controller
             $task->advanced_payment = $request['advanced_payment'];
             $task->balance_payment = $request['balance_payment'];
             $task->task_status = $request['task_status'];
+            $task->date = date("Y-m-d ", strtotime($request['date']));
+            $task->comment = $request['comment'];
             $task->user_id = $request['user_id'];
             $task->lead_by = $request['lead_by'];
             $task->lead_by = Auth::user()->id;
