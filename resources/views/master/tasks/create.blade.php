@@ -380,11 +380,11 @@ Task | Add
                                                         <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="input-block mb-3 ">
                                                                 <label><b>Upload Purposel : </b></label>
-                                                                <input type="file" onchange="agentPreviewFile()" id="perposel_doc" name="perposel_doc"  class="form-control @error('perposel_doc') is-invalid @enderror" value="{{ old('perposel_doc') }}" accept=".pdf, .png, .jpg, .jpeg">
+                                                                <input type="file" onchange="agentPreviewFile()" id="purposel_doc" name="purposel_doc"  class="form-control @error('purposel_doc') is-invalid @enderror" value="{{ old('purposel_doc') }}" accept=".pdf, .png, .jpg, .jpeg">
                                                                 <small class="text-secondary"><b>Note : The file size  should be less than 2MB .</b></small>
                                                                 <br>
                                                                 <small class="text-secondary"><b>Note : Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .</b></small>
-                                                                @error('perposel_doc')
+                                                                @error('purposel_doc')
                                                                     <span class="invalid-feedback" role="alert">
                                                                         <strong>{{ $message }}</strong>
                                                                     </span>

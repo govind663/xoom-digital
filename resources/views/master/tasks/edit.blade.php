@@ -381,11 +381,11 @@
                                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                                         <div class="input-block mb-3 ">
                                                             <label><b>Upload Purposel : </b></label>
-                                                            <input type="file" onchange="agentPreviewFile()" id="perposel_doc" name="perposel_doc"  class="form-control @error('perposel_doc') is-invalid @enderror" value="{{ $task->perposel_doc }}" accept=".pdf, .png, .jpg, .jpeg">
+                                                            <input type="file" onchange="agentPreviewFile()" id="purposel_doc" name="purposel_doc"  class="form-control @error('purposel_doc') is-invalid @enderror" value="{{ $task->personal_doc }}" accept=".pdf, .png, .jpg, .jpeg">
                                                             <small class="text-secondary"><b>Note : The file size  should be less than 2MB .</b></small>
                                                             <br>
                                                             <small class="text-secondary"><b>Note : Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .</b></small>
-                                                            @error('perposel_doc')
+                                                            @error('purposel_doc')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
                                                                 </span>
@@ -395,8 +395,8 @@
                                                             <div id="agent-file-preview"></div>
                                                         </div>
                                                         <div class="col-sm-6 col-md-6 mb-4">
-                                                            @if(!empty($task->perposel_doc))
-                                                                <a href="{{url('/')}}/xoom_digital/perposel_doc/{{ $task->perposel_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            @if(!empty($task->personal_doc))
+                                                                <a href="{{url('/')}}/xoom_digital/purposel_doc/{{ $task->personal_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                     <b> View Document</b>
                                                                 </a>
                                                             @endif
