@@ -88,16 +88,16 @@
                     </a>
                     <ul style="display: none;">
                         <li class="">
-                            <a href="{{ route('sales-report-list.index', ['task_status'=>1]) }}"><span>Pending</span></a>
+                            <a href="{{ route('sales-report-list.index', ['task_status'=>'01']) }}"><span>Pending</span></a>
                         </li>
                         <li class="">
-                            <a href="{{ route('sales-report-list.index', ['task_status'=>2]) }}"><span>In Progress</span></a>
+                            <a href="{{ route('sales-report-list.index', ['task_status'=>'02']) }}"><span>In Progress</span></a>
                         </li>
                         <li class="">
-                            <a href="{{ route('sales-report-list.index', ['task_status'=>3]) }}"><span>Completed</span></a>
+                            <a href="{{ route('sales-report-list.index', ['task_status'=>'03']) }}"><span>Completed</span></a>
                         </li>
                         <li class="">
-                            <a href="{{ route('sales-report-list.index', ['task_status'=>4]) }}"><span>Cancelled</span></a>
+                            <a href="{{ route('sales-report-list.index', ['task_status'=>'04']) }}"><span>Cancelled</span></a>
                         </li>
                     </ul>
                 </li>

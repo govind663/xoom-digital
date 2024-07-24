@@ -14,179 +14,11 @@
         flex-wrap: nowrap !important;
         justify-content: flex-end !important;
     }
-    .pricing-table {
-        display: flex;
-        flex-flow: row wrap;
-        width: 100%;
-        max-width: 1100px;
-        margin: 0 auto;
-        background: #ffffff;
-    }
-
-    .pricing-table .ptable-item {
-        width: 33.33%;
-        padding: 0 15px;
-        margin-bottom: 30px;
-    }
-
-        @media (max-width: 992px) {
-        .pricing-table .ptable-item {
-            width: 33.33%;
-        }
-    }
-
-        @media (max-width: 768px) {
-        .pricing-table .ptable-item {
-            width: 50%;
-        }
-    }
-
-        @media (max-width: 576px) {
-        .pricing-table .ptable-item {
-            width: 100%;
-        }
-    }
-
-    .pricing-table .ptable-single {
-        position: relative;
-        width: 100%;
-        overflow: hidden;
-    }
-
-    .pricing-table .ptable-body,
-    .pricing-table .ptable-footer {
-        position: relative;
-        width: 100%;
-        text-align: center;
-        overflow: hidden;
-    }
-
-    .pricing-table .ptable-status ,
-    .pricing-table .ptable-title {
-        position: relative;
-        width: 100%;
-        text-align: justify;
-    }
-    .pricing-table .ptable-price {
-        position: relative;
-        width: 100%;
-        text-align: center;
-    }
-
-    .pricing-table .ptable-description {
-        position: relative;
-        width: 100%;
-        text-align:justify;
-    }
-
-    .pricing-table .ptable-single {
-        background: #f6f8fa;
-    }
-
-    .pricing-table .ptable-single:hover {
-        box-shadow: 0 0 10px #999999;
-    }
-
-    .pricing-table .ptable-status {
-        margin-top: -30px;
-    }
-
-    .pricing-table .ptable-status span {
-        position: relative;
-        display: inline-block;
-        width: 50px;
-        height: 30px;
-        padding: 5px 0;
-        text-align: justify;
-        color: #FF6F61;
-        font-size: 14px;
-        font-weight: 300;
-        letter-spacing: 1px;
-        background: #2A293E;
-    }
-
-    .pricing-table .ptable-status span::before,
-    .pricing-table .ptable-status span::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        width: 0;
-        height: 0;
-        border-bottom: 10px solid #FF6F61;
-    }
-
-    .pricing-table .ptable-status span::before {
-        right: 50%;
-        border-right: 25px solid transparent;
-    }
-
-    .pricing-table .ptable-status span::after {
-        left: 50%;
-        border-left: 25px solid transparent;
-    }
-
-    .pricing-table .ptable-title h2 {
-        color: #0c0c0c;
-        font-size: 22px;
-        font-weight: 300;
-        letter-spacing: 2px;
-        text-align: justify;
-    }
-    .pricing-table .ptable-title h3 {
-        color: #0c0c0c;
-        font-size: 23px;
-        font-weight: 500;
-        text-align: justify;
-    }
-
-    .pricing-table .ptable-title h4 {
-        color: #443e3e;
-        font-size: 18px;
-        font-weight: 200;
-        letter-spacing: 2px;
-        text-align: justify;
-    }
-
-    .pricing-table .ptable-title h5 {
-        color: #1f1818;
-        font-size: 18px;
-        font-weight: 500;
-        text-align: justify;
-    }
-
-    .pricing-table .ptable-price h2 {
-        margin: 0;
-        color: #443e3e;
-        font-size: 45px;
-        font-weight: 700;
-        margin-left: 15px;
-    }
-
-    .pricing-table .ptable-price h2 small {
-        position: absolute;
-        font-size: 18px;
-        font-weight: 300;
-        margin-top: 16px;
-        margin-left: -15px;
-    }
-
-    .pricing-table .ptable-price h2 span {
-        margin-left: 3px;
-        font-size: 16px;
-        font-weight: 300;
-    }
-
-    .pricing-table .ptable-body {
-        padding: 20px 0;
-    }
-
-    .pricing-table .ptable-footer {
-        padding-bottom: 30px;
-    }
-    #input-group-text {
-        align-items: center !important;
-        padding: .375rem .75rem !important;
-        font-size: 2rem !important;
+    .d-flex1 {
+        display: flex !important;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        align-content: flex-start;
     }
 </style>
 @endpush
@@ -213,6 +45,7 @@
                                 <input type="hidden" id="lead_by" name="lead_by" value="{{ Auth::user()->id }}">
 
                                 <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+
                                     <li class="nav-item flex-fill" role="presentation" data-bs-toggle="tooltip" data-bs-placement="top" title="Customer Details">
                                         <a class="nav-link active rounded-circle mx-auto d-flex align-items-center justify-content-center" href="#step1" id="step1-tab" data-bs-toggle="tab" role="tab" aria-controls="step1" aria-selected="true">
                                             <i class="far fa-user"></i>
@@ -237,11 +70,12 @@
                                         </a>
                                     </li>
 
-                                    <li class="nav-item flex-fill" role="presentation" data-bs-toggle="tooltip" data-bs-placement="top" title="Payment Details">
+                                    <li id="box-05" class="nav-item flex-fill box" role="presentation" data-bs-toggle="tooltip" data-bs-placement="top" title="Payment Details">
                                         <a class="nav-link rounded-circle mx-auto d-flex align-items-center justify-content-center" href="#step5" id="step5-tab" data-bs-toggle="tab" role="tab" aria-controls="step5" aria-selected="false">
                                             <i class="fas fa-credit-card"></i>
                                         </a>
                                     </li>
+
                                 </ul>
 
                                 <div class="tab-content" id="myTabContent">
@@ -356,46 +190,40 @@
                                             <h5 class="card-title text-primary mb-2">Packages Details : -</h5>
                                         </div>
                                         <fieldset>
-                                            <div class="row">
-
-                                                {{-- Pricing Section Start --}}
-                                                <div class="pricing-table">
-                                                    @foreach($packages as $package)
-                                                    <div class="ptable-item">
-                                                        <div class="ptable-single" style="height: 500px !important;">
-                                                            <img src="{{ url('/') }}/xoom_digital/package/image/{{ $package->image }}" alt="priceing Banner" style="height: 130px; width:100%" >
-
-                                                            <div class="ptable-body p-3">
-                                                                <div class="ptable-title pb-2">
-                                                                    <h3>
-                                                                        {{ $package->name }}
-                                                                    </h3>
-                                                                    <h5>
-                                                                        {{ $package->packageType?->name }}
-                                                                    </h5>
+                                            <div class="row d-flex1 align-items-center justify-content-centers">
+                                                @foreach($packages as $package)
+                                                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
+                                                    <div class="packages card" style="border: 1px solid #e77c09 !important;">
+                                                        <div class="package-header d-flex justify-content-between">
+                                                            <div class="d-flex1 justify-content-between w-100">
+                                                                <div class>
+                                                                    <h6>{{ $package->packageType?->name }}</h6>
+                                                                    <h5>{{ $package->name }}</h5>
                                                                 </div>
-
-                                                                <div class="ptable-description">
-                                                                    <p>
-                                                                        {!! $package->description !!}
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="ptable-footer">
-                                                                <div class="ptable-price">
-                                                                    <h5>
-                                                                        <span>RS</span> {{ $package->amount }}
-                                                                    </h5>
-                                                                </div>
-                                                                <div id="input-group-text">
-                                                                    <input type="checkbox" id="package_id" name="package_id" style="border: 1px solid #e77c09;"  class="form-check-input" value="{{ $package->package_type_id }}" {{  ($task->package_id == $package->package_type_id ? ' checked' : '') }} >
-                                                                </div>
+                                                                <span class="icon-frame d-flex1 align-items-center justify-content-center">
+                                                                    <img src="{{ url('/') }}/xoom_digital/package/image/{{ $package->image }}" alt="img">
+                                                                </span>
                                                             </div>
                                                         </div>
+                                                        <p style="text-align: justify !important;">
+                                                            {!! $package->description !!}
+                                                        </p>
+                                                        <h2>
+                                                            <span>RS</span> {{ $package->amount }}
+                                                        </h2>
+
+                                                        <div id="input-group-text">
+                                                            <input type="checkbox" id="package_id" name="package_id" style="border: 1px solid #e77c09;"  class="form-check-input" value="{{ $package->package_type_id }}" {{  ( $task->package_id == $package->package_type_id ? ' checked' : '') }}>
+                                                        </div>
+
+                                                        {{-- <div class="justify-content-center package-edit">
+                                                            <a class="btn-action-icon me-2" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#edit_package">
+                                                                <i class="fe fe-edit"></i>
+                                                            </a>
+                                                        </div> --}}
                                                     </div>
-                                                    @endforeach
                                                 </div>
-                                                {{-- Pricing Section End --}}
+                                                @endforeach
                                             </div>
                                         </fieldset>
                                         <div class="d-flex">
@@ -492,10 +320,10 @@
                                                         <label><b>Select Task Status : <span class="text-danger">*</span></b></label>
                                                         <select class="@error('task_status') is-invalid @enderror select" id="task_status" name="task_status">
                                                             <option value="">Select Task Status</option>
-                                                            <option value="1" {{ ($task->task_status == "1" ? "selected":"") }}>Meating</option>
-                                                            <option value="2" {{ ($task->task_status == "2" ? "selected":"") }}>Follow Up</option>
-                                                            <option value="3" {{ ($task->task_status == "3" ? "selected":"") }}>Deal Closed</option>
-                                                            <option value="4" {{ ($task->task_status == "4" ? "selected":"") }}>Not Interested</option>
+                                                            <option value="01" {{ ($task->task_status == "01" ? "selected":"") }}>Meating</option>
+                                                            <option value="02" {{ ($task->task_status == "20" ? "selected":"") }}>Follow Up</option>
+                                                            <option value="03" {{ ($task->task_status == "03" ? "selected":"") }}>Deal Closed</option>
+                                                            <option value="04" {{ ($task->task_status == "04" ? "selected":"") }}>Not Interested</option>
                                                         </select>
                                                         @error('task_status')
                                                             <span class="invalid-feedback" role="alert">
@@ -522,7 +350,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="row 02 box" style="display:none">
+                                                <div id="box-02" class="row box" style="display:none">
                                                     <h6 class="card-title text-primary mb-1">Follow-Up Details : -</h6>
                                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                                         <div class="input-block mb-3">
@@ -574,31 +402,31 @@
                                                             @endif
                                                         </div>
                                                     </div>
+
+                                                    <div class="d-flex">
+                                                        <a class="btn btn-primary previous me-2">Back</a>
+                                                        <a href="{{ route('task.index') }}" class="btn btn-danger me-2">Cancel</a>
+                                                        <button type="submit" class="btn btn-success">Submit</button>
+                                                    </div>
                                                 </div>
 
                                             </div>
                                         </fieldset>
-                                        <div class="col-sm-12 01 box" style="display:none !important; text-align: end;">
+                                        <div id="box-01" class="col-sm-12 box" style="display:none !important; text-align: end;">
                                             <a class="btn btn-primary previous me-2">Back</a>
                                             <a href="{{ route('task.index') }}" class="btn btn-danger me-2">Cancel</a>
-                                            <button type="submit" class="btn btn-success">Update</button>
+                                            <button type="submit" class="btn btn-success">Submit</button>
                                         </div>
 
-                                        <div class="col-sm-12 02 box" style="display:none !important; text-align: end;">
-                                            <a class="btn btn-primary previous me-2">Back</a>
-                                            <a href="{{ route('task.index') }}" class="btn btn-danger me-2">Cancel</a>
-                                            <button type="submit" class="btn btn-success">Update</button>
-                                        </div>
-
-                                        <div class="col-sm-12 03 box"  style="display:none !important; text-align: end;">
+                                        <div id="box-03" class="col-sm-12 box"  style="display:none !important; text-align: end;">
                                             <a class="btn btn btn-primary previous me-2"> Back</a>
                                             <a class="btn btn btn-primary next">Continue</a>
                                         </div>
 
-                                        <div class="col-sm-12 04 box" style="display:none !important; text-align: end;">
+                                        <div id="box-04" class="col-sm-12 box" style="display:none !important; text-align: end;">
                                             <a class="btn btn-primary previous me-2">Back</a>
                                             <a href="{{ route('task.index') }}" class="btn btn-danger me-2">Cancel</a>
-                                            <button type="submit" class="btn btn-success">Update</button>
+                                            <button type="submit" class="btn btn-success">Submit</button>
                                         </div>
                                     </div>
 
@@ -887,17 +715,17 @@
 
 <script>
     $(document).ready(function(){
-        $("select").change(function(){
-            $(this).find("option:selected").each(function(){
-                var optionValue = $(this).attr("value");
-                if(optionValue){
-                    $(".box").not("." + optionValue).hide();
-                    $("." + optionValue).show();
-                } else{
-                    $(".box").hide();
+        $("#task_status").change(function(){
+            var optionValue = $(this).val();
+            $(".box").hide();  // Hide all divs
+
+            if(optionValue){
+                $("#box-" + optionValue).show();  // Show the selected div
+                if(optionValue == 03){
+                    $("#box-05").show();  // Show the additional div if needed
                 }
-            });
-        }).change();
+            }
+        }).change();  // Trigger change event to set initial state
     });
 </script>
 
