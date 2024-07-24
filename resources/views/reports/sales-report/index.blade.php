@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-Task | List
+Reports | List
 @endsection
 
 @push('styles')
@@ -43,17 +43,17 @@ Task | List
         <div class="page-header">
             <div class="row">
                 <div class="col">
-                    <h3 class="page-title">Task</h3>
+                    <h3 class="page-title">Reports</h3>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
                         @if($task_status == 1)
-                        <li class="breadcrumb-item active">All Pending Task List</li>
+                        <li class="breadcrumb-item active">All Meating List</li>
                         @elseif($task_status == 2)
-                        <li class="breadcrumb-item active">All In Progress Task List</li>
+                        <li class="breadcrumb-item active">All Follow Up List</li>
                         @elseif($task_status == 3)
-                        <li class="breadcrumb-item active">All Completed Task List</li>
+                        <li class="breadcrumb-item active">All Deal Closed List</li>
                         @elseif($task_status == 4)
-                        <li class="breadcrumb-item active">All Cancelled Task List</li>
+                        <li class="breadcrumb-item active">All Not Interested List</li>
                         @endif
                     </ul>
                 </div>
@@ -121,13 +121,13 @@ Task | List
                     <div class="row card-body">
                         <div class="col-10">
                             @if($task_status == 1)
-                            <h5 class="card-title">All Pending Task List</h5>
+                            <h5 class="card-title">All Meating List</h5>
                             @elseif($task_status == 2)
-                            <h5 class="card-title">All In Progress Task List</h5>
+                            <h5 class="card-title">All Follow Up List</h5>
                             @elseif($task_status == 3)
-                            <h5 class="card-title">All Completed Task List</h5>
+                            <h5 class="card-title">All Deal Closed List</h5>
                             @elseif($task_status == 4)
-                            <h5 class="card-title">All Cancelled Task List</h5>
+                            <h5 class="card-title">All Not Interested List</h5>
                             @endif
                         </div>
                     </div>
