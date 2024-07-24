@@ -552,7 +552,7 @@
 
                                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                                         <div class="input-block mb-3 ">
-                                                            <label><b>Upload Perposel : </b></label>
+                                                            <label><b>Upload Purposel : </b></label>
                                                             <input type="file" onchange="agentPreviewFile()" id="perposel_doc" name="perposel_doc"  class="form-control @error('perposel_doc') is-invalid @enderror" value="{{ $task->perposel_doc }}" accept=".pdf, .png, .jpg, .jpeg">
                                                             <small class="text-secondary"><b>Note : The file size  should be less than 2MB .</b></small>
                                                             <br>
@@ -578,9 +578,27 @@
 
                                             </div>
                                         </fieldset>
-                                        <div class="d-flex">
+                                        <div class="col-sm-12 01 box" style="display:none !important; text-align: end;">
+                                            <a class="btn btn-primary previous me-2">Back</a>
+                                            <a href="{{ route('task.index') }}" class="btn btn-danger me-2">Cancel</a>
+                                            <button type="submit" class="btn btn-success">Update</button>
+                                        </div>
+
+                                        <div class="col-sm-12 02 box" style="display:none !important; text-align: end;">
+                                            <a class="btn btn-primary previous me-2">Back</a>
+                                            <a href="{{ route('task.index') }}" class="btn btn-danger me-2">Cancel</a>
+                                            <button type="submit" class="btn btn-success">Update</button>
+                                        </div>
+
+                                        <div class="col-sm-12 03 box"  style="display:none !important; text-align: end;">
                                             <a class="btn btn btn-primary previous me-2"> Back</a>
                                             <a class="btn btn btn-primary next">Continue</a>
+                                        </div>
+
+                                        <div class="col-sm-12 04 box" style="display:none !important; text-align: end;">
+                                            <a class="btn btn-primary previous me-2">Back</a>
+                                            <a href="{{ route('task.index') }}" class="btn btn-danger me-2">Cancel</a>
+                                            <button type="submit" class="btn btn-success">Update</button>
                                         </div>
                                     </div>
 
@@ -658,7 +676,7 @@
                                         <div class="d-flex">
                                             <a href="{{ route('task.index') }}" class="btn btn-danger me-2">Cancel</a>
                                             <a class="btn btn-primary previous me-2">Previous</a>
-                                            <button type="submit" class="btn btn-success">Submit</button>
+                                            <button type="submit" class="btn btn-success">Update</button>
                                         </div>
                                     </div>
                                 </div>

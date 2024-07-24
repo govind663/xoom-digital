@@ -525,7 +525,7 @@ Task | Add
 
                                                     <div class="row 02 box" style="display:none">
                                                         <h6 class="card-title text-primary mb-1">Follow-Up Details : -</h6>
-                                                        <div class="col-lg-4 col-md-6 col-sm-12">
+                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="input-block mb-3">
                                                                 <label><b>Date : </b></b></label>
                                                                 <div class="cal-icon cal-icon-info">
@@ -539,7 +539,7 @@ Task | Add
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-lg-4 col-md-6 col-sm-12">
+                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="input-block mb-3">
                                                                 <label><b>Notes : </b></b></label>
                                                                 <textarea type="text"  id="comment" name="comment" class="form-control @error('comment') is-invalid @enderror" value="{{ old('comment') }}" placeholder="Enter Notes">{{ old('comment') }}</textarea>
@@ -551,9 +551,9 @@ Task | Add
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-lg-4 col-md-6 col-sm-12">
+                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="input-block mb-3 ">
-                                                                <label><b>Upload Perposel : </b></label>
+                                                                <label><b>Upload Purposel : </b></label>
                                                                 <input type="file" onchange="agentPreviewFile()" id="perposel_doc" name="perposel_doc"  class="form-control @error('perposel_doc') is-invalid @enderror" value="{{ old('perposel_doc') }}" accept=".pdf, .png, .jpg, .jpeg">
                                                                 <small class="text-secondary"><b>Note : The file size  should be less than 2MB .</b></small>
                                                                 <br>
@@ -573,18 +573,28 @@ Task | Add
                                                 </div>
                                             </fieldset>
 
-                                            <div class="d-flex">
+                                            <div class="col-sm-12 01 box" style="display:none !important; text-align: end;">
                                                 <a class="btn btn-primary previous me-2">Back</a>
                                                 <a href="{{ route('task.index') }}" class="btn btn-danger me-2">Cancel</a>
                                                 <button type="submit" class="btn btn-success">Submit</button>
                                             </div>
 
-                                            <div class="d-flex 03"  style="display:none !important;">
+                                            <div class="col-sm-12 02 box" style="display:none !important; text-align: end;">
+                                                <a class="btn btn-primary previous me-2">Back</a>
+                                                <a href="{{ route('task.index') }}" class="btn btn-danger me-2">Cancel</a>
+                                                <button type="submit" class="btn btn-success">Submit</button>
+                                            </div>
+
+                                            <div class="col-sm-12 03 box"  style="display:none !important; text-align: end;">
                                                 <a class="btn btn btn-primary previous me-2"> Back</a>
                                                 <a class="btn btn btn-primary next">Continue</a>
                                             </div>
 
-
+                                            <div class="col-sm-12 04 box" style="display:none !important; text-align: end;">
+                                                <a class="btn btn-primary previous me-2">Back</a>
+                                                <a href="{{ route('task.index') }}" class="btn btn-danger me-2">Cancel</a>
+                                                <button type="submit" class="btn btn-success">Submit</button>
+                                            </div>
                                         </div>
 
                                         {{-- Payment Details --}}
