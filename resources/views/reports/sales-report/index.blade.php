@@ -155,13 +155,13 @@ Reports | List
                                         <td>{{ $value->package?->amount }}</td>
 
                                         @if($value->task_status == 1)
-                                        <td><span class="badge bg-warning">Pending</span></td>
+                                        <td><span class="badge bg-warning">Meating</span></td>
                                         @elseif($value->task_status == 2)
-                                        <td><span class="badge bg-info">In Progress</span></td>
+                                        <td><span class="badge bg-info">Follow Up</span></td>
                                         @elseif($value->task_status == 3)
-                                        <td><span class="badge bg-success">Completed</span></td>
+                                        <td><span class="badge bg-success">Deal Closed</span></td>
                                         @elseif($value->task_status == 4)
-                                        <td><span class="badge bg-danger">Cancelled</span></td>
+                                        <td><span class="badge bg-danger">Not Interested</span></td>
                                         @endif
 
                                         @if (Auth::user()->user_type == '3')
