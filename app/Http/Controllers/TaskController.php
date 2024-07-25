@@ -73,7 +73,24 @@ class TaskController extends Controller
             $task->payment_date = date("Y-m-d ", strtotime($request['payment_date']));
             $task->advanced_payment = $request['advanced_payment'];
             $task->balance_payment = $request['balance_payment'];
-            $task->task_status = $request['task_status'];
+            // Retrieve the task status from the request
+            $taskStatus = $request['task_status'];
+            switch ($taskStatus) {
+                case '01':
+                    $task->task_status = 1;
+                    break;
+                case '02':
+                    $task->task_status = 2;
+                    break;
+                case '03':
+                    $task->task_status = 3;
+                    break;
+                case '04':
+                    $task->task_status = 4;
+                    break;
+                default:
+                    return response()->json(['error' => 'Invalid task status'], 400);
+            }
             $task->date = date("Y-m-d ", strtotime($request['date']));
             $task->comment = $request['comment'];
             $task->user_id = $request['user_id'];
@@ -157,7 +174,24 @@ class TaskController extends Controller
             $task->payment_date = date("Y-m-d ", strtotime($request['payment_date']));
             $task->advanced_payment = $request['advanced_payment'];
             $task->balance_payment = $request['balance_payment'];
-            $task->task_status = $request['task_status'];
+            // Retrieve the task status from the request
+            $taskStatus = $request['task_status'];
+            switch ($taskStatus) {
+                case '01':
+                    $task->task_status = 1;
+                    break;
+                case '02':
+                    $task->task_status = 2;
+                    break;
+                case '03':
+                    $task->task_status = 3;
+                    break;
+                case '04':
+                    $task->task_status = 4;
+                    break;
+                default:
+                    return response()->json(['error' => 'Invalid task status'], 400);
+            }
             $task->date = date("Y-m-d ", strtotime($request['date']));
             $task->comment = $request['comment'];
             $task->user_id = $request['user_id'];
@@ -172,7 +206,7 @@ class TaskController extends Controller
             $pdfFile = $pdfPath. $task->personal_doc;
 
             // send Mail
-            // Mail::to($task->customer_email)->send(new PDFMail($pdfPath));
+            Mail::to($task->customer_email)->send(new PDFMail($pdfPath));
 
             return redirect()->route('task.index')->with('message','Task Updated Successfully');
 

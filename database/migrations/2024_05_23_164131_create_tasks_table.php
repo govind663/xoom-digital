@@ -50,7 +50,7 @@ return new class extends Migration
             $table->string('payment_type')->nullable()->comment('1 => Cash, 2 => Cheque, 3 => Online Transfer, 4 => GooglePay, 5 => PhonePay');
             $table->date('payment_date')->nullable();
 
-            $table->string('task_status')->nullable()->comment('
+            $table->integer('task_status')->nullable()->comment('
             01 - Meating,
             02 - Follow Up,
             03 - Deal Closed,

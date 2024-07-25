@@ -77,7 +77,7 @@ Xoom Digital | Home
                     </div>
                 </div>
 
-                {{-- Total Pending Task Counts --}}
+                {{-- Total Meating Counts --}}
                 <div class="col-xl-3 col-sm-6 col-12">
                     <div class="card">
                         <div class="card-body border shadow">
@@ -86,7 +86,7 @@ Xoom Digital | Home
                                     <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
-                                    <div class="dash-title text-dark">Total Pending Task</div>
+                                    <div class="dash-title text-dark">Total Meating</div>
                                     <div class="dash-counts text-dark">
                                         <p>
                                             {{ $totalPendingTask ? $totalPendingTask : 0 }}</p>
@@ -98,7 +98,7 @@ Xoom Digital | Home
                     </div>
                 </div>
 
-                {{-- Total In Progress Task Counts --}}
+                {{-- Total Follow Up Counts --}}
                 <div class="col-xl-3 col-sm-6 col-12">
                     <div class="card">
                         <div class="card-body border shadow">
@@ -107,7 +107,7 @@ Xoom Digital | Home
                                     <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
-                                    <div class="dash-title text-dark">Total In Progress Task</div>
+                                    <div class="dash-title text-dark">Total Follow Up</div>
                                     <div class="dash-counts text-dark">
                                         <p>
                                             {{ $totalInProgressTask ? $totalInProgressTask : 0 }}</p>
@@ -119,7 +119,7 @@ Xoom Digital | Home
                     </div>
                 </div>
 
-                {{-- Total Completed Task Counts --}}
+                {{-- Total Deal Closed Counts --}}
                 <div class="col-xl-3 col-sm-6 col-12">
                     <div class="card">
                         <div class="card-body border shadow">
@@ -128,7 +128,7 @@ Xoom Digital | Home
                                     <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
-                                    <div class="dash-title text-dark">Total Completed Task</div>
+                                    <div class="dash-title text-dark">Total Deal Closed</div>
                                     <div class="dash-counts text-dark">
                                         <p>
                                             {{ $totalCompletedTask ? $totalCompletedTask : 0 }}</p>
@@ -140,7 +140,7 @@ Xoom Digital | Home
                     </div>
                 </div>
 
-                {{-- Total Cancelled Task Counts --}}
+                {{-- Total Not Interested Counts --}}
                 <div class="col-xl-3 col-sm-6 col-12">
                     <div class="card">
                         <div class="card-body border shadow">
@@ -149,7 +149,7 @@ Xoom Digital | Home
                                     <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
-                                    <div class="dash-title text-dark">Total Cancelled Task</div>
+                                    <div class="dash-title text-dark">Total Not Interested</div>
                                     <div class="dash-counts text-dark">
                                         <p>
                                             {{ $totalCancelledTask ? $totalCancelledTask : 0 }}</p>
@@ -182,7 +182,7 @@ Xoom Digital | Home
                     </div>
                 </div>
 
-                {{-- Total Pending Task Counts --}}
+                {{-- Total Meating Counts --}}
                 <div class="col-xl-3 col-sm-6 col-12">
                     <div class="card">
                         <div class="card-body border shadow">
@@ -191,7 +191,7 @@ Xoom Digital | Home
                                     <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
-                                    <div class="dash-title text-dark">Total Pending Task</div>
+                                    <div class="dash-title text-dark">Total Meating</div>
                                     <div class="dash-counts text-dark">
                                         <p>
                                             {{ $totalSalesPendingTask ? $totalSalesPendingTask : 0 }}</p>
@@ -203,7 +203,7 @@ Xoom Digital | Home
                     </div>
                 </div>
 
-                {{-- Total In Progress Task Counts --}}
+                {{-- Total Follow Up Counts --}}
                 <div class="col-xl-3 col-sm-6 col-12">
                     <div class="card">
                         <div class="card-body border shadow">
@@ -212,7 +212,7 @@ Xoom Digital | Home
                                     <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
-                                    <div class="dash-title text-dark">Total In Progress Task</div>
+                                    <div class="dash-title text-dark">Total Follow Up</div>
                                     <div class="dash-counts text-dark">
                                         <p>
                                             {{ $totalSalesInProgressTask ? $totalSalesInProgressTask : 0 }}</p>
@@ -224,7 +224,7 @@ Xoom Digital | Home
                     </div>
                 </div>
 
-                {{-- Total Completed Task Counts --}}
+                {{-- Total Deal Closed Counts --}}
                 <div class="col-xl-3 col-sm-6 col-12">
                     <div class="card">
                         <div class="card-body border shadow">
@@ -233,7 +233,7 @@ Xoom Digital | Home
                                     <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
-                                    <div class="dash-title text-dark">Total Completed Task</div>
+                                    <div class="dash-title text-dark">Total Deal Closed</div>
                                     <div class="dash-counts text-dark">
                                         <p>
                                             {{ $totalSalesCompletedTask ? $totalSalesCompletedTask : 0 }}</p>
@@ -245,7 +245,7 @@ Xoom Digital | Home
                     </div>
                 </div>
 
-                {{-- Total Cancelled Task Counts --}}
+                {{-- Total Not Interested Counts --}}
                 <div class="col-xl-3 col-sm-6 col-12">
                     <div class="card">
                         <div class="card-body border shadow">
@@ -254,7 +254,7 @@ Xoom Digital | Home
                                     <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
-                                    <div class="dash-title text-dark">Total Cancelled Task</div>
+                                    <div class="dash-title text-dark">Total Not Interested</div>
                                     <div class="dash-counts text-dark">
                                         <p>
                                             {{ $totalSalesCancelledTask ? $totalSalesCancelledTask : 0 }}</p>
@@ -288,7 +288,7 @@ Xoom Digital | Home
                     </div>
                 </div>
 
-                {{-- Total Pending Task Counts --}}
+                {{-- Total Meating Counts --}}
                 <div class="col-xl-3 col-sm-6 col-12">
                     <div class="card">
                         <div class="card-body border shadow">
@@ -297,7 +297,7 @@ Xoom Digital | Home
                                     <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
-                                    <div class="dash-title text-dark">Total Pending Task</div>
+                                    <div class="dash-title text-dark">Total Meating</div>
                                     <div class="dash-counts text-dark">
                                         <p>
                                             {{ $totalOnFiledPendingTask ? $totalOnFiledPendingTask : 0 }}</p>
@@ -309,7 +309,7 @@ Xoom Digital | Home
                     </div>
                 </div>
 
-                {{-- Total In Progress Task Counts --}}
+                {{-- Total Follow Up Counts --}}
                 <div class="col-xl-3 col-sm-6 col-12">
                     <div class="card">
                         <div class="card-body border shadow">
@@ -318,7 +318,7 @@ Xoom Digital | Home
                                     <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
-                                    <div class="dash-title text-dark">Total In Progress Task</div>
+                                    <div class="dash-title text-dark">Total Follow Up</div>
                                     <div class="dash-counts text-dark">
                                         <p>
                                             {{ $totalOnFiledInProgressTask ? $totalOnFiledInProgressTask : 0 }}</p>
@@ -330,7 +330,7 @@ Xoom Digital | Home
                     </div>
                 </div>
 
-                {{-- Total Completed Task Counts --}}
+                {{-- Total Deal Closed Counts --}}
                 <div class="col-xl-3 col-sm-6 col-12">
                     <div class="card">
                         <div class="card-body border shadow">
@@ -339,7 +339,7 @@ Xoom Digital | Home
                                     <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
-                                    <div class="dash-title text-dark">Total Completed Task</div>
+                                    <div class="dash-title text-dark">Total Deal Closed</div>
                                     <div class="dash-counts text-dark">
                                         <p>
                                             {{ $totalOnFiledCompletedTask ? $totalOnFiledCompletedTask : 0 }}</p>
@@ -351,7 +351,7 @@ Xoom Digital | Home
                     </div>
                 </div>
 
-                {{-- Total Cancelled Task Counts --}}
+                {{-- Total Not Interested Counts --}}
                 <div class="col-xl-3 col-sm-6 col-12">
                     <div class="card">
                         <div class="card-body border shadow">
@@ -360,7 +360,7 @@ Xoom Digital | Home
                                     <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
-                                    <div class="dash-title text-dark">Total Cancelled Task</div>
+                                    <div class="dash-title text-dark">Total Not Interested</div>
                                     <div class="dash-counts text-dark">
                                         <p>
                                             {{ $totalOnFiledCancelledTask ? $totalOnFiledCancelledTask : 0 }}</p>
