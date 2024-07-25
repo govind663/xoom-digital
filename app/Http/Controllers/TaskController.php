@@ -140,8 +140,8 @@ class TaskController extends Controller
      */
     public function update(TaskRequest $request, string $id)
     {
-        $request->validated();
-        try {
+        // $request->validated();
+        // try {
 
             $task = Task::find($id);
 
@@ -174,24 +174,7 @@ class TaskController extends Controller
             $task->payment_date = date("Y-m-d ", strtotime($request['payment_date']));
             $task->advanced_payment = $request['advanced_payment'];
             $task->balance_payment = $request['balance_payment'];
-            // Retrieve the task status from the request
-            $taskStatus = $request['task_status'];
-            switch ($taskStatus) {
-                case '01':
-                    $task->task_status = 1;
-                    break;
-                case '02':
-                    $task->task_status = 2;
-                    break;
-                case '03':
-                    $task->task_status = 3;
-                    break;
-                case '04':
-                    $task->task_status = 4;
-                    break;
-                default:
-                    return response()->json(['error' => 'Invalid task status'], 400);
-            }
+            $task->task_status = $request['task_status'];
             $task->date = date("Y-m-d ", strtotime($request['date']));
             $task->comment = $request['comment'];
             $task->user_id = $request['user_id'];
@@ -201,19 +184,28 @@ class TaskController extends Controller
             $task->modified_by = Auth::user()->id;
             $task->save();
 
-            // === add $task->personal_doc in this path
-            $pdfPath = public_path('/xoom_digital/perposel_doc/');
+            // Example path to the PDF
+            $storagePath = public_path('/xoom_digital/perposel_doc/');
+            // Generate a new PDF file path dynamically ({{url('/')}}/xoom_digital/purposel_doc/{{ $task->personal_doc }})
+            $pdfPath = str_replace('{{url(\'\')}}', url('/'), $storagePath);
             $pdfFile = $pdfPath. $task->personal_doc;
+            // dd($pdfFile);
 
-            // send Mail
-            Mail::to($task->customer_email)->send(new PDFMail($pdfPath));
+            $data = Mail::to($task->customer_email)
+                    ->send(new PDFMail($pdfFile))
+                    ->with('message', 'PDF sent successfully!');
 
-            return redirect()->route('task.index')->with('message','Task Updated Successfully');
+            // dd($data);
 
-        } catch(\Exception $ex){
 
-            return redirect()->back()->with('error','Something Went Wrong - '.$ex->getMessage());
-        }
+
+
+        //     return redirect()->route('task.index')->with('message','Task Updated Successfully');
+
+        // } catch(\Exception $ex){
+
+        //     return redirect()->back()->with('error','Something Went Wrong - '.$ex->getMessage());
+        // }
     }
 
     /**

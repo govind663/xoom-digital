@@ -321,7 +321,7 @@
                                                         <select class="@error('task_status') is-invalid @enderror select" id="task_status" name="task_status">
                                                             <option value="">Select Task Status</option>
                                                             <option value="01" {{ ($task->task_status == "01" ? "selected":"") }}>Meating</option>
-                                                            <option value="02" {{ ($task->task_status == "20" ? "selected":"") }}>Follow Up</option>
+                                                            <option value="02" {{ ($task->task_status == "02" ? "selected":"") }}>Follow Up</option>
                                                             <option value="03" {{ ($task->task_status == "03" ? "selected":"") }}>Deal Closed</option>
                                                             <option value="04" {{ ($task->task_status == "04" ? "selected":"") }}>Not Interested</option>
                                                         </select>
@@ -356,7 +356,7 @@
                                                         <div class="input-block mb-3">
                                                             <label><b>Date : </b></b></label>
                                                             <div class="cal-icon cal-icon-info">
-                                                                <input type="text"  id="follow_up_dt" name="follow_up_dt" class="form-control datetimepicker @error('follow_up_dt') is-invalid @enderror" value="{{ $task->follow_up_dt }}" placeholder="DD-MM-YYYY">
+                                                                <input type="text"  id="follow_up_dt" name="follow_up_dt" class="form-control datetimepicker @error('follow_up_dt') is-invalid @enderror" value="{{ date("Y-m-d ", strtotime($task->follow_up_dt)) }}" placeholder="DD-MM-YYYY">
                                                                 @error('follow_up_dt')
                                                                     <span class="invalid-feedback" role="alert">
                                                                         <strong>{{ $message }}</strong>

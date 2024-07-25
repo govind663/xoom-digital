@@ -5,6 +5,7 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
@@ -13,14 +14,14 @@ class PDFMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $pdfPath;
+    public $pdfFile;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($pdfPath)
+    public function __construct( $pdfFile)
     {
-        $this->pdfPath = $pdfPath;
+        $this->pdfFile = $pdfFile;
     }
 
     /**
@@ -34,16 +35,36 @@ class PDFMail extends Mailable
     }
 
     /**
-     * Build the message.
+     * Get the message content definition.
      *
-     * @return $this
+     * @return \Illuminate\Mail\Mailables\Content
      */
-    public function build()
-    {
-        return $this->view('emails.pdfmail')
-                    ->attach($this->pdfPath, [
-                        'as' => 'purposel_doc.pdf',
-                        'mime' => 'application/pdf',
-                    ]);
-    }
+
+     public function content(): Content // Ensure correct return type
+     {
+         return new Content(
+            view: 'emails.pdfmail',
+            with: ['pdfFile' => $this->pdfFile],
+         );
+     }
+
+     /**
+      * Get the attachments for the message.
+      *
+      * @return array
+      */
+     public function attachments(): array
+     {
+         // Ensure $pdfFile is not null before creating an attachment
+        if ($this->pdfFile) {
+            return [
+                Attachment::fromPath($this->pdfFile)
+                ->as('XoomDigital.pdf')
+                ->withMime('application/pdf'),
+                // ->withName('XoomDigital.pdf'),
+            ];
+        }
+
+        return [];
+     }
 }

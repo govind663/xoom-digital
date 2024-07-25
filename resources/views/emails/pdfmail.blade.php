@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Email with PDF Attachment</title>
+    <title>Send Email with Attachment - Xoom Digital</title>
 </head>
 <body>
-    <p>Hello,</p>
-    <p>Please find the attached PDF document.</p>
-    <p>Thank you!</p>
+
+    {{-- Show PDF In Iframe --}}
+    <iframe src="{{ $pdfFile }}" width="100%" height="800px"></iframe>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua.</p>
+
+    <p>Thank you</p>
 </body>
 </html>
