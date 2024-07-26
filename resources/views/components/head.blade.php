@@ -1,5 +1,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+<meta http-equiv="Content-Security-Policy" content="img-src 'self' data:;">
+
+<!-- Meta -->
+<meta name="description" content="Xoom Digital">
+<meta name="author" content="Xoom Digital">
 
 <!-- Title -->
 <title>@yield('title')</title>
