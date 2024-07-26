@@ -189,40 +189,46 @@ Task | Add
                                                 <h5 class="card-title text-primary mb-2">Packages Details : -</h5>
                                             </div>
                                             <fieldset>
-                                                <div class="row d-flex1 align-items-center justify-content-centers">
-                                                    @foreach($packages as $package)
-                                                    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
-                                                        <div class="packages card" style="border: 1px solid #e77c09 !important;">
-                                                            <div class="package-header d-flex justify-content-between">
-                                                                <div class="d-flex1 justify-content-between w-100">
-                                                                    <div class>
-                                                                        <h6>{{ $package->packageType?->name }}</h6>
-                                                                        <h5>{{ $package->name }}</h5>
+                                                <div class="table-responsive p-3">
+                                                    <table class="table table-responsive table-hover">
+                                                        <tbody>
+                                                            <div class="row d-flex1 align-items-center justify-content-centers">
+                                                                @foreach($packages as $package)
+                                                                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
+                                                                    <div class="packages card" style="border: 1px solid #e77c09 !important;">
+                                                                        <div class="package-header d-flex justify-content-between">
+                                                                            <div class="d-flex1 justify-content-between w-100">
+                                                                                <div class>
+                                                                                    <h6>{{ $package->packageType?->name }}</h6>
+                                                                                    <h5>{{ $package->name }}</h5>
+                                                                                </div>
+                                                                                <span class="icon-frame d-flex1 align-items-center justify-content-center">
+                                                                                    <img src="{{ url('/') }}/xoom_digital/package/image/{{ $package->image }}" alt="img">
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <p style="text-align: justify !important;">
+                                                                            {!! $package->description !!}
+                                                                        </p>
+                                                                        <h2>
+                                                                            <span>RS</span> {{ $package->amount }}
+                                                                        </h2>
+
+                                                                        <div id="input-group-text">
+                                                                            <input type="checkbox" id="package_id" name="package_id" style="border: 1px solid #e77c09;"  class="form-check-input" value="{{ $package->package_type_id }}" {{  ( old('package_id') == $package->package_type_id ? ' checked' : '') }}>
+                                                                        </div>
+
+                                                                        {{-- <div class="justify-content-center package-edit">
+                                                                            <a class="btn-action-icon me-2" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#edit_package">
+                                                                                <i class="fe fe-edit"></i>
+                                                                            </a>
+                                                                        </div> --}}
                                                                     </div>
-                                                                    <span class="icon-frame d-flex1 align-items-center justify-content-center">
-                                                                        <img src="{{ url('/') }}/xoom_digital/package/image/{{ $package->image }}" alt="img">
-                                                                    </span>
                                                                 </div>
+                                                                @endforeach
                                                             </div>
-                                                            <p style="text-align: justify !important;">
-                                                                {!! $package->description !!}
-                                                            </p>
-                                                            <h2>
-                                                                <span>RS</span> {{ $package->amount }}
-                                                            </h2>
-
-                                                            <div id="input-group-text">
-                                                                <input type="checkbox" id="package_id" name="package_id" style="border: 1px solid #e77c09;"  class="form-check-input" value="{{ $package->package_type_id }}" {{  ( old('package_id') == $package->package_type_id ? ' checked' : '') }}>
-                                                            </div>
-
-                                                            {{-- <div class="justify-content-center package-edit">
-                                                                <a class="btn-action-icon me-2" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#edit_package">
-                                                                    <i class="fe fe-edit"></i>
-                                                                </a>
-                                                            </div> --}}
-                                                        </div>
-                                                    </div>
-                                                    @endforeach
+                                                        </tbody>
+                                                    </table>
                                                 </div>
                                             </fieldset>
                                             <div class="d-flex">
