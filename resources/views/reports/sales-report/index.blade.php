@@ -47,7 +47,7 @@ Reports | List
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
                         @if($task_status == 1)
-                        <li class="breadcrumb-item active">All Meating List</li>
+                        <li class="breadcrumb-item active">All Meeting List</li>
                         @elseif($task_status == 2)
                         <li class="breadcrumb-item active">All Follow Up List</li>
                         @elseif($task_status == 3)
@@ -121,7 +121,7 @@ Reports | List
                     <div class="row card-body">
                         <div class="col-10">
                             @if($task_status == 1)
-                            <h5 class="card-title">All Meating List</h5>
+                            <h5 class="card-title">All Meeting List</h5>
                             @elseif($task_status == 2)
                             <h5 class="card-title">All Follow Up List</h5>
                             @elseif($task_status == 3)
@@ -155,7 +155,7 @@ Reports | List
                                         <td>{{ $value->package?->amount }}</td>
 
                                         @if($value->task_status == 1)
-                                        <td><span class="badge bg-warning">Meating</span></td>
+                                        <td><span class="badge bg-warning">Meeting</span></td>
                                         @elseif($value->task_status == 2)
                                         <td><span class="badge bg-info">Follow Up</span></td>
                                         @elseif($value->task_status == 3)

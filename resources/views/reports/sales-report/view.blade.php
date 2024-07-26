@@ -226,7 +226,7 @@
 
                                             <div class="col-lg-4 col-md-6 col-sm-12">
                                                 <div class="input-block mb-3">
-                                                    <label><b>Meating Date : </b></b></label>
+                                                    <label><b>Meeting Date : </b></b></label>
                                                     <div class="cal-icon cal-icon-info">
                                                         <input type="text" readonly class="form-control" value="{{ $task->meating_dt }}">
                                                     </div>
@@ -235,7 +235,7 @@
 
                                             <div class="col-lg-4 col-md-6 col-sm-12">
                                                 <div class="input-block mb-3">
-                                                    <label><b>Meating Time : </b></label>
+                                                    <label><b>Meeting Time : </b></label>
                                                     <input type="time" readonly class="form-control" value="{{ $task->meating_time }}">
                                                 </div>
                                             </div>
@@ -255,7 +255,7 @@
                                     @php
                                         $taskStatus = '';
                                         if($task->task_status == 01){
-                                            $taskStatus = "Meating";
+                                            $taskStatus = "Meeting";
                                         } elseif($task->task_status == 02){
                                             $taskStatus = "Follow Up";
                                         } elseif($task->task_status == 03){

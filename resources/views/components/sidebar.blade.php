@@ -88,7 +88,7 @@
                     </a>
                     <ul style="display: none;">
                         <li class="">
-                            <a href="{{ route('sales-report-list.index', ['task_status'=>1]) }}"><span>Meating</span></a>
+                            <a href="{{ route('sales-report-list.index', ['task_status'=>1]) }}"><span>Meeting</span></a>
                         </li>
                         <li class="">
                             <a href="{{ route('sales-report-list.index', ['task_status'=>2]) }}"><span>Follow Up</span></a>

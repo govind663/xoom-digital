@@ -281,7 +281,7 @@ Task | Add
 
                                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                                         <div class="input-block mb-3">
-                                                            <label><b>Meating Date : <span class="text-danger">*</span></b></b></label>
+                                                            <label><b>Meeting Date : <span class="text-danger">*</span></b></b></label>
                                                             <div class="cal-icon cal-icon-info">
                                                                 <input type="text"  id="meating_dt" name="meating_dt" class="form-control datetimepicker @error('meating_dt') is-invalid @enderror" value="{{ old('meating_dt') }}" placeholder="DD-MM-YYYY">
                                                                 @error('meating_dt')
@@ -295,7 +295,7 @@ Task | Add
 
                                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                                         <div class="input-block mb-3">
-                                                            <label><b>Meating Time : <span class="text-danger">*</span></b></label>
+                                                            <label><b>Meeting Time : <span class="text-danger">*</span></b></label>
                                                             <input type="time" id="meating_time" name="meating_time" class="form-control @error('meating_time') is-invalid @enderror" value="{{ old('meating_time') }}" placeholder="Enter Meating Time">
 
                                                             @error('meating_time')
@@ -325,7 +325,7 @@ Task | Add
                                                             <label><b>Select Task Status : <span class="text-danger">*</span></b></label>
                                                             <select class="@error('task_status') is-invalid @enderror select" id="task_status" name="task_status">
                                                                 <option value="">Select Task Status</option>
-                                                                <option value="01" {{ (old("task_status") == "01" ? "selected":"") }}>Meating</option>
+                                                                <option value="01" {{ (old("task_status") == "01" ? "selected":"") }}>Meeting</option>
                                                                 <option value="02" {{ (old("task_status") == "02" ? "selected":"") }}>Follow Up</option>
                                                                 <option value="03" {{ (old("task_status") == "03" ? "selected":"") }}>Deal Closed</option>
                                                                 <option value="04" {{ (old("task_status") == "04" ? "selected":"") }}>Not Interested</option>
