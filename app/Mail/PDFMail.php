@@ -14,14 +14,14 @@ class PDFMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $pdfFile;
+    protected $pdf_path;
 
     /**
      * Create a new message instance.
      */
-    public function __construct( $pdfFile)
+    public function __construct( $pdf_path)
     {
-        $this->pdfFile = $pdfFile;
+        $this->pdf_path = $pdf_path;
     }
 
     /**
@@ -44,7 +44,7 @@ class PDFMail extends Mailable
      {
          return new Content(
             view: 'emails.pdfmail',
-            with: ['pdfFile' => $this->pdfFile],
+            with: ['pdfPath' => $this->pdf_path],
          );
      }
 
@@ -55,10 +55,10 @@ class PDFMail extends Mailable
       */
      public function attachments(): array
      {
-         // Ensure $pdfFile is not null before creating an attachment
-        if ($this->pdfFile) {
+        // Ensure $pdfFile is not null before creating an attachment
+        if ($this->pdf_path) {
             return [
-                Attachment::fromPath($this->pdfFile)
+                Attachment::fromPath($this->pdf_path)
                 ->as('XoomDigital.pdf')
                 ->withMime('application/pdf'),
                 // ->withName('XoomDigital.pdf'),

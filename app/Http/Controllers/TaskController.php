@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\PDFMail;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class TaskController extends Controller
@@ -140,9 +141,10 @@ class TaskController extends Controller
      */
     public function update(TaskRequest $request, string $id)
     {
-        // $request->validated();
-        // try {
+        $request->validated();
+        try {
 
+            $new_name = [];
             $task = Task::find($id);
 
             // ==== Upload (purposel_doc)
@@ -155,6 +157,7 @@ class TaskController extends Controller
 
                 $image_path = "/xoom_digital/purposel_doc" . $image_name;
                 $task->personal_doc = $new_name;
+
             }
 
             $task->customer_name = $request['customer_name'];
@@ -174,38 +177,46 @@ class TaskController extends Controller
             $task->payment_date = date("Y-m-d ", strtotime($request['payment_date']));
             $task->advanced_payment = $request['advanced_payment'];
             $task->balance_payment = $request['balance_payment'];
-            $task->task_status = $request['task_status'];
+            // $task->task_status = $request['task_status'];
+            // Retrieve the task status from the request
+            $taskStatus = $request['task_status'];
+            switch ($taskStatus) {
+                case '01':
+                    $task->task_status = 1;
+                    break;
+                case '02':
+                    $task->task_status = 2;
+                    break;
+                case '03':
+                    $task->task_status = 3;
+                    break;
+                case '04':
+                    $task->task_status = 4;
+                    break;
+                default:
+                    return response()->json(['error' => 'Invalid task status'], 400);
+            }
             $task->date = date("Y-m-d ", strtotime($request['date']));
             $task->comment = $request['comment'];
             $task->user_id = $request['user_id'];
-            $task->lead_by = $request['lead_by'];
-            $task->lead_by = Auth::user()->id;
+            // $task->lead_by = $request['lead_by'];
+            // $task->lead_by = Auth::user()->id;
             $task->modified_at = Carbon::now();
             $task->modified_by = Auth::user()->id;
             $task->save();
 
-            // Example path to the PDF
-            $storagePath = public_path('/xoom_digital/perposel_doc/');
-            // Generate a new PDF file path dynamically ({{url('/')}}/xoom_digital/purposel_doc/{{ $task->personal_doc }})
-            $pdfPath = str_replace('{{url(\'\')}}', url('/'), $storagePath);
-            $pdfFile = $pdfPath. $task->personal_doc;
-            // dd($pdfFile);
 
-            $data = Mail::to($task->customer_email)
-                    ->send(new PDFMail($pdfFile))
-                    ->with('message', 'PDF sent successfully!');
+            // Send the PDF as an email attachment
+            $pdf_path = public_path('/xoom_digital/purposel_doc/'. $new_name);
+            // dd($pdf_path);
+            Mail::to($task->customer_email)->send(new PDFMail($pdf_path));
 
-            // dd($data);
+            return redirect()->route('task.index')->with('message','Task Updated Successfully');
 
+        } catch(\Exception $ex){
 
-
-
-        //     return redirect()->route('task.index')->with('message','Task Updated Successfully');
-
-        // } catch(\Exception $ex){
-
-        //     return redirect()->back()->with('error','Something Went Wrong - '.$ex->getMessage());
-        // }
+            return redirect()->back()->with('error','Something Went Wrong - '.$ex->getMessage());
+        }
     }
 
     /**
