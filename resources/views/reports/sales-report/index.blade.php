@@ -164,7 +164,7 @@ Reports | List
                                         <td><span class="badge bg-danger">Not Interested</span></td>
                                         @endif
 
-                                        @if (Auth::user()->user_type == '3')
+                                        @if (Auth::user()->user_type == '3' || Auth::user()->user_type == '2' || Auth::user()->user_type == '1')
                                         <td class="no-export d-flex">
                                             <a href="{{ route('sales-report-list.view', ['task_status'=>$value->task_status, 'task_id' => $value->id]) }}" class="btn btn-warning btn-sm text-dark">
                                                 <i class="far fa-eye me-2"></i>view
