@@ -83,7 +83,7 @@
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="input-block mt-3 mb-3">
                                             <label><b>Upload Image : </b></label>
-                                            <input type="file" onchange="agentPreviewFile()" id="image" name="image"  class="form-control @error('image') is-invalid @enderror" value="{{ $package->image }}" accept=".pdf, .png, .jpg, .jpeg, .pdf">
+                                            <input type="file" onchange="agentPreviewFile()" id="image" name="image"  class="form-control @error('image') is-invalid @enderror" value="{{ $package->image }}" accept=".png, .jpg, .jpeg, .pdf">
                                             <small class="text-secondary"><b>Note : The file size  should be less than 2MB .</b></small>
                                             <br>
                                             <small class="text-secondary"><b>Note : Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .</b></small>
