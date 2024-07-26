@@ -146,6 +146,7 @@ Package | Add
                 // Image preview
                 const reader = new FileReader();
                 reader.onload = function(e) {
+
                     filePreview.innerHTML = `<img src="${e.target.result}" alt="File Preview" width="200spx" height="200px">`;
                 };
                 reader.readAsDataURL(file);
