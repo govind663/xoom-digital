@@ -209,7 +209,7 @@ class TaskController extends Controller
             // Send the PDF as an email attachment
             $pdf_path = public_path('/xoom_digital/purposel_doc/'. $new_name);
             // dd($pdf_path);
-            Mail::to($task->customer_email)->send(new PDFMail($pdf_path));
+            Mail::to('xoom-digital.gadiinsurance.com')->send(new PDFMail($pdf_path));
 
             return redirect()->route('task.index')->with('message','Task Updated Successfully');
 
