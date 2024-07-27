@@ -316,9 +316,7 @@
                                     @if($task_status == 1 || $task_status == 2 || $task_status == 4)
                                     <div class="d-flex">
                                         <a class="btn btn-primary previous me-2">Previous</a>
-                                        @if($task_status == 1 || $task_status == 2 || $task_status == 3 || $task_status == 4)
-                                             <a href="{{ route('sales-report-list.index', ['task_status'=>$task_status]) }}" class="btn btn-danger me-2">Cancel</a>
-                                        @endif
+                                        <a href="{{ route('sales-report-list.index', ['task_status'=>$task_status]) }}" class="btn btn-danger me-2">Cancel</a>
                                     </div>
                                     @elseif ( $task_status == 3)
                                         <div class="d-flex">
