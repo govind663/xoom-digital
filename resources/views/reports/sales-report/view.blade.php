@@ -39,7 +39,6 @@
                     <div class="col-md-12">
                         <div class="wizard">
                             <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-                                @if($task_status == 01 || $task_status == 02 || $task_status == 04)
                                     <li class="nav-item flex-fill" role="presentation" data-bs-toggle="tooltip" data-bs-placement="top" title="Customer Details">
                                         <a class="nav-link active rounded-circle mx-auto d-flex align-items-center justify-content-center" href="#step1" id="step1-tab" data-bs-toggle="tab" role="tab" aria-controls="step1" aria-selected="true">
                                             <i class="far fa-user"></i>
@@ -63,13 +62,11 @@
                                             <i class="fe fe-clipboard"></i>
                                         </a>
                                     </li>
-                                @elseif($task_status == 01 || $task_status == 02 || $task_status == 03 || $task_status == 04)
                                     <li class="nav-item flex-fill" role="presentation" data-bs-toggle="tooltip" data-bs-placement="top" title="Payment Details">
                                         <a class="nav-link rounded-circle mx-auto d-flex align-items-center justify-content-center" href="#step5" id="step5-tab" data-bs-toggle="tab" role="tab" aria-controls="step5" aria-selected="false">
                                             <i class="fas fa-credit-card"></i>
                                         </a>
                                     </li>
-                                @endif
                             </ul>
 
                             <div class="tab-content" id="myTabContent">
