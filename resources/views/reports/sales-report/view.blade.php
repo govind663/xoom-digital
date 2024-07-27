@@ -39,7 +39,7 @@
                     <div class="col-md-12">
                         <div class="wizard">
                             <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-                                @if($task_status == 1 || $task_status == 2 || $task_status == 3 || $task_status == 0)
+                                @if($task_status == 1 || $task_status == 2 || $task_status == 3 || $task_status == 4)
                                     <li class="nav-item flex-fill" role="presentation" data-bs-toggle="tooltip" data-bs-placement="top" title="Customer Details">
                                         <a class="nav-link active rounded-circle mx-auto d-flex align-items-center justify-content-center" href="#step1" id="step1-tab" data-bs-toggle="tab" role="tab" aria-controls="step1" aria-selected="true">
                                             <i class="far fa-user"></i>
@@ -389,7 +389,7 @@
                                     </fieldset>
                                     <div class="d-flex">
                                         <a class="btn btn-primary previous me-2">Previous</a>
-                                        @if($task_status == 01 || $task_status == 02 || $task_status == 03 || $task_status == 04)
+                                        @if($task_status == 1 || $task_status == 2 || $task_status == 3 || $task_status == 4)
                                         <a href="{{ route('sales-report-list.index', ['task_status'=>$task_status]) }}" class="btn btn-danger me-2">Cancel</a>
                                         @endif
                                     </div>
