@@ -77,7 +77,7 @@ Xoom Digital | Home
                     </div>
                 </div>
 
-                {{-- Total Meating Counts --}}
+                {{-- Total Meeting Counts --}}
                 <div class="col-xl-3 col-sm-6 col-12">
                     <div class="card">
                         <div class="card-body border shadow">
@@ -86,7 +86,7 @@ Xoom Digital | Home
                                     <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
-                                    <div class="dash-title text-dark">Total Meating</div>
+                                    <div class="dash-title text-dark">Total Meeting</div>
                                     <div class="dash-counts text-dark">
                                         <p>
                                             {{ $totalPendingTask ? $totalPendingTask : 0 }}</p>
@@ -182,7 +182,7 @@ Xoom Digital | Home
                     </div>
                 </div>
 
-                {{-- Total Meating Counts --}}
+                {{-- Total Meeting Counts --}}
                 <div class="col-xl-3 col-sm-6 col-12">
                     <div class="card">
                         <div class="card-body border shadow">
@@ -191,7 +191,7 @@ Xoom Digital | Home
                                     <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
-                                    <div class="dash-title text-dark">Total Meating</div>
+                                    <div class="dash-title text-dark">Total Meeting</div>
                                     <div class="dash-counts text-dark">
                                         <p>
                                             {{ $totalSalesPendingTask ? $totalSalesPendingTask : 0 }}</p>
@@ -288,7 +288,7 @@ Xoom Digital | Home
                     </div>
                 </div>
 
-                {{-- Total Meating Counts --}}
+                {{-- Total Meeting Counts --}}
                 <div class="col-xl-3 col-sm-6 col-12">
                     <div class="card">
                         <div class="card-body border shadow">
@@ -297,7 +297,7 @@ Xoom Digital | Home
                                     <i class="fas fa-file-edit"></i>
                                 </span>
                                 <div class="dash-count">
-                                    <div class="dash-title text-dark">Total Meating</div>
+                                    <div class="dash-title text-dark">Total Meeting</div>
                                     <div class="dash-counts text-dark">
                                         <p>
                                             {{ $totalOnFiledPendingTask ? $totalOnFiledPendingTask : 0 }}</p>

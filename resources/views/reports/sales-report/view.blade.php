@@ -254,13 +254,13 @@
                                     </div>
                                     @php
                                         $taskStatus = '';
-                                        if($task->task_status == 01){
+                                        if($task->task_status == 1){
                                             $taskStatus = "Meeting";
-                                        } elseif($task->task_status == 02){
+                                        } elseif($task->task_status == 2){
                                             $taskStatus = "Follow Up";
-                                        } elseif($task->task_status == 03){
+                                        } elseif($task->task_status == 3){
                                             $taskStatus = "Deal Closed";
-                                        } elseif($task->task_status == 04){
+                                        } elseif($task->task_status == 4){
                                             $taskStatus = "Not Interested";
                                         }
                                     @endphp
@@ -280,7 +280,7 @@
                                                 </div>
                                             </div>
 
-                                            @if ($task_status == 03)
+                                            @if ($task_status == 3)
                                                 <div class="row ">
                                                     <h6 class="card-title text-primary mb-1">Follow-Up Details : -</h6>
                                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -313,14 +313,14 @@
                                             @endif
                                         </div>
                                     </fieldset>
-                                    @if($task_status == 01 || $task_status == 02 || $task_status == 04)
+                                    @if($task_status == 1 || $task_status == 2 || $task_status == 4)
                                     <div class="d-flex">
                                         <a class="btn btn-primary previous me-2">Previous</a>
-                                        @if($task_status == 01 || $task_status == 02 || $task_status == 03 || $task_status == 04)
+                                        @if($task_status == 1 || $task_status == 2 || $task_status == 3 || $task_status == 4)
                                              <a href="{{ route('sales-report-list.index', ['task_status'=>$task_status]) }}" class="btn btn-danger me-2">Cancel</a>
                                         @endif
                                     </div>
-                                    @elseif ( $task_status == 03)
+                                    @elseif ( $task_status == 3)
                                         <div class="d-flex">
                                             <a class="btn btn btn-primary previous me-2"> Back</a>
                                             <a class="btn btn btn-primary next">Continue</a>
