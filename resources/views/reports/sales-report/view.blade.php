@@ -287,7 +287,7 @@
                                                         <div class="input-block mb-3">
                                                             <label><b>Date : </b></b></label>
                                                             <div class="cal-icon cal-icon-info">
-                                                                <input type="text" readonly class="form-control" value="{{ $tasks->follow_up_dt }}">
+                                                                <input type="text" readonly class="form-control" value="{{ $task->follow_up_dt }}">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -295,7 +295,7 @@
                                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                                         <div class="input-block mb-3">
                                                             <label><b>Notes : </b></b></label>
-                                                            <textarea type="text"  readonly class="form-control" value="{{ $tasks->comment }}">{{ $tasks->comment }}</textarea>
+                                                            <textarea type="text"  readonly class="form-control" value="{{ $task->comment }}">{{ $task->comment }}</textarea>
                                                         </div>
                                                     </div>
 
